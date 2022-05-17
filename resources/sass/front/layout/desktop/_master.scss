@@ -1,0 +1,18 @@
+body{
+    background-color: #7495DF;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+main{
+
+}
+
+.desktop-only{
+    display: revert;
+}
+
+.mobile-only{
+    display: none;
+}

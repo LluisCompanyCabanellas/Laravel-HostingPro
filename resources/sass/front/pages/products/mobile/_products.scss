@@ -1,0 +1,94 @@
+
+
+
+.menu-hamburger-button{
+    display: flex;
+    padding-left:50%;
+    z-index: 9%;
+    
+    
+    
+}
+
+.cabecera-menu-carrito{
+    margin-left:3%;
+
+  
+}
+
+
+.contador{
+    width: 20%;
+    margin-left: 3%;
+ 
+
+}
+
+.contratar{
+    width: 90%;
+    background-color:#7495DF ;
+}
+
+
+
+
+
+
+
+    .categories-elements ul{
+        
+    justify-content: space-between;
+    display: flex;
+    margin-left: 2%;
+    line-height: 12em;
+       
+      
+        
+    }
+
+    .categories-elements{
+
+        ul li{
+            cursor: pointer;
+        }
+    }
+
+
+.products-gallery{
+
+
+    
+   background-color:#A1E8E8 ;
+ 
+   .product{
+
+        
+        border: 9px solid black;
+     
+        .product-description{
+            min-height: 10vh;
+         
+        }
+
+        
+        .product-price {
+
+            span{
+                font-weight: 600;
+                font-size: 2.2em;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

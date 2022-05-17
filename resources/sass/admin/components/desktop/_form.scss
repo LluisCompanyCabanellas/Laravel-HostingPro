@@ -1,0 +1,60 @@
+form{
+
+    .form-element{
+
+        margin-bottom: 1rem;
+    
+        .form-element-label{
+    
+            margin-bottom: 0.5rem;
+    
+            label{
+                font-size: 1.2rem;
+            }
+        }
+    
+        .form-element-input{
+    
+            input{
+                padding: 0.3rem 5%;
+                width: 90%;
+            }
+    
+            textarea{
+                height: 20vh;
+                padding: 0.3rem 2%;
+                width: 96%;
+            }
+        }
+    }
+    
+    .form-send-button{
+    
+        margin-left: auto;
+        width: max-content;
+    
+        button {
+            align-items: center;
+            border: none;
+            border-radius: 27px;
+            font-family: inherit;
+            font-size: 20px;
+            background:#7495DF;
+            color: rgb(0, 0, 0);
+            padding: 0.7em 1em;
+            padding-left: 1em;
+            display: flex;   
+        }
+    
+        button:hover{
+            cursor: pointer;
+        }
+       
+    
+        button:active {
+            transform: scale(1.1);
+        }
+    
+    }   
+
+}

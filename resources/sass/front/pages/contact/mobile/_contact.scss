@@ -1,0 +1,95 @@
+
+
+.cabecera-menu ul{
+    justify-content: space-between;
+    text-align: center;
+  li{
+      margin-top:5%;
+  }
+
+  
+
+  }
+  
+
+
+.contact{
+
+    background-color:#A1E8E8;
+    min-height: 75vh;
+
+    .contact-titulo{
+        
+        padding: 2rem 0;
+        text-align: center;
+    
+        h2{
+            font-size: 2rem;
+        }
+    }
+
+    .contact-options{
+
+        padding: 2rem 10%;
+        width: 80%;
+
+        .contact-informacion-text{
+
+            margin-bottom: 0.8rem;
+            margin-bottom: 8%;
+
+            svg{
+                margin-right: 2rem;
+                width: 1.7rem;
+            }
+
+            span{
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+
+.form-element{
+    line-height:2em; 
+
+    
+    .form-element-label{
+        font-size: 1.3em;
+    
+    }
+    
+
+}
+
+
+
+.form-send-button{
+    padding-left: 34%;
+    margin-top: 3%;
+
+}
+
+
+
+
+.social-media{
+  
+    padding:0 8% 5% 4%;
+}
+
+
+.text-footer{
+    padding: 5% 8% 5% 4%;
+}
+
+
+
+
+
+
+
+
+
+

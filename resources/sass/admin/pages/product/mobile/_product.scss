@@ -1,0 +1,178 @@
+.product{
+    padding: 2rem 5%;
+
+    .product-image{
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+
+    .product-mini-image-tidy{
+        width: 80%;
+        padding:5% 10% 17% 10%;
+    }
+
+    .product-content{
+
+        padding: 5% 5% 5% 2%;
+
+        
+        .product-title{
+            margin-bottom: 5%;
+        }
+
+        .product-button-one{
+            display: flex;
+            margin-left: 5%;
+            margin-bottom:3%;
+        }
+
+        .product-quantity{
+           padding: 5% 5% 2% 13%;
+
+           h3{
+              margin-left: 18%; 
+           }
+            
+        }  
+    }
+}
+
+.product.button.two{
+    margin-top: 5%;
+}
+
+.product-description ul li{
+    margin-bottom: 5%;
+
+}
+
+.tabMenu{
+    display: flex;
+    justify-content:space-between;
+
+
+    button{
+        padding: 3% ;
+    }
+
+
+}
+
+.tabs-contenedor{
+
+    .tabs {
+        background-color:#A1E8E8;
+        display: flex;
+        
+    
+        .tab {
+            cursor: pointer;
+            display: block;
+            position: relative;
+            padding: 10% 5% 5% 5%;
+            background:#A1E8E8;
+            
+    
+            &.active{
+                background-color: rgb(255, 255, 255);
+               
+            }  
+        }
+    }
+
+    .tabs-contents{
+
+        background-color: white;
+        padding: 1rem 0.5rem;
+
+        .tab-content{
+            display: none;
+        }
+    
+        .tab-content.active{
+            display: block;
+        }
+    }
+}  
+
+
+.notification{
+
+    position: absolute;
+    left:6%;
+    bottom: 15%;
+    display: none;
+    color:black;
+    font-size:2em;
+
+    .notification-message{
+
+        padding: 5% 15%;
+
+    }
+    
+    
+    &.active{
+
+        display: block;
+
+    }
+
+    &.error{
+
+        display: block;
+
+        background-color: hsl(0, 100%, 50%);
+      
+    }
+
+    &.success{
+
+        display: block;
+
+        background-color: rgb(23, 156, 34);
+      
+    }
+
+}
+
+
+.pay{
+    margin-left: 25%;
+    width: 50%;
+}
+
+
+.social-media{
+  
+    padding:0 8% 5% 4%;
+}
+
+
+.text-footer{
+    padding: 5% 8% 5% 4%;
+}
+
+
+
+
+
+
+
+
+
+
+
+   
+   
+
+  
+
+
+
+
+
+
+
+
+

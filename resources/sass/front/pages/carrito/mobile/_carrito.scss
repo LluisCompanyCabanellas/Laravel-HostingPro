@@ -1,0 +1,86 @@
+.carrito{
+    background-color:#7495DF;
+    min-height: 60vh;
+
+    
+}
+
+.carrito-title{
+    h2{
+        font-size: 2rem;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        padding:5% 10% 10% 10%;
+        
+    }
+    
+}
+
+.carrito-items{
+
+    padding: 5% 2% 10% 2%;
+
+    table{
+        
+        width: 100%;
+        font-size: 1rem;
+       
+        img{
+            width: 5rem;
+        }
+
+        td{
+            text-align: center;
+            color: rgb(0, 0, 0);
+       
+        }
+
+        input{
+            width: 1rem;
+        }
+        
+
+        th{
+            color: rgb(0, 0, 0);
+            
+            border-bottom: 1px solid rgb(0, 0, 0);
+        }
+   
+    }
+}
+
+.carrito-resume{
+    
+    margin-left: auto;
+    table{
+        width: 70%;
+        margin-left: 15%;
+        font-size: 1rem;
+        border: 1px solid hsl(0, 0%, 0%);
+        
+        
+        th{
+            color: #000000;
+            padding: 0.5rem 1rem;
+            border: 1px solid hsl(0, 0%, 0%);
+            background-color:#A1E8E8;
+            color: black;
+            font-size: 1.5rem;
+        }
+
+        td{
+            text-align: center;
+            color: rgb(0, 0, 0);
+            padding: 1rem 2rem;
+        }
+    }
+
+    .carrito-resume-total{
+        border-top: 1px solid rgb(0, 0, 0);
+    }
+
+    .carrito-resume-buttons{
+       padding: 5% 0% 5% 15%;
+    }
+
+}

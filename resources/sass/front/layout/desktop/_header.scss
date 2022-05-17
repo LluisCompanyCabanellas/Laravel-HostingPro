@@ -1,0 +1,46 @@
+.cabecera{
+    background-color:#7495DF;
+    padding: 0.5rem 5%;
+    width: 90%;
+
+    .cabecera-logo{
+        display: flex;
+        justify-content: space-between;
+        width: 60%;
+
+        .cabecera-logo-titulo{
+            padding: 5% 5%;
+        }
+        
+        .cabecera-logo-imagen svg{
+            width: 5rem;
+
+            .st0{
+                fill:none;
+            }
+
+            .st1{
+                fill:none;
+                stroke:url(#SVGID_1_);
+                stroke-width: 2.5;
+                stroke-linejoin: round;
+                stroke-miterlimit: 10;
+            }
+        }
+    }   
+    
+    .cabecera-menu ul{
+        display: flex;
+        justify-content: space-between;
+        width: 90%;
+        padding:5% 5%;
+    }    
+}
+
+
+  
+
+
+
+
+
