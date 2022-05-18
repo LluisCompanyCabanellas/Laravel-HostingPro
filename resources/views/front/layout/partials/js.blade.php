@@ -5,5 +5,3 @@
 @if($agent->isMobile())
     <script src="{{mix('front/mobile/js/app.js')}}" type="module"></script>
 @endif   
-
-
