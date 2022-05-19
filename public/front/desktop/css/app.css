@@ -429,7 +429,6 @@ button {
   background-color: #A1E8E8;
   color: BLACK;
   border-radius: 1em;
-  border-color: #A1E8E8;
   font-weight: 600;
 }
 
@@ -934,7 +933,6 @@ input {
 
 .panel-table {
   color: rgb(0, 0, 0);
-  padding: 12% 0 5% 0;
 }
 .panel-table table {
   text-align: center;
@@ -956,20 +954,40 @@ input {
   width: 1.5rem;
 }
 
-.form-element-label {
-  padding: 5% 0 0.7% 0;
-  font-weight: 600;
+.form-element {
+  margin-top: 3em;
+  margin-bottom: 3em;
 }
 
-.panel-form-buttons {
-  width: 28%;
+.form-element-label-ckeditor {
+  font-weight: 600;
+  font-size: 2em;
+  padding: 3% 5% 2% 30%;
+  background-color: rgb(255, 255, 255);
 }
 
 .material-designs {
+  justify-content: space-between;
   display: flex;
-  margin-left: 90%;
-  justify-content: space-evenly;
-  background-color: #A1E8E8;
+  margin-left: 70%;
+}
+.material-designs button {
+  cursor: pointer;
+}
+.material-designs .guardado svg {
+  width: 2em;
+  margin-top: 1em;
+  padding: 0.8em;
+}
+.material-designs .escoba svg {
+  width: 2em;
+  margin-top: 1em;
+  padding: 0.7em;
+}
+
+.info-mini {
+  line-height: 1.5em;
+  position: absolute;
 }
 
 h2 {

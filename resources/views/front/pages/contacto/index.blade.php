@@ -7,7 +7,7 @@
         
     @if($agent->isDesktop())
 
-    @include('front.component.desktop.titulos', {'title' => 'Carrito de compras'})
+    @include('front.component.desktop.titulos', ['title' => 'Contacta con nosotros'])
 
     @include('front.pages.contacto.desktop.contacto')
     

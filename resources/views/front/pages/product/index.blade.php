@@ -8,7 +8,7 @@
 
     @if($agent->isDesktop())
 
-        @include('front.component.desktop.titulos', {'title' => 'Carrito de compras'})
+        @include('front.component.desktop.titulos', ['title' => 'Compra tu servidor'])
 
         @include('front.pages.product.desktop.product')
 

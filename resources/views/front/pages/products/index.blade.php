@@ -7,6 +7,8 @@
 
     @if($agent->isDesktop())
 
+        @include('front.component.desktop.titulos', ['title' => 'Servidores'])
+
         @include('front.pages.products.desktop.products')
 
     @endif
