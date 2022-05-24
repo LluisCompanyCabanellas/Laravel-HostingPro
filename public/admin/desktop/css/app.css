@@ -758,8 +758,36 @@ form .form-send-button button:active {
 }
 
 .material-designs {
-  display: flex;
-  margin-left: 90%;
-  justify-content: space-evenly;
+  width: 100%;
   background-color: #A1E8E8;
+  border: black solid 3px;
+  display: flex;
+}
+.material-designs .guardado svg {
+  width: 2rem;
+  color: rgb(0, 0, 0);
+  margin-top: 2rem;
+  margin-left: 25em;
+}
+.material-designs .escoba svg {
+  width: 2rem;
+  color: rgb(0, 0, 0);
+  margin-top: 2rem;
+  padding-left: 1rem;
+}
+.material-designs .on-off {
+  width: 2rem;
+  color: rgb(0, 0, 0);
+}
+
+.cabecera .topbar-menu-button {
+  padding-left: 95%;
+  padding-top: 0.5rem;
+}
+
+.form-element-ckeditor {
+  margin-top: 10%;
+  display: block;
+  margin-right: 60%;
+  font-weight: 600;
 }
