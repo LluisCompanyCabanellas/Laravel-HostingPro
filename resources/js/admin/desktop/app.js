@@ -7,6 +7,7 @@ import { message } from './modulos/message.js';
 import { renderCkeditor } from './modulos/ckeditor.js';
 import {carrito} from './modulos/carrito-añadir.js';
 import {renderForm} from './modulos/form.js';
+import {renderTable} from './modulos/table.js';
 
 faq();
 menuButton();
@@ -17,3 +18,4 @@ message();
 renderCkeditor();
 carrito();
 renderForm();
+renderTable();

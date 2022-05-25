@@ -9,7 +9,7 @@ export let renderForm = () => {
         renderForm();
     }), {once: true});
     
-    
+              
     if(createButton){
 
         createButton.addEventListener("click", () => {
@@ -86,8 +86,12 @@ export let renderForm = () => {
                     y se captura la url que usaremos para enviar los datos al servidor.
                 */
                 
-                let data = new FormData(form);
+                let data = new FormData(form); // FormData es un objeto que nos permite capturar los datos del formulario.
                 let url = form.action;
+
+                for (var pair of data.entries()) {
+                    console.log(pair[0]+ ', ' + pair[1]); 
+                }
 
                 /*	
                     En el siguiente valor estamos capturando los datos del ckeditor y se los añadimos a los datos
@@ -106,6 +110,7 @@ export let renderForm = () => {
                     añadir en los headers el token que nos ha dado Laravel el cual va a prevenir que se puedan 
                     hacer ataques de tipos cross-site scripting.
                 */
+               
     
                 let sendPostRequest = async () => {
     
@@ -153,9 +158,9 @@ export let renderForm = () => {
                                     errorMessage += '<li>' + errors[key] + '</li>';
                                 })
                 
-                                document.dispatchEvent(new CustomEvent('message', {
-                                    detail: {
-                                        message: errorMessage,
+                                document.dispatchEvent(new CustomEvent('message', { 
+                                    detail: {  
+                                        message: errorMessage,  
                                         type: 'error'
                                     }
                                 }));

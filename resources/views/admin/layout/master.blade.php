@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panel de Administración</title>
     <meta name="description" content="Panel de administración">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('admin.layout.partials.styles')
 </head>
 
