@@ -49,15 +49,15 @@ Route::group(['prefix' => 'admin'], function () {
             
         ],
         'names' => [
-            'index' => 'faqs',
-            'create' => 'faqs_create',
-            'edit' => 'faqs_edit',
-            'store' => 'faqs_store',
-            'destroy' => 'faqs_destroy',
-            'show' => 'faqs_show',
+            'index' => 'faqs', //get
+            'create' => 'faqs_create', //get
+            'edit' => 'faqs_edit', //get
+            'store' => 'faqs_store', //post
+            'destroy' => 'faqs_destroy', //delay
+            'show' => 'faqs_show', //get
         ]
     ]);
-});
+} );
 
 Route::get('/', function () {
     return view('front.pages.home.index');
