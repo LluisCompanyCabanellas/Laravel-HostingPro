@@ -67,7 +67,7 @@ class FaqController extends Controller
     {
         
         
-        $this->faq = $faq; // esto es una propiedad del objeto
+        $this->faq = $faq; // Aquí estamos asignando a la propiedad $faq el objeto Faq y el objeto Faq ya está instanciado.
     }
     
     public function index()
@@ -149,8 +149,10 @@ class FaqController extends Controller
         ]);
     }
 
-    public function edit(Faq $faq)
+    public function edit(Faq $faq)  // la palabra $faq tiene q coincidir con la asignada de web.php
     {
+        Debugbar::info($faq);
+
         $view = View::make('admin.pages.faqs.index')
         ->with('faq', $faq)
         ->with('faqs', $this->faq->where('active', 1)->get());   

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Faq extends Model
 {
-    protected $guarded = [];
+    protected $guarded = [];  //guarded: campos que no se pueden llenar
 }

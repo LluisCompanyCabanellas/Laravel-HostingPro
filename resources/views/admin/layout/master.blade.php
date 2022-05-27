@@ -13,6 +13,8 @@
 
 <body>
 
+    @include('admin.components.modal_delete')
+
     @include('admin.layout.partials.header')
 
     @include('admin.components.filter')

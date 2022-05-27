@@ -4,7 +4,7 @@ export let renderCkeditor = () => {
 
     document.addEventListener("renderFormModules",( event =>{
         renderCkeditor();
-    }));
+    }), {once: true});
 
     window.ckeditors = [];
 
