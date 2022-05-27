@@ -1,4 +1,4 @@
-<?php                                                //VALIDADORES
+<?php                                                
 
 namespace App\Http\Requests\Admin;
 

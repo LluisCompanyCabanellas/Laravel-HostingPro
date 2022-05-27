@@ -1,49 +1,52 @@
-.filters{
+.filters {
     width: 100%;
-    background-color:#A1E8E8;
+    background-color: #A1E8E8;
     text-align: center;
-    svg{
+
+    svg {
         margin-top: 2rem;
         width: 2rem;
         color: hsl(0, 0%, 0%);
     }
 }
 
-.menu{
+.menu {
     padding-left: 70%;
     padding-top: 0.5rem;
 }
 
-.panel{
-    
-    background-color:#7495DF;
+.panel {
+
+    background-color: #7495DF;
     padding: 1rem 2REM;
-    
-  
+
+
 }
 
-.panel-table{
+.panel-table {
     color: rgb(0, 0, 0);
-    padding:12% 0 5% 0;
-    
-    table{
+    padding: 12% 0 5% 0;
+
+    table {
         text-align: center;
         width: 90%;
-        
-        th{
+
+        th {
             border-bottom: 1px solid rgb(0, 0, 0);
             font-size: 1.5rem;
         }
-        td{
+
+        td {
             padding-top: 1rem;
-         
+
         }
     }
 }
 
-.panel-button-table{
+.panel-button-table {
     cursor: pointer;
-    svg{
+
+    svg {
         color: rgb(0, 0, 0);
         width: 1.5rem;
     }
@@ -51,47 +54,47 @@
 
 
 
-.form-element-label{
+.form-element-label {
     padding: 5% 0 0.7% 0;
     font-weight: 600;
 }
 
 
-.panel-form-buttons{
-    width:28%;
+.panel-form-buttons {
+    width: 28%;
 }
 
-.material-designs{
+.material-designs {
 
     width: 100%;
     background-color: #A1E8E8;
-    border:black solid 3px;
-    display: flex;  
- 
-    
-    
-    .guardado svg{
+    border: black solid 3px;
+    display: flex;
+
+
+
+    .guardado svg {
         width: 2rem;
         color: rgb(0, 0, 0);
         margin-top: 2rem;
         margin-left: 25em;
-      
-      
+
+
     }
 
-    .escoba svg{
+    .escoba svg {
         width: 2rem;
         color: rgb(0, 0, 0);
         margin-top: 2rem;
         padding-left: 1rem;
-   
-  
+
+
     }
 
-    .on-off{
+    .on-off {
         width: 2rem;
         color: rgb(0, 0, 0);
-    
+
     }
 
 }
@@ -100,15 +103,15 @@
 
 
 
-.cabecera .topbar-menu-button{
-    padding-left:95%;
+.cabecera .topbar-menu-button {
+    padding-left: 95%;
     padding-top: 0.5rem;
-  
-    
+
+
 }
 
 
-.form-element-ckeditor{
+.form-element-ckeditor {
     margin-top: 10%;
     display: block;
     margin-right: 60%;
@@ -117,38 +120,53 @@
 
 
 
-.name{
+.name {
     font-weight: 600;
     font-size: 1.5rem;
     padding-left: 5%;
     padding-top: 1rem;
 }
 
-.title{
+.title {
     font-weight: 600;
     font-size: 1.5rem;
     padding-left: 5%;
     padding-top: 1rem;
 }
 
-.price{
+.price {
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding-left: 5%;
+    padding-top: 1rem;
+
+}
+
+
+
+.feature {
     font-weight: 600;
     font-size: 1.5rem;
     padding-left: 5%;
     padding-top: 1rem;
 }
 
-.feature{
-    font-weight: 600;
-    font-size: 1.5rem;
-    padding-left: 5%;
-    padding-top: 1rem;
-}
-
-.description{
+.description {
     font-weight: 600;
     font-size: 1rem;
-   
-   
-   
+
+
+}
+
+.form-element-input{
+
+
+    .price{
+        width: 1.5em;
+    }
+}
+
+form .form-element .form-element-input .price {
+    padding: 0.3rem 5%;
+    width: 15%;
 }

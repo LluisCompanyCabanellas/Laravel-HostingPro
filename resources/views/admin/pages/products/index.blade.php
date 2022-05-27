@@ -46,90 +46,93 @@
 
 @if(isset($product))
 
-    <form class="admin-form" action="{{route("products_store")}}">
-        <input type="hidden" name="id">
-        <div class="material-designs">
-            <div class="guardado">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24"
-                    height="24" viewBox="0 0 24 24">
-                    <path
-                        d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
-                </svg>
-            </div>
-            <div class="escoba" data-url="{{route('products_create')}}">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24"
-                    height="24" viewBox="0 0 24 24">
-                    <path
-                        d="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
-                </svg>
-            </div>
-            <div class="on-off">
-                <div class="container">
-                    <div class="onoffswitch">
-                        <input type="checkbox" name="visible" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch">
-                            <div class="onoffswitch-inner"></div>
-                            <div class="onoffswitch-switch"></div>
-                        </label>
-                    </div>
+<form class="admin-form" action="{{route("products_store")}}">
+    <input type="hidden" name="id">
+    <div class="material-designs">
+        <div class="guardado">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24"
+                height="24" viewBox="0 0 24 24">
+                <path
+                    d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
+            </svg>
+        </div>
+        <div class="escoba" data-url="{{route('products_create')}}">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24"
+                height="24" viewBox="0 0 24 24">
+                <path
+                    d="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z" />
+            </svg>
+        </div>
+        <div class="on-off">
+            <div class="container">
+                <div class="onoffswitch">
+                    <input type="checkbox" name="visible" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                    <label class="onoffswitch-label" for="myonoffswitch">
+                        <div class="onoffswitch-inner"></div>
+                        <div class="onoffswitch-switch"></div>
+                    </label>
                 </div>
             </div>
-        </div>  
+        </div>
+    </div>
 
-        <div class="desktop-two-columns">
-            <div class="column">
-                <div class="form-element">
-                    <div class="form-element-label">
-                        <label>Nombre</label>
-                    </div>
-                    <div class="form-element-input">
-                        <input class="name" type="text" name="name" value="{{isset($product->name) ? $product->name : ''}}">
-                    </div>
+    <div class="desktop-two-columns">
+        <div class="column">
+            <div class="form-element">
+                <div class="form-element-label">
+                    <label>Nombre</label>
                 </div>
+                <div class="form-element-input">
+                    <input class="name" type="text" name="name" value="{{isset($product->name) ? $product->name : ''}}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="form-element">
+            <div class="form-element-label">
+                <label>Título</label>
+            </div>
+            <div class="form-element-input">
+                <input class="title type=" text" name="title" value="{{isset($product->title) ? $product->title : ''}}">
             </div>
         </div>
 
         <div class="column">
             <div class="form-element">
                 <div class="form-element-label">
-                    <label>Título</label>
+                    <label>Precio</label>
                 </div>
                 <div class="form-element-input">
-                    <input  class="title type="text" name="title" value="{{isset($product->title) ? $product->title : ''}}">
-                </div>
-            </div>
-
-            <div class="column">
-                <div class="form-element">
-                    <div class="form-element-label">
-                        <label>Precio</label>
-                    </div>
-                    <div class="form-element-input">
-                        <input class="price" type="number" name="price" value="{{isset($product->price) ? $product->price : ''}}">
-                    </div>
+                    <input class="price" type="number" name="price"
+                        value="{{isset($product->price) ? $product->price : ''}}">
                 </div>
             </div>
         </div>
-    
+    </div>
+
+
+    <div class="column">
+        <div class="form-element">
+            <div class="form-element-label">
+                <label>Características</label>
+            </div>
+            <div class="form-element-input">
+                <input class="feature" type="text" name="feature"
+                    value="{{isset($product->feature) ? $product->feature : ''}}">
+            </div>
+        </div>
 
         <div class="column">
-            <div class="form-element">
-                <div class="form-element-label">
-                    <label>Características</label>
-                </div>
-                <div class="form-element-input">
-                    <input class="feature" type="text" name="feature" value="{{isset($product->feature) ? $product->feature : ''}}">
-                </div>
-            </div>
-
-            <div class="column">
-                <div class="form-element-ckeditor">
-                    <label for="">Descripción</label>
-                    <textarea name="description" class="description" cols="63" rows="10">{{isset($product->description) ? $product->description : ''}}</textarea>
-                </div>
+            <div class="form-element-ckeditor">
+                <label for="">Descripción</label>
+                <textarea name="description" class="description" cols="63"
+                    rows="10">{{isset($product->description) ? $product->description : ''}}</textarea>
             </div>
         </div>
-    </form>
+    </div>
+</form>
 
 @endif
 

@@ -825,6 +825,15 @@ form .form-send-button button:active {
   font-size: 1rem;
 }
 
+.form-element-input .price {
+  width: 1.5em;
+}
+
+form .form-element .form-element-input .price {
+  padding: 0.3rem 5%;
+  width: 15%;
+}
+
 /*.window-container {
     position: fixed;
 
