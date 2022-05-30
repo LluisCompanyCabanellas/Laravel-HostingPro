@@ -26,7 +26,7 @@ export let product = () => {
             }
         });
     }
-
+    
 }
 
     
