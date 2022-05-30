@@ -58,6 +58,24 @@ Route::group(['prefix' => 'admin'], function () {
         ]
     ]);
 
+    Route::resource('usuarios', 'App\Http\Controllers\Admin\UserController', [
+        'parameters' => [
+            'users' => 'user', 
+
+
+            
+        ],
+        'names' => [
+            'index' => 'users', //get
+            'create' => 'users_create', //get
+            'edit' => 'users_edit', //get
+            'store' => 'users_store', //post
+            'destroy' => 'users_destroy', //delay
+            'show' => 'users_show', //get
+        ]
+    ]);
+
+
 
     Route::resource('productos/categoria', 'App\Http\Controllers\Admin\ProductCategoryController', [
         'parameters' => [

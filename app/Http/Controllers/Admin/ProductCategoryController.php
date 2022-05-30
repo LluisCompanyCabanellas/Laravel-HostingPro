@@ -7,7 +7,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
 use App\Models\ProductCategory;
-use App\Http\Requests\Admin\FaqRequest;
+use App\Http\Requests\Admin\ProductCategoryRequest;
 use Debugbar;
 
 
@@ -27,9 +27,9 @@ class ProductCategoryController extends Controller
     public function index()
     {
 
-        $view = View::make('admin.pages.faqs.index')
-                ->with('faq', $this->product_category)
-                ->with('faqs', $this->faq->where('active', 1)->get());
+        $view = View::make('admin.pages.product_categories.index')
+                ->with('product_category', $this->product_category)
+                ->with('product_categories', $this->product_category->where('active', 1)->get());
 
         if(request()->ajax()) {
             
@@ -47,52 +47,46 @@ class ProductCategoryController extends Controller
     public function create()
     {
        
-
-       $view = View::make('admin.pages.faqs.index')
-        ->with('faq', $this->faq)
+       $view = View::make('admin.pages.product_categories.index')
+        ->with('product_category', $this->product_category)
         ->renderSections();
         Debugbar::info($view['form']);
-
-
-        
 
         return response()->json([
             'form' => $view['form']
         ]);
     }
 
-    public function store(FaqRequest $request)
+    public function store(ProductCategoryRequest $request)
     {            
         
-
-        $faq = $this->faq->updateOrCreate([
+        $product_category = $this->product_category->updateOrCreate([
                 'id' => request('id')],[
                 'name' => request('name'),
                 'title' => request('title'),
-                'description' => request('description'),
                 'visible' => 1,
                 'active' => 1,
         ]);
             
-        $view = View::make('admin.pages.faqs.index')
-        ->with('faqs', $this->faq->where('active', 1)->get())  //with va a pasar las variables
-        ->with('faq', $faq)
+        $view = View::make('admin.pages.product_categories.index')
+        ->with('product_categories', $this->product_category->where('active', 1)->get())  //with va a pasar las variables
+        ->with('product_category', $this->product_category)
         ->renderSections();        
 
         return response()->json([
             'table' => $view['table'],
             'form' => $view['form'],
-            'id' => $faq->id,
+            'id' => $product_category->id,
         ]);
     }
 
-    public function edit(Faq $faq) 
+    public function edit(ProductCategory $product_category) 
     {
-        Debugbar::info($faq);
+        Debugbar::info($product_category);
 
-        $view = View::make('admin.pages.faqs.index')
-        ->with('faq', $faq)
-        ->with('faqs', $this->faq->where('active', 1)->get());   
+        $view = View::make('admin.pages.product_categories.index')
+        ->with('product_category', $product_category)
+        ->with('product_categories', $this->product_category->where('active', 1)->get());   
         
         if(request()->ajax()) {
 
@@ -106,18 +100,18 @@ class ProductCategoryController extends Controller
         return $view;
     }
 
-    public function show(Faq $faq){
+    public function show(ProductCategory $product_category){
 
     }
 
-    public function destroy(Faq $faq)
+    public function destroy(ProductCategory $product_category)
     {
-        $faq->active = 0;
-        $faq->save();
+        $product_category->active = 0;
+        $product_category->save();
 
-        $view = View::make('admin.pages.faqs.index')
-            ->with('faq', $this->faq)
-            ->with('faqs', $this->faq->where('active', 1)->get())
+        $view = View::make('admin.pages.product_categories.index')
+            ->with('product_category', $this->product_category)
+            ->with('product_categories', $this->product_category->where('active', 1)->get())
             ->renderSections();
         
         return response()->json([
