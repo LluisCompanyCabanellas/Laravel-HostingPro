@@ -59,14 +59,23 @@ Route::group(['prefix' => 'admin'], function () {
     ]);
 
 
-
-
-    Route::resource('products', 'App\Http\Controllers\Admin\ProductController', [
+    Route::resource('productos/categoria', 'App\Http\Controllers\Admin\ProductCategoryController', [
         'parameters' => [
-            'products' => 'product', 
+            'categoria' => 'product_category',   
+        ],
+        'names' => [
+            'index' => 'product_categories', //get
+            'create' => 'product_categories_create', //get
+            'edit' => 'product_categories_edit', //get
+            'store' => 'product_categories_store', //post
+            'destroy' => 'product_categories_destroy', //delay
+            'show' => 'product_categories_show', //get
+        ]
+    ]);
 
-
-            
+    Route::resource('productos', 'App\Http\Controllers\Admin\ProductController', [
+        'parameters' => [
+            'productos' => 'product',  
         ],
         'names' => [
             'index' => 'products', //get

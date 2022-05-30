@@ -65,10 +65,11 @@ export let renderTable = () => {
 
             deleteButton.addEventListener("click", () => {
 
-          
-                
-
-
+                document.dispatchEvent(new CustomEvent('openModalDelete', {
+                    detail: {
+                        url: deleteButton.dataset.url,
+                    }
+                }));
             });
         });
     }

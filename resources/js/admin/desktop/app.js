@@ -8,6 +8,8 @@ import { renderCkeditor } from './modulos/ckeditor.js';
 import {carrito} from './modulos/carrito-añadir.js';
 import {renderForm} from './modulos/form.js';
 import {renderTable} from './modulos/table.js';
+import {renderModalDelete} from './modulos/modalDelete.js';
+
 
 faq();
 menuButton();
@@ -19,3 +21,5 @@ renderCkeditor();
 carrito();
 renderForm();
 renderTable();
+renderModalDelete();
+
