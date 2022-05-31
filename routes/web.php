@@ -66,12 +66,12 @@ Route::group(['prefix' => 'admin'], function () {
             
         ],
         'names' => [
-            'index' => 'users', //get
-            'create' => 'users_create', //get
-            'edit' => 'users_edit', //get
-            'store' => 'users_store', //post
-            'destroy' => 'users_destroy', //delay
-            'show' => 'users_show', //get
+            'index' => 'users', 
+            'create' => 'users_create', 
+            'edit' => 'users_edit', 
+            'store' => 'users_store',
+            'destroy' => 'users_destroy', 
+            'show' => 'users_show', 
         ]
     ]);
 

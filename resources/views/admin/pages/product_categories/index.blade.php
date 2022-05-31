@@ -95,7 +95,7 @@
                 <label>Título</label>
             </div>
             <div class="form-element-input">
-                <input class="title type=" text" name="title" value="{{isset($product_category->title) ? $product_category->title : ''}}">
+                <input class="title" type=" text" name="title" value="{{isset($product_category->title) ? $product_category->title : ''}}">
             </div>
         </div>
 
