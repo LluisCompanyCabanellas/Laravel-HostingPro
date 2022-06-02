@@ -35,9 +35,7 @@
                     </div>
                 </div>
             </div>
-        </td>
-    </tr>
-    @endforeach
+        </td> 
 </table>
 @endif
 @endsection
@@ -115,8 +113,8 @@
                     <label>Teléfono</label>
                 </div>
                 <div class="form-element-input">
-                    <input class="password" type="tel" name="password"
-                        value="{{isset($cliente->password) ? $cliente->password : ''}}">
+                    <input class="tel" type="tel" name="tel"
+                        value="{{isset($cliente->tel) ? $cliente->tel : ''}}">
                 </div>
             </div>
         </div>
@@ -129,8 +127,8 @@
                 <label>Código Postal</label>
             </div>
             <div class="form-element-input">
-                <input class="password_confirmation" type="password" name="password_confirmation"
-                    value="{{isset($cliente->password_confirmation) ? $cliente->password_confirmation : ''}}">
+                <input class="codepostal" type="number" name="codepostal"
+                    value="{{isset($cliente->codepostal) ? $cliente->codepostal : ''}}">
             </div>
         </div>
 
