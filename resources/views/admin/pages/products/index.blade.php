@@ -95,7 +95,22 @@
                 <label>Título</label>
             </div>
             <div class="form-element-input">
-                <input class="title type=" text" name="title" value="{{isset($product->title) ? $product->title : ''}}">
+                <input class="title type="text" name="title" value="{{isset($product->title) ? $product->title : ''}}">
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="form-element">
+                <div class="form-element-label">
+                    <label>Categorias</label>
+                </div>
+                <select name="category_id">
+                    <option>
+                         
+                        
+                    </option>
+                  </select>
+             
             </div>
         </div>
 

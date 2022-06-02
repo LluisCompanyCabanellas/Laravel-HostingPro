@@ -92,21 +92,21 @@
     <div class="column">
         <div class="form-element">
             <div class="form-element-label">
-                <label>Título</label>
+                <label>Email</label>
             </div>
             <div class="form-element-input">
-                <input class="title type="text" name="title" value="{{isset($user->title) ? $user->title : ''}}">
+                <input class="email" type="text" name="email" value="{{isset($user->email) ? $user->email : ''}}">
             </div>
         </div>
 
         <div class="column">
             <div class="form-element">
                 <div class="form-element-label">
-                    <label>Precio</label>
+                    <label>Contraseña</label>
                 </div>
                 <div class="form-element-input">
-                    <input class="price" type="number" name="price"
-                        value="{{isset($user->price) ? $user->price : ''}}">
+                    <input class="password" type="password" name="password"
+                        value="{{isset($user->password) ? $user->password : ''}}">
                 </div>
             </div>
         </div>
@@ -116,21 +116,15 @@
     <div class="column">
         <div class="form-element">
             <div class="form-element-label">
-                <label>Características</label>
+                <label>Repetir contraseña</label>
             </div>
             <div class="form-element-input">
-                <input class="feature" type="text" name="feature"
-                    value="{{isset($user->feature) ? $user->feature : ''}}">
+                <input class="password_confirmation" type="password" name="password_confirmation"
+                    value="{{isset($user->password_confirmation) ? $user->password_confirmation : ''}}">
             </div>
         </div>
 
-        <div class="column">
-            <div class="form-element-ckeditor">
-                <label for="">Descripción</label>
-                <textarea name="description" class="description" cols="63"
-                    rows="10">{{isset($user->description) ? $user->description : ''}}</textarea>
-            </div>
-        </div>
+       
     </div>
 </form>
 
