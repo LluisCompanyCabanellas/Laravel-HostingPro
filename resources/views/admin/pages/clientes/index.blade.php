@@ -1,7 +1,7 @@
 @extends('admin.layout.table_form')
 
 @section('table')
-@if(isset($products))
+@if(isset($clientes))
 <table>
     <tr>
         <th>Id</th>
@@ -9,16 +9,16 @@
         <th>Creado</th>
     </tr>
 
-    @foreach($products as $product_element)
+    @foreach($clientes as $cliente_element)
     <tr>
-        <td>{{$product_element->id}}</td>
-        <td>{{$product_element->name}}</td>
-        <td>{{$product_element->created_at}}</td>
+        <td>{{$cliente_element->id}}</td>
+        <td>{{$cliente_element->name}}</td>
+        <td>{{$cliente_element->created_at}}</td>
         <td>
             <div class="desktop-two-columns">
                 <div class="column">
                     <div class="panel-button-table edit-button"
-                        data-url="{{route('products_edit', ['product' => $product_element->id])}}">
+                        data-url="{{route('clientes_edit', ['cliente' => $cliente_element->id])}}">
                         <svg viewBox="0 0 24 24">
                             <path fill="currentColor"
                                 d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z" />
@@ -27,7 +27,7 @@
                 </div>
                 <div class="column">
                     <div class="panel-button-table delete-button"
-                        data-url="{{route('products_destroy', ['product'=> $product_element->id])}}">
+                        data-url="{{route('clientes_destroy', ['cliente'=> $cliente_element->id])}}">
                         <svg viewBox="0 0 24 24">
                             <path fill="currentColor"
                                 d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
@@ -44,10 +44,10 @@
 
 @section('form')
 
-@if(isset($product))
+@if(isset($cliente))
 
-<form class="admin-form" action="{{route("products_store")}}">
-    <input type="hidden" name="id" value="{{isset($product->id) ? $product->id : ''}}">
+<form class="admin-form" action="{{route("clientes_store")}}">
+    <input type="hidden" name="id" value="{{isset($cliente->id) ? $cliente->id : ''}}">
     <div class="material-designs">
         <div class="guardado">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24"
@@ -56,7 +56,7 @@
                     d="M15,9H5V5H15M12,19A3,3 0 0,1 9,16A3,3 0 0,1 12,13A3,3 0 0,1 15,16A3,3 0 0,1 12,19M17,3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V7L17,3Z" />
             </svg>
         </div>
-        <div class="escoba" data-url="{{route('products_create')}}">
+        <div class="escoba" data-url="{{route('clientes_create')}}">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24"
                 height="24" viewBox="0 0 24 24">
                 <path
@@ -83,45 +83,40 @@
                     <label>Nombre</label>
                 </div>
                 <div class="form-element-input">
-                    <input class="name" type="text" name="name" value="{{isset($product->name) ? $product->name : ''}}">
+                    <input class="name" type="text" name="name" value="{{isset($cliente->name) ? $cliente->name : ''}}">
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="column">
-        <div class="form-element">
-            <div class="form-element-label">
-                <label>Título</label>
-            </div>
-            <div class="form-element-input">
-                <input class="title type="text" name="title" value="{{isset($product->title) ? $product->title : ''}}">
-            </div>
-        </div>
-
         <div class="column">
             <div class="form-element">
                 <div class="form-element-label">
-                    <label>Categorias</label>
-                </div>
-                <select name="category_id">
-                    <option>
-                         
-                        
-                    </option>
-                  </select>
-             
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="form-element">
-                <div class="form-element-label">
-                    <label>Precio</label>
+                    <label>Apellidos</label>
                 </div>
                 <div class="form-element-input">
-                    <input class="price" type="number" name="price"
-                        value="{{isset($product->price) ? $product->price : ''}}">
+                    <input class="surname" type="text" name="surname" value="{{isset($cliente->surname) ? $cliente->surname : ''}}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="form-element">
+            <div class="form-element-label">
+                <label>Email</label>
+            </div>
+            <div class="form-element-input">
+                <input class="email" type="text" name="email" value="{{isset($cliente->email) ? $cliente->email : ''}}">
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="form-element">
+                <div class="form-element-label">
+                    <label>Teléfono</label>
+                </div>
+                <div class="form-element-input">
+                    <input class="password" type="tel" name="password"
+                        value="{{isset($cliente->password) ? $cliente->password : ''}}">
                 </div>
             </div>
         </div>
@@ -131,21 +126,15 @@
     <div class="column">
         <div class="form-element">
             <div class="form-element-label">
-                <label>Características</label>
+                <label>Código Postal</label>
             </div>
             <div class="form-element-input">
-                <input class="feature" type="text" name="feature"
-                    value="{{isset($product->feature) ? $product->feature : ''}}">
+                <input class="password_confirmation" type="password" name="password_confirmation"
+                    value="{{isset($cliente->password_confirmation) ? $cliente->password_confirmation : ''}}">
             </div>
         </div>
 
-        <div class="column">
-            <div class="form-element-ckeditor">
-                <label for="">Descripción</label>
-                <textarea name="description" class="description" cols="63"
-                    rows="10">{{isset($product->description) ? $product->description : ''}}</textarea>
-            </div>
-        </div>
+       
     </div>
 </form>
 

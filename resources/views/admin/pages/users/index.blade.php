@@ -105,7 +105,7 @@
                     <label>Contraseña</label>
                 </div>
                 <div class="form-element-input">
-                    <input class="password" type="text" name="password"
+                    <input class="password" type="password" name="password"
                         value="{{isset($user->password) ? $user->password : ''}}">
                 </div>
             </div>
@@ -119,7 +119,7 @@
                 <label>Repetir contraseña</label>
             </div>
             <div class="form-element-input">
-                <input class="password_confirmation" type="text" name="password_confirmation"
+                <input class="password_confirmation" type="password" name="password_confirmation"
                     value="{{isset($user->password_confirmation) ? $user->password_confirmation : ''}}">
             </div>
         </div>

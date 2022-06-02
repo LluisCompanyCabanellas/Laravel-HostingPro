@@ -57,13 +57,11 @@ Route::group(['prefix' => 'admin'], function () {
             'show' => 'faqs_show', //get
         ]
     ]);
+    
 
     Route::resource('usuarios', 'App\Http\Controllers\Admin\UserController', [
         'parameters' => [
-            'users' => 'user', 
-
-
-            
+            'usuarios' => 'user', 
         ],
         'names' => [
             'index' => 'users', 
@@ -72,6 +70,25 @@ Route::group(['prefix' => 'admin'], function () {
             'store' => 'users_store',
             'destroy' => 'users_destroy', 
             'show' => 'users_show', 
+        ]
+    ]);
+
+
+    
+    Route::resource('clientes', 'App\Http\Controllers\Admin\ClienteController', [
+        'parameters' => [
+            'clientes' => 'cliente', 
+
+
+            
+        ],
+        'names' => [
+            'index' => 'clientes', //get
+            'create' => 'clientes_create', //get
+            'edit' => 'clientes_edit', //get
+            'store' => 'clientes_store', //post
+            'destroy' => 'clientes_destroy', //delay
+            'show' => 'clientes_show', //get
         ]
     ]);
 

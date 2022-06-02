@@ -72,11 +72,8 @@ class UserController extends Controller
         $user = $this->user->updateOrCreate([
             'id' => request('id')],[
             'name' => request('name'),
-            'title' => request('title'),
-            'description' => request('description'),
-            'price' => request('price'),
-            'feature' => request('feature'),
-            'visible' => 1,
+            'email' => request('email'),
+            'password' => bcrypt(request('password')),
             'active' => 1,
         ]);
             

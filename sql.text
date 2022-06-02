@@ -1,0 +1,193 @@
+SELECT * FROM ventas
+
+$this->ventas->get()
+
+
+
+SELECT nombre FROM clientes
+
+$this->cliente->select('nombre', 'Carlos')->get()
+
+
+
+SELECT * FROM clientes WHERE nombre = "Carlos"
+
+$this->cliente->where('nombre','Carlos')->get()
+
+
+
+SELECT * FROM clientes WHERE nombre = "Carlos" AND apellidos = "Seda"
+
+$this->cliente->where('nombre','Carlos')->where('apellidos', 'Seda')->get()
+
+
+
+SELECT * FROM clientes WHERE nombre = "Carlos" OR nombre = "Juan"
+
+$this->cliente->where('nombre','Carlos')->orWhere('nombre', 'Juan')->get()
+
+
+
+
+SELECT * FROM clientes WHERE NOT nombre = "Carlos" 
+
+$this->cliente->whereNot(function ($query) {
+       $query->where('nombre', 'Carlos')
+})->get();
+
+
+
+
+SELECT * FROM precios WHERE precio BETWEEN 30 and 60
+
+$this->precio->whereBetween('precio', [30, 60])->get();
+
+
+
+
+SELECT * FROM clientes WHERE nombre IN ("Carlos", "Luis", "Pedro")
+
+$this->cliente->whereIn('nombre', ['Carlos', 'Luis', 'Pedro'])->get();
+
+
+
+SELECT * FROM clientes WHERE nombre NOT IN ("Carlos", "Luis", "Pedro")
+
+$this->cliente->whereNotIn('nombre', ['Carlos', 'Luis', 'Pedro'])->get();
+
+
+
+
+SELECT * FROM precios WHERE precio <> 30 
+
+$this->precio->where('precio',  '<>', 30)->get();
+
+
+
+
+SELECT * FROM precios WHERE precio > 30 
+
+$this->precio->where('precio',  '>', 30)->get();
+
+
+
+
+SELECT * FROM precios WHERE precio < 30 
+
+$this->precio->where('precio',  '<', 30)->get();
+
+
+
+
+SELECT * FROM precios WHERE precio >= 30
+$this->precio->where('precio',  '>=', 30)->get();
+
+
+
+SELECT * FROM precios WHERE precio <= 30 
+
+$this->precio->where('precio',  '<=', 30)->get();
+
+
+
+
+SELECT * FROM clientes WHERE apellidos LIKE '%sanchez%'
+
+$this->cliente->where('apellidos','LIKE','%'.'sanchez'.'%')->get();
+
+
+
+
+SELECT * FROM clientes ORDER BY nombre
+
+$this->cliente->orderBy('nombre')->get();
+
+
+
+
+SELECT * FROM clientes ORDER BY nombre ASC
+
+$this->cliente->orderBy('nombre', 'asc')->get();
+
+
+
+
+SELECT * FROM clientes ORDER BY nombre DESC
+
+$this->cliente->orderBy('nombre', 'desc')->get();
+
+
+
+
+SELECT count(*) FROM clientes
+
+$this->cliente->count();
+
+
+
+
+SELECT SUM(precio) FROM precios
+
+$this->precio->sum('precio');
+
+
+
+
+SELECT MAX(precio) FROM precios
+
+$this->precio->max('precio');
+
+
+
+SELECT MIN(precio) FROM precios
+
+$this->precio->min('precio');
+
+
+
+SELECT AVG(precio) FROM precios
+
+$this->precio->avg('precio');
+
+
+
+SELECT ROUND(AVG(precio)) FROM precios
+
+round($this->precio->avg('precio'));
+
+
+
+SELECT ROUND(AVG(precio), 2) FROM precios
+
+round($this->precio->avg('precio'), 2);
+
+
+
+SELECT nombre FROM categorias_productos GROUP BY nombre
+
+$this->categoria_producto->select('nombre')->groupBy('nombre')->get();
+
+
+
+SELECT comunidad, AVG(edad) FROM `usuarios` GROUP BY comunidad;
+
+$this->categoria_producto->select('comunidad', 'avg(edad)')->groupBy('comunidad')->get();
+
+
+
+SELECT count(*) AS total_clientes FROM clientes
+
+$this->cliente->select('count(*) as total_clientes')->get()
+
+
+
+SELECT * FROM usuarios LIMIT 10
+
+$this->usuario->limit(10)->get();
+
+
+
+
+
+
+
