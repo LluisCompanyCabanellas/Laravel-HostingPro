@@ -52,7 +52,7 @@
                                         <label>Nombre</label>
                                     </div>
                                     <div class="form-element-input">
-                                        <input name="name" type="text">
+                                        <input class="name" type="text" name="name" value="{{isset($contact->name) ? $contact->name : ''}}">
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                         <label>Apellidos</label>
                                     </div>
                                     <div class="form-element-input">
-                                        <input name="surname" type="text">
+                                        <input class="name" type="text" name="name" value="{{isset($contact->name) ? $contact->name : ''}}">
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                         <label>Teléfono</label>
                                     </div>
                                     <div class="form-element-input">
-                                        <input name="telephone" type="tel">
+                                        <input class="name" type="text" name="name" value="{{isset($contact->name) ? $contact->name : ''}}">
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                                         <label>Email</label>
                                     </div>
                                     <div class="form-element-input">
-                                        <input name="email" type="email">
+                                        <input class="email" type="text" name="email" value="{{isset($user->email) ? $user->email : ''}}">
                                     </div>
                                 </div>
                             </div>
@@ -96,7 +96,8 @@
                                         <label>Mensaje</label>
                                     </div>
                                     <div class="form-element-input">
-                                        <textarea name="message" id=""></textarea>
+                                        <textarea name="message" class="message" cols="63"
+                                        rows="10">{{isset($contact->message) ? $contact->message : ''}}</textarea>
                                     </div>
                                 </div>
                             </div>

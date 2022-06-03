@@ -9,12 +9,12 @@
 
     @include('front.component.desktop.titulos', ['title' => 'Contacta con nosotros'])
 
-    @include('front.pages.contacto.desktop.contacto')
+    @include('front.pages.contact.desktop.contact')
     
     @endif
 
     @if($agent->isMobile())
-        @include('front.pages.contacto.mobile.contacto')
+        @include('front.pages.contact.mobile.contact')
     @endif
 
 @endsection

@@ -1,28 +1,28 @@
 <?php
 
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Front;
 
 
 use Illuminate\Support\Facades\View;
 use App\Http\Controllers\Controller;
-use App\Models\Cliente;
-use App\Http\Requests\Admin\ClienteRequest;
+use App\Models\Contact;
+use App\Http\Requests\Front\ContactRequest;
 use Debugbar;
 
 
-class ClienteController extends Controller
+class ContactController extends Controller
 {
    
 
-    protected $cliente;
+    protected $contact;
 
 
-    public function __construct(Cliente $cliente)
+    public function __construct(Contact $contact)
     {
         
         
-        $this->cliente = $cliente; 
+        $this->contact = $contact; 
     }
     
     public function index()
@@ -30,9 +30,9 @@ class ClienteController extends Controller
 
         
 
-        $view = View::make('admin.pages.clientes.index')
-                ->with('cliente', $this->cliente)
-                ->with('clientes', $this->cliente->where('active', 1)->get());
+        $view = View::make('front.pages.contact.index')
+                ->with('contact', $this->contact)
+                ->with('contact', $this->contact->where('active', 1)->get());
 
         if(request()->ajax()) {
             
@@ -51,8 +51,8 @@ class ClienteController extends Controller
     {
        
 
-       $view = View::make('admin.pages.clientes.index')
-        ->with('cliente', $this->cliente)
+       $view = View::make('front.pages.contact.index')
+        ->with('contact', $this->contact)
         ->renderSections();
         Debugbar::info($view['form']);
 
@@ -64,11 +64,11 @@ class ClienteController extends Controller
         ]);
     }
 
-    public function store(ClienteRequest $request)
+    public function store(ContactRequest $request)
     {            
         
 
-        $cliente = $this->cliente->updateOrCreate([
+        $contact = $this->contact->updateOrCreate([
                 'id' => request('id')],[
                 'name' => request('name'),
                 'codepostal' => request('codepostal'),
@@ -78,25 +78,25 @@ class ClienteController extends Controller
                 'active' => 1,
         ]);
             
-        $view = View::make('admin.pages.clientes.index')
-        ->with('clientes', $this->cliente->where('active', 1)->get())  //with va a pasar las variables
-        ->with('cliente', $cliente)
+        $view = View::make('front.pages.contact.index')
+        ->with('contact', $this->contact->where('active', 1)->get())  //with va a pasar las variables
+        ->with('contact', $contact)
         ->renderSections();        
 
         return response()->json([
             'table' => $view['table'],
             'form' => $view['form'],
-            'id' => $cliente->id,
+            'id' => $contact->id,
         ]);
     }
 
-    public function edit(Cliente $cliente) 
+    public function edit(Contact $contact) 
     {
-        Debugbar::info($cliente);
+        Debugbar::info($contact);
 
-        $view = View::make('admin.pages.clientes.index')
-        ->with('cliente', $cliente)
-        ->with('clientes', $this->cliente->where('active', 1)->get());   
+        $view = View::make('front.pages.contact.index')
+        ->with('contact', $contact)
+        ->with('contact', $this->contact->where('active', 1)->get());   
         
         if(request()->ajax()) {
 
@@ -110,18 +110,18 @@ class ClienteController extends Controller
         return $view;
     }
 
-    public function show(Cliente $cliente){
+    public function show(Contact $contact){
 
     }
 
-    public function destroy(Cliente $cliente)
+    public function destroy(Contact $contact)
     {
-        $cliente->active = 0;
-        $cliente->save();
+        $contact->active = 0;
+        $contact->save();
 
-        $view = View::make('admin.pages.clientes.index')
-            ->with('cliente', $this->cliente)
-            ->with('clientes', $this->cliente->where('active', 1)->get())
+        $view = View::make('front.pages.contact.index')
+            ->with('contact', $this->contact)
+            ->with('contact', $this->contact->where('active', 1)->get())
             ->renderSections();
         
         return response()->json([

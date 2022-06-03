@@ -44,9 +44,6 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('faqs', 'App\Http\Controllers\Admin\FaqController', [
         'parameters' => [
             'faqs' => 'faq', 
-
-
-            
         ],
         'names' => [
             'index' => 'faqs', //get
@@ -74,13 +71,9 @@ Route::group(['prefix' => 'admin'], function () {
     ]);
 
 
-    
     Route::resource('clientes', 'App\Http\Controllers\Admin\ClienteController', [
         'parameters' => [
-            'clientes' => 'cliente', 
-
-
-            
+            'clientes' => 'cliente',    
         ],
         'names' => [
             'index' => 'clientes', //get
@@ -91,8 +84,6 @@ Route::group(['prefix' => 'admin'], function () {
             'show' => 'clientes_show', //get
         ]
     ]);
-
-
 
     Route::resource('productos/categoria', 'App\Http\Controllers\Admin\ProductCategoryController', [
         'parameters' => [
@@ -121,17 +112,16 @@ Route::group(['prefix' => 'admin'], function () {
             'show' => 'products_show', //get
         ]
     ]);
-
-
 } );
+
+
 
 Route::get('/', function () {
     return view('front.pages.home.index');
 });
 
-Route::get('/contacto', function () {
-    return view('front.pages.contacto.index');
-});
+Route::get('contacto', 'App\Http\Controllers\Front\ContactController@index')->name('front_contact');
+Route::post('contacto', 'App\Http\Controllers\Front\ContactController@post')->name('front_contact_form');
 
 Route::get('/carrito', function () {
     return view('front.pages.carrito.index');

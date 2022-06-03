@@ -36,6 +36,8 @@
                 </div>
             </div>
         </td> 
+    </tr>
+    @endforeach
 </table>
 @endif
 @endsection
@@ -127,7 +129,7 @@
                 <label>Código Postal</label>
             </div>
             <div class="form-element-input">
-                <input class="codepostal" type="number" name="codepostal"
+                <input class="codepostal" type="text" name="codepostal"
                     value="{{isset($cliente->codepostal) ? $cliente->codepostal : ''}}">
             </div>
         </div>
