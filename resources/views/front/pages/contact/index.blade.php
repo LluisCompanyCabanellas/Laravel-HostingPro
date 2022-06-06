@@ -6,11 +6,9 @@
 @section("content")
         
     @if($agent->isDesktop())
+        @include('front.component.desktop.titulos', ['title' => 'Contacta con nosotros'])
 
-    @include('front.component.desktop.titulos', ['title' => 'Contacta con nosotros'])
-
-    @include('front.pages.contact.desktop.contact')
-    
+        @include('front.pages.contact.desktop.contact')
     @endif
 
     @if($agent->isMobile())

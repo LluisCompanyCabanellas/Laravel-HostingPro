@@ -9,7 +9,7 @@
 
         @include('front.component.desktop.titulos', ['title' => 'Servidores'])
 
-        @include('front.pages.products.desktop.products')
+        @include('front.pages.products.desktop.products', ['products' => $products])
 
     @endif
     

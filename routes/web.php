@@ -116,29 +116,21 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 
-Route::get('/', function () {
-    return view('front.pages.home.index');
-});
+Route::get('home', 'App\Http\Controllers\Front\HomeController@index')->name('front_home');
 
 Route::get('contacto', 'App\Http\Controllers\Front\ContactController@index')->name('front_contact');
-Route::post('contacto', 'App\Http\Controllers\Front\ContactController@post')->name('front_contact_form');
+Route::post('contacto', 'App\Http\Controllers\Front\ContactController@store')->name('front_contact_form');
 
-Route::get('/carrito', function () {
-    return view('front.pages.carrito.index');
-});
 
-Route::get('/checkout', function () {
-    return view('front.pages.checkout.index');
-});
+Route::get('carrito', 'App\Http\Controllers\Front\CarritoController@index')->name('front_carrito');
 
-Route::get('/faqs', function () {
-    return view('front.pages.faq.index');
-});
 
-Route::get('/producto', function () {
-    return view('front.pages.product.index');
-});
+Route::get('checkout', 'App\Http\Controllers\Front\CheckoutController@index')->name('front_checkout');
 
-Route::get('/productos', function () {
-    return view('front.pages.products.index');
-});
+
+Route::get('faqs', 'App\Http\Controllers\Front\FaqController@index')->name('front_faqs');
+
+
+Route::get('productos', 'App\Http\Controllers\Front\ProductController@index')->name('front_products');
+// Route::get('productos/{product}', 'App\Http\Controllers\Front\ProductController@show')->name('');
+

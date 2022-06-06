@@ -662,6 +662,8 @@ form .form-send-button button:active {
   padding: 2rem 5%;
 }
 .products-gallery .product {
+  justify-content: flex-wrap;
+  display: flex;
   border: 3px solid black;
   padding: 1rem;
   margin-bottom: 2rem;

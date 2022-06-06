@@ -47,7 +47,7 @@
 @if(isset($faq))
 
     <form class="admin-form" action="{{route("faqs_store")}}">
-        <input type="hidden" name="id" value="{{isset($faq->id) ? $faq->id : ''}}"">
+        <input type="hidden" name="id" value="{{isset($faq->id) ? $faq->id : ''}}">
         <div class="material-designs">
             <div class="guardado">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="24"

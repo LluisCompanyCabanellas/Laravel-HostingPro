@@ -9,13 +9,13 @@
 
         @include('front.component.desktop.titulos', ['title' => 'Preguntas frequentes'])
 
-        @include('front.pages.faq.desktop.faq')
+        @include('front.pages.faq.desktop.faq', ['faqs' => $faqs])
 
     @endif
 
     @if($agent->isMobile())
 
-        @include('front.pages.faq.mobile.faq')
+        @include('front.pages.faq.mobile.faq', ['faqs' => $faqs])
 
     @endif
 

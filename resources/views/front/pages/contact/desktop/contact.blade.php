@@ -44,7 +44,7 @@
             </div>
             <div class="column">
                 <div class="contact-form">
-                    <form>
+                    <form class="front-form" action="{{route("front_contact_form")}}">
                         <div class="desktop-two-columns">
                             <div class="column">
                                 <div class="form-element">
@@ -52,7 +52,7 @@
                                         <label>Nombre</label>
                                     </div>
                                     <div class="form-element-input">
-                                        <input class="name" type="text" name="name" value="{{isset($contact->name) ? $contact->name : ''}}">
+                                        <input class="name" type="text" name="name" value="">
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                         <label>Apellidos</label>
                                     </div>
                                     <div class="form-element-input">
-                                        <input class="name" type="text" name="name" value="{{isset($contact->name) ? $contact->name : ''}}">
+                                        <input class="surname" type="text" name="surname" value="">
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                                         <label>Teléfono</label>
                                     </div>
                                     <div class="form-element-input">
-                                        <input class="name" type="text" name="name" value="{{isset($contact->name) ? $contact->name : ''}}">
+                                        <input class="tel" type="tel" name="tel" value="">
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                                         <label>Email</label>
                                     </div>
                                     <div class="form-element-input">
-                                        <input class="email" type="text" name="email" value="{{isset($user->email) ? $user->email : ''}}">
+                                        <input class="email" type="text" name="email" value="">
                                     </div>
                                 </div>
                             </div>
@@ -96,16 +96,15 @@
                                         <label>Mensaje</label>
                                     </div>
                                     <div class="form-element-input">
-                                        <textarea name="message" class="message" cols="63"
-                                        rows="10">{{isset($contact->message) ? $contact->message : ''}}</textarea>
+                                        <textarea name="message" class="message" cols="63"rows="10"></textarea>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="desktop-one-column">
                             <div class="column">
-                                <div class="form-send-button">
-                                    <button>Enviar</button>
+                                <div class="guardado">
+                                    <button data-url="{{route('front_contact_form')}}">Enviar</button>
                                 </div>
                             </div>
                         </div>
