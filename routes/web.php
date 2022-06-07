@@ -131,6 +131,19 @@ Route::get('checkout', 'App\Http\Controllers\Front\CheckoutController@index')->n
 Route::get('faqs', 'App\Http\Controllers\Front\FaqController@index')->name('front_faqs');
 
 
-Route::get('productos', 'App\Http\Controllers\Front\ProductController@index')->name('front_products');
-// Route::get('productos/{product}', 'App\Http\Controllers\Front\ProductController@show')->name('');
+Route::get('productos', 'App\Http\Controllers\Front\ProductController@index')->name('front_products');//todos los datos 
+Route::get('productos/{product}', 'App\Http\Controllers\Front\ProductController@show')->name('front_product');// solo un dato
+
+
+
+
+
+
+
+
+
+
+
+
+
 

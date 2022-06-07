@@ -1,5 +1,4 @@
-<?php
-
+<?php 
 
 namespace App\Http\Controllers\Admin;
 
@@ -55,10 +54,6 @@ class ProductController extends Controller
        $view = View::make('admin.pages.products.index')
         ->with('product', $this->product)
         ->renderSections();
-        Debugbar::info($view['form']);
-
-
-      
 
         return response()->json([
             'form' => $view['form']
@@ -68,7 +63,6 @@ class ProductController extends Controller
     public function store(ProductRequest $request)
     {            
         
-
         $product = $this->product->updateOrCreate([
             'id' => request('id')],[
             'name' => request('name'),

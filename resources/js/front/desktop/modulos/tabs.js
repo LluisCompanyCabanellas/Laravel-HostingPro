@@ -1,7 +1,11 @@
-export let tabs = () => {
+export let renderTabs = () => {
 
     let tabs = document.querySelectorAll(".tab");
     let tabContents = document.querySelectorAll(".tab-content");
+    
+    document.addEventListener("renderProductModules",( event =>{
+        renderTabs();
+    }), {once: true});
 
     tabs.forEach(tab =>{
 

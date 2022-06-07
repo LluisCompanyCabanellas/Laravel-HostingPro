@@ -1,10 +1,10 @@
 <header>
     <div class="cabecera-menu-mobile mobile-only" id="cabecera-menu-mobile"> 
         <ul>
+            <li>HOME</li>
+            <li>PRODUCTOS</li>
             <li>CONTACTO</li>
-            <li>BLOG</li>
-            <li>AYUDA</li>
-            <li>ÁREA DE CLIENTES</li>
+            <li>FAQS</li>
         </ul>
     </div>
     <div class="cabecera">
@@ -51,10 +51,10 @@
                 </div>
                 <div class="cabecera-menu desktop-only"> 
                     <ul>
+                        <li>HOME</li>
+                        <li>PRODUCTOS</li>
                         <li>CONTACTO</li>
-                        <li>BLOG</li>
-                        <li>AYUDA</li>
-                        <li>ÁREA DE CLIENTES</li>
+                        <li>FAQS</li>
                     </ul>
                 </div>
             </div>

@@ -41,14 +41,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modulos_menu_hamburguer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modulos/menu-hamburguer.js */ "./resources/js/admin/desktop/modulos/menu-hamburguer.js");
 /* harmony import */ var _modulos_tabs_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modulos/tabs.js */ "./resources/js/admin/desktop/modulos/tabs.js");
 /* harmony import */ var _modulos_boton_sumar_restar_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modulos/boton-sumar-restar.js */ "./resources/js/admin/desktop/modulos/boton-sumar-restar.js");
-/* harmony import */ var _modulos_product_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modulos/product.js */ "./resources/js/admin/desktop/modulos/product.js");
-/* harmony import */ var _modulos_message_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modulos/message.js */ "./resources/js/admin/desktop/modulos/message.js");
-/* harmony import */ var _modulos_ckeditor_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modulos/ckeditor.js */ "./resources/js/admin/desktop/modulos/ckeditor.js");
-/* harmony import */ var _modulos_carrito_a_adir_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modulos/carrito-añadir.js */ "./resources/js/admin/desktop/modulos/carrito-añadir.js");
-/* harmony import */ var _modulos_form_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modulos/form.js */ "./resources/js/admin/desktop/modulos/form.js");
-/* harmony import */ var _modulos_table_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modulos/table.js */ "./resources/js/admin/desktop/modulos/table.js");
-/* harmony import */ var _modulos_modalDelete_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modulos/modalDelete.js */ "./resources/js/admin/desktop/modulos/modalDelete.js");
-
+/* harmony import */ var _modulos_message_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modulos/message.js */ "./resources/js/admin/desktop/modulos/message.js");
+/* harmony import */ var _modulos_ckeditor_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modulos/ckeditor.js */ "./resources/js/admin/desktop/modulos/ckeditor.js");
+/* harmony import */ var _modulos_carrito_a_adir_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modulos/carrito-añadir.js */ "./resources/js/admin/desktop/modulos/carrito-añadir.js");
+/* harmony import */ var _modulos_form_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modulos/form.js */ "./resources/js/admin/desktop/modulos/form.js");
+/* harmony import */ var _modulos_table_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modulos/table.js */ "./resources/js/admin/desktop/modulos/table.js");
+/* harmony import */ var _modulos_modalDelete_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modulos/modalDelete.js */ "./resources/js/admin/desktop/modulos/modalDelete.js");
 
 
 
@@ -63,13 +61,12 @@ __webpack_require__.r(__webpack_exports__);
 (0,_modulos_menu_hamburguer_js__WEBPACK_IMPORTED_MODULE_1__.menuButton)();
 (0,_modulos_boton_sumar_restar_js__WEBPACK_IMPORTED_MODULE_3__.botonSumarRestar)();
 (0,_modulos_tabs_js__WEBPACK_IMPORTED_MODULE_2__.tabs)();
-(0,_modulos_product_js__WEBPACK_IMPORTED_MODULE_4__.product)();
-(0,_modulos_message_js__WEBPACK_IMPORTED_MODULE_5__.message)();
-(0,_modulos_ckeditor_js__WEBPACK_IMPORTED_MODULE_6__.renderCkeditor)();
-(0,_modulos_carrito_a_adir_js__WEBPACK_IMPORTED_MODULE_7__.carrito)();
-(0,_modulos_form_js__WEBPACK_IMPORTED_MODULE_8__.renderForm)();
-(0,_modulos_table_js__WEBPACK_IMPORTED_MODULE_9__.renderTable)();
-(0,_modulos_modalDelete_js__WEBPACK_IMPORTED_MODULE_10__.renderModalDelete)();
+(0,_modulos_message_js__WEBPACK_IMPORTED_MODULE_4__.message)();
+(0,_modulos_ckeditor_js__WEBPACK_IMPORTED_MODULE_5__.renderCkeditor)();
+(0,_modulos_carrito_a_adir_js__WEBPACK_IMPORTED_MODULE_6__.carrito)();
+(0,_modulos_form_js__WEBPACK_IMPORTED_MODULE_7__.renderForm)();
+(0,_modulos_table_js__WEBPACK_IMPORTED_MODULE_8__.renderTable)();
+(0,_modulos_modalDelete_js__WEBPACK_IMPORTED_MODULE_9__.renderModalDelete)();
 
 /***/ }),
 
@@ -579,44 +576,6 @@ var renderModalDelete = function renderModalDelete() {
 
     sendDeleteRequest();
   });
-};
-
-/***/ }),
-
-/***/ "./resources/js/admin/desktop/modulos/product.js":
-/*!*******************************************************!*\
-  !*** ./resources/js/admin/desktop/modulos/product.js ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "product": () => (/* binding */ product)
-/* harmony export */ });
-var product = function product() {
-  var pays = document.querySelector(".pay");
-  var amount = document.querySelector(".plus-minus-input");
-
-  if (pays) {
-    pays.addEventListener("click", function () {
-      if (amount.value > 0) {
-        document.dispatchEvent(new CustomEvent('message', {
-          detail: {
-            text: 'Has añadido el producto con exito',
-            type: 'success'
-          }
-        }));
-      } else {
-        document.dispatchEvent(new CustomEvent('message', {
-          detail: {
-            text: 'Has añadido el producto con exito',
-            type: 'error'
-          }
-        }));
-      }
-    });
-  }
 };
 
 /***/ }),

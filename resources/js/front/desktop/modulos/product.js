@@ -4,6 +4,10 @@ export let product = () => {
     let pays = document.querySelector(".pay");
     let amount = document.querySelector(".plus-minus-input")
 
+    document.addEventListener("renderCounterModules", (event => {
+        product();
+    }), { once: true });
+
     if(pays) {
 
         pays.addEventListener("click", () => {

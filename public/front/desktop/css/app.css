@@ -657,23 +657,26 @@ form .form-send-button button:active {
   cursor: pointer;
 }
 
-.products-gallery {
+.products .products-gallery {
   background-color: #A1E8E8;
-  padding: 2rem 5%;
-}
-.products-gallery .product {
-  justify-content: flex-wrap;
+  padding: 2rem 2%;
   display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  width: 100%;
+}
+.products .products-gallery .product {
   border: 3px solid black;
   padding: 1rem;
-  margin-bottom: 2rem;
+  margin: 1rem 1rem;
   min-height: 35vh;
+  width: 25%;
 }
-.products-gallery .product .product-description {
+.products .products-gallery .product .product-description {
   min-height: 10vh;
   padding: 5% 0%;
 }
-.products-gallery .product .product-price span {
+.products .products-gallery .product .product-price span {
   font-weight: 600;
   font-size: 2.2em;
 }
