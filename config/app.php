@@ -187,6 +187,7 @@ return [
          */
 
         Jenssegers\Agent\AgentServiceProvider::class,
+        App\Providers\ViewComposerServiceProvider::class,
 
         /*
          * Application Service Providers...

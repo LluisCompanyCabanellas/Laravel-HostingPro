@@ -61,11 +61,11 @@ class ProductCategoryController extends Controller
     {            
         
         $product_category = $this->product_category->updateOrCreate([
-                'id' => request('id')],[
-                'name' => request('name'),
-                'title' => request('title'),
-                'visible' => 1,
-                'active' => 1,
+            'id' => request('id')],[
+            'name' => request('name'),
+            'title' => request('title'),
+            'visible' => 1,
+            'active' => 1,
         ]);
             
         $view = View::make('admin.pages.product_categories.index')
@@ -120,3 +120,8 @@ class ProductCategoryController extends Controller
         ]);
     }
 }
+
+
+
+
+

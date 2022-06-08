@@ -16,19 +16,18 @@ class ProductController extends Controller
 
     protected $product;
 
+
    
 
     public function __construct(Product $product)
-    {
-        
+    {        
         
         $this->product = $product; 
     }
     
+    
     public function index()
     {
-
-       
 
         $view = View::make('admin.pages.products.index')
                 ->with('product', $this->product)
@@ -70,7 +69,7 @@ class ProductController extends Controller
             'description' => request('description'),
             'price' => request('price'),
             'feature' => request('feature'),
-            'category_id' => 1,
+            'category_id' => request('category_id'),
             'visible' => 1,
             'active' => 1,
         ]);

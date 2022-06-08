@@ -4,18 +4,20 @@ namespace App\Http\Controllers\Front;
 
 use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;//llamar modelo
 use App\Models\Product;
 use Debugbar;
 
-class ProductController extends Controller
+class ProductController extends Controller//crear propiedad
 {
 
-    protected $product;	
+    protected $product;	        
 
     public function __construct(Product $product)
     {
         $this->product = $product;
+        
+
     }
 
 

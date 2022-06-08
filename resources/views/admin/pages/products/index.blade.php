@@ -95,7 +95,7 @@
                 <label>Título</label>
             </div>
             <div class="form-element-input">
-                <input class="title type="text" name="title" value="{{isset($product->title) ? $product->title : ''}}">
+                <input class="title" type="text" name="title" value="{{isset($product->title) ? $product->title : ''}}">
             </div>
         </div>
 
@@ -105,12 +105,11 @@
                     <label>Categorias</label>
                 </div>
                 <select name="category_id">
-                    <option>
-                         
-                        
-                    </option>
-                  </select>
-             
+                    <option>Selecciona una categoria</option>
+                    @foreach ($product_categories as $product_category)
+                        <option value="{{$product_category->id}}"> {{$product_category->title}} </option>
+                    @endforeach
+                </select>
             </div>
         </div>
 
