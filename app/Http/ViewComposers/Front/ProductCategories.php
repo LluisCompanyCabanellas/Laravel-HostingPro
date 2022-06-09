@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\ViewComposers\Admin;
+namespace App\Http\ViewComposers\Front;
 
 use Illuminate\View\View;
 use App\Models\ProductCategory;//traer el modelo

@@ -387,9 +387,9 @@ var renderProducts = function renderProducts() {
   var viewButtons = document.querySelectorAll('.view-product');
   var pays = document.querySelector(".pay");
   var amount = document.querySelector(".plus-minus-input");
-  viewButtons.forEach(function (viewButton) {
-    viewButton.addEventListener('click', function () {
-      var url = viewButton.dataset.url;
+  viewButtons.forEach(function (viewCategory) {
+    viewCategory.addEventListener('click', function () {
+      var url = viewCategory.dataset.url;
 
       var sendShowRequest = /*#__PURE__*/function () {
         var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -455,6 +455,55 @@ var renderProducts = function renderProducts() {
       }
     });
   }
+
+  viewCategory.forEach(function (viewCategory) {
+    viewCategory.addEventListener('click', function () {
+      var url = viewCategory.dataset.url;
+
+      var sendShowRequest = /*#__PURE__*/function () {
+        var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+          var response;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  _context2.next = 2;
+                  return fetch(url, {
+                    headers: {
+                      'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    method: 'GET'
+                  }).then(function (response) {
+                    if (!response.ok) throw response;
+                    return response.json();
+                  }).then(function (json) {
+                    mainContainer.innerHTML = json.content;
+                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                  })["catch"](function (error) {
+                    if (error.status == '500') {
+                      console.log(error);
+                    }
+                  });
+
+                case 2:
+                  response = _context2.sent;
+
+                case 3:
+                case "end":
+                  return _context2.stop();
+              }
+            }
+          }, _callee2);
+        }));
+
+        return function sendShowRequest() {
+          return _ref2.apply(this, arguments);
+        };
+      }();
+
+      sendShowRequest();
+    });
+  });
 };
 
 /***/ }),

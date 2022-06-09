@@ -136,7 +136,7 @@ Route::get('productos/{product}', 'App\Http\Controllers\Front\ProductController@
 
 
 
-
+Route::get('productcategory/{categoryId}', 'App\Http\Controllers\Front\ProductController@postByCategory')->name('posts_category');
 
 
 

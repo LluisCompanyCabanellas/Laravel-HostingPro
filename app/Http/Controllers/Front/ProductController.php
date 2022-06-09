@@ -25,6 +25,7 @@ class ProductController extends Controller//crear propiedad
     {
         $view = View::make('front.pages.products.index')
         ->with('products', $this->product->where('active', 1)->where('visible', 1)->get());
+        //products es el nombre de la variable
 
         return $view;
     }
@@ -45,6 +46,11 @@ class ProductController extends Controller//crear propiedad
         }
 
         return $view;
+    }
+
+    public function postByCategory($categoryId)
+    {
+        Category::where('id', $categoryId)->firstOrFail();
     }
 
 

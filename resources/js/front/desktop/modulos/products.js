@@ -6,11 +6,11 @@ export let renderProducts = () => {
     let pays = document.querySelector(".pay");
     let amount = document.querySelector(".plus-minus-input")
     
-    viewButtons.forEach(viewButton => {
+    viewButtons.forEach(viewCategory => {
  
-        viewButton.addEventListener('click', () => {
+        viewCategory.addEventListener('click', () => {
  
-            let url = viewButton.dataset.url;
+            let url = viewCategory.dataset.url;
  
             let sendShowRequest = async () => {
  
@@ -67,5 +67,46 @@ export let renderProducts = () => {
             }
         });
     }
+
+
+
+    viewCategory.forEach(viewCategory => {
+ 
+        viewCategory.addEventListener('click', () => {
+ 
+            let url = viewCategory.dataset.url;
+ 
+            let sendShowRequest = async () => {
+ 
+                let response = await fetch(url, {
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                    method: 'GET', 
+                })
+                .then(response => {
+ 
+                    if (!response.ok) throw response;
+ 
+                    return response.json();
+                })
+                .then(json => {
+ 
+                    mainContainer.innerHTML = json.content;
+               
+                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                })
+                .catch(error =>  {
+ 
+                    if(error.status == '500'){
+                        console.log(error);
+                    }
+                });
+            };
+ 
+            sendShowRequest();
+ 
+        });
+    });
 
 }

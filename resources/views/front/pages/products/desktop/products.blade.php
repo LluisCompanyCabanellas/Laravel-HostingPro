@@ -3,17 +3,20 @@
         <div class="column-aside">
             <div class="categories">
                 <div class="categories-title">
-                    <h3>CATEGORIAS</h3>
+                    <h3>FILTRAR CATEGORIAS</h3>
                 </div>
 
                 <div class="categories-elements">
-                    <ul>
-                        <li>Hosting</li>
-                        <li>Servidores VPS</li>
-                        <li>Dominios</li>
-                        <li>Certificados SSL</li>
-                    </ul>
-
+                    
+                        <ul>
+                            @foreach($product_categories as $category)
+                            <li>
+                                <input type="checkbox">
+                                <span {{route('posts_category', [$category->id])}}> </span>
+                    
+                            </li>
+                            @endforeach
+                        </ul>
                 </div>
             </div>
         </div>
