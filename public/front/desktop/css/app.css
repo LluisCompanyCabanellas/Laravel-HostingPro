@@ -656,6 +656,12 @@ form .form-send-button button:active {
 .categories .categories-elements ul li {
   cursor: pointer;
 }
+.categories .categories-elements ul li:hover {
+  color: #A1E8E8;
+}
+.categories .categories-elements ul li.active {
+  color: #A1E8E8;
+}
 
 .products .products-gallery {
   background-color: #A1E8E8;

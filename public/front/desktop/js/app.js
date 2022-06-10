@@ -385,11 +385,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 var renderProducts = function renderProducts() {
   var mainContainer = document.querySelector("main");
   var viewButtons = document.querySelectorAll('.view-product');
+  var categoryButtons = document.querySelectorAll('.category-button');
   var pays = document.querySelector(".pay");
   var amount = document.querySelector(".plus-minus-input");
-  viewButtons.forEach(function (viewCategory) {
-    viewCategory.addEventListener('click', function () {
-      var url = viewCategory.dataset.url;
+  document.addEventListener("renderProductModules", function (event) {
+    renderProducts();
+  }, {
+    once: true
+  });
+  viewButtons.forEach(function (categoryButton) {
+    categoryButton.addEventListener('click', function () {
+      var url = categoryButton.dataset.url;
 
       var sendShowRequest = /*#__PURE__*/function () {
         var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -456,9 +462,9 @@ var renderProducts = function renderProducts() {
     });
   }
 
-  viewCategory.forEach(function (viewCategory) {
-    viewCategory.addEventListener('click', function () {
-      var url = viewCategory.dataset.url;
+  categoryButtons.forEach(function (categoryButton) {
+    categoryButton.addEventListener('click', function () {
+      var url = categoryButton.dataset.url;
 
       var sendShowRequest = /*#__PURE__*/function () {
         var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {

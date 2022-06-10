@@ -49,6 +49,11 @@
                     <h2>{{ $product->price }} €</h2>
 
                 </div>
+
+                <div class="product-category">
+                    <h2>{{ $product->category->title }}</h2>
+
+                </div>
                 <div class="product-description">
                     <ul>
                         <li>{{ $product->description }}</li>

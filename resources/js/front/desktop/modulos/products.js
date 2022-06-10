@@ -3,14 +3,20 @@ export let renderProducts = () => {
 
     let mainContainer = document.querySelector("main");
     let viewButtons = document.querySelectorAll('.view-product');
+    let categoryButtons = document.querySelectorAll('.category-button');
     let pays = document.querySelector(".pay");
     let amount = document.querySelector(".plus-minus-input")
+
+    document.addEventListener("renderProductModules",( event =>{
+        renderProducts();
+    }), {once: true});
     
-    viewButtons.forEach(viewCategory => {
+    
+    viewButtons.forEach(categoryButton => {
  
-        viewCategory.addEventListener('click', () => {
+        categoryButton.addEventListener('click', () => {
  
-            let url = viewCategory.dataset.url;
+            let url = categoryButton.dataset.url;
  
             let sendShowRequest = async () => {
  
@@ -68,13 +74,11 @@ export let renderProducts = () => {
         });
     }
 
-
-
-    viewCategory.forEach(viewCategory => {
+    categoryButtons.forEach(categoryButton => {
  
-        viewCategory.addEventListener('click', () => {
+        categoryButton.addEventListener('click', () => {
  
-            let url = viewCategory.dataset.url;
+            let url = categoryButton.dataset.url;
  
             let sendShowRequest = async () => {
  

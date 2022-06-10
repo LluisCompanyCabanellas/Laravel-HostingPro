@@ -121,22 +121,16 @@ Route::get('home', 'App\Http\Controllers\Front\HomeController@index')->name('fro
 Route::get('contacto', 'App\Http\Controllers\Front\ContactController@index')->name('front_contact');
 Route::post('contacto', 'App\Http\Controllers\Front\ContactController@store')->name('front_contact_form');
 
-
 Route::get('carrito', 'App\Http\Controllers\Front\CarritoController@index')->name('front_carrito');
-
 
 Route::get('checkout', 'App\Http\Controllers\Front\CheckoutController@index')->name('front_checkout');
 
-
 Route::get('faqs', 'App\Http\Controllers\Front\FaqController@index')->name('front_faqs');
-
 
 Route::get('productos', 'App\Http\Controllers\Front\ProductController@index')->name('front_products');//todos los datos 
 Route::get('productos/{product}', 'App\Http\Controllers\Front\ProductController@show')->name('front_product');// solo un dato
 
-
-
-Route::get('productcategory/{categoryId}', 'App\Http\Controllers\Front\ProductController@postByCategory')->name('posts_category');
+Route::get('productos/categoria/{category}', 'App\Http\Controllers\Front\ProductCategoryController@show')->name('posts_category');
 
 
 

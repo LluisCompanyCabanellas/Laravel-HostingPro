@@ -15,8 +15,6 @@
 }
 
 
-
-
 .categories{
     background-color: #7495DF;
     min-height: 100vh;
@@ -31,6 +29,14 @@
 
         ul li{
             cursor: pointer;
+        }
+
+        ul li:hover{
+            color: #A1E8E8;
+        }
+
+        ul li.active{
+            color: #A1E8E8;
         }
     }
 }

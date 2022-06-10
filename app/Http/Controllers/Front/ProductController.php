@@ -47,12 +47,5 @@ class ProductController extends Controller//crear propiedad
 
         return $view;
     }
-
-    public function postByCategory($categoryId)
-    {
-        Category::where('id', $categoryId)->firstOrFail();
-    }
-
-
 }
 

@@ -7,20 +7,16 @@
                 </div>
 
                 <div class="categories-elements">
-                    
-                        <ul>
-                            @foreach($product_categories as $category)
-                            <li>
-                                <input type="checkbox">
-                                <span {{route('posts_category', [$category->id])}}> </span>
-                    
-                            </li>
-                            @endforeach
-                        </ul>
+                    <ul>
+                        @foreach($product_categories as $category_element)
+                            <li class="category-button {{isset($category) && $category->id == $category_element->id ? 'active' : '' }}" data-url="{{route('posts_category', ['category' => $category_element->id])}}">{{$category_element->title}}</li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
         <div class="column-main">
+
             @if (isset($products))
 
             <div class="products-gallery">
