@@ -7,6 +7,9 @@ import { renderCkeditor } from './modulos/ckeditor.js';
 import {carrito} from './modulos/carrito-añadir.js';
 import {renderForm} from './modulos/form.js';
 import {renderProducts} from './modulos/products.js';
+import {renderMenu} from './modulos/menu.js';
+
+
 
 faq();
 menuButton();
@@ -17,4 +20,5 @@ renderCkeditor();
 carrito();
 renderForm();
 renderProducts();
+renderMenu();
 
