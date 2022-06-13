@@ -11,7 +11,8 @@ use Debugbar;
 class ProductController extends Controller//crear propiedad
 {
 
-    protected $product;	        
+    protected $product;
+    protected $product_category;	        
 
     public function __construct(Product $product)
     {
@@ -46,6 +47,40 @@ class ProductController extends Controller//crear propiedad
         }
 
         return $view;
+    } 
+
+    public function order($order)
+    {
+
+        $view = View::make('front.pages.products.index')->with('product', $order);
+
+        if ($order == 'price_asc') {
+            $view->with('products', $this->product->where('active', 1)->where('visible', 1)->orderBy('price', 'asc')->get())
+            ->with('order', 'price_asc');
+        }
+        elseif ($order == 'price_desc') {
+            $view->with('products', $this->product->where('active', 1)->where('visible', 1)->orderBy('price', 'desc')->get())
+            ->with('order', 'price_desc');
+        }
+        else{
+            $view->with('products', $this->product->where('active', 1)->where('visible', 1)->get());
+        }
+       
+    
+
+    if(request()->ajax()) {
+
+        $sections = $view->renderSections();
+
+        return response()->json([
+
+            'content' => $sections['content'],
+            
+        ]);
     }
+
+    return $view; 
+}
+
 }
 

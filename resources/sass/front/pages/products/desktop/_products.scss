@@ -14,6 +14,18 @@
     margin-top: 1%;
 }
 
+.order-price{
+    margin-left:80%;
+    font-weight: 600;
+
+    option{
+        font-weight: 600;
+    }
+
+  
+   
+}
+
 
 .categories{
     background-color: #7495DF;
@@ -50,7 +62,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: start;
-        width: 100%;
+        width: 95%;
 
         .product{
          

@@ -16,12 +16,19 @@
             </div>
         </div>
         <div class="column-main">
+          
+         <select name="select" class="order-price" value="{{isset($value) ? $active : ''}}">
+            <option class="order-content" value="">Ordenar por precio</option>
+            <option class="order-content" value="{{route('front_order_price', ['order' => 'price_desc'])}}" {{ isset($order) && $order == 'price_desc' ? 'selected' : ''}}>De mayor a menor</option>
+            <option class="order-content" value="{{route('front_order_price', ['order' => 'price_asc'])}}" {{ isset($order) && $order == 'price_desc' ? 'selected' : ''}}>De menor a mayor</option>
+        </select>
 
             @if (isset($products))
 
             <div class="products-gallery">
-
                 @foreach($products as $product)
+
+                
                     <div class="product">
                         <div class="column">
                             <div class="product-image">

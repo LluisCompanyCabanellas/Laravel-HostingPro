@@ -131,7 +131,7 @@ Route::get('productos', 'App\Http\Controllers\Front\ProductController@index')->n
 Route::get('productos/{product}', 'App\Http\Controllers\Front\ProductController@show')->name('front_product');// solo un dato
 
 Route::get('productos/categoria/{category}', 'App\Http\Controllers\Front\ProductCategoryController@show')->name('posts_category');
-
+Route::get('productos/order/{order}', 'App\Http\Controllers\Front\ProductController@order')->name('front_order_price');
 
 
 

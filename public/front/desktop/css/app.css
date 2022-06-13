@@ -644,6 +644,14 @@ form .form-send-button button:active {
   margin-top: 1%;
 }
 
+.order-price {
+  margin-left: 80%;
+  font-weight: 600;
+}
+.order-price option {
+  font-weight: 600;
+}
+
 .categories {
   background-color: #7495DF;
   min-height: 100vh;
@@ -669,7 +677,7 @@ form .form-send-button button:active {
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
-  width: 100%;
+  width: 95%;
 }
 .products .products-gallery .product {
   border: 3px solid black;
