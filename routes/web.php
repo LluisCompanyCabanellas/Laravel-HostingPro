@@ -135,6 +135,10 @@ Route::get('productos/order/{order}', 'App\Http\Controllers\Front\ProductControl
 
 
 
+Route::get('/productos', 'App\Http\Controllers\Front\ProductController@searcher')->name('productos');
+
+
+
 
 
 

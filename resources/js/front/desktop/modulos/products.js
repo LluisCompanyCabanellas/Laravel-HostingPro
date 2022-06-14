@@ -6,6 +6,7 @@ export let renderProducts = () => {
     let pays = document.querySelector(".pay");
     let amount = document.querySelector(".plus-minus-input");
     let orderPrice = document.querySelector(".order-price");
+    let searchProduct = document.querySelector(".searcherproduct")
   
 
     document.addEventListener("renderProductModules",( event =>{
@@ -156,6 +157,51 @@ export let renderProducts = () => {
             sendOrderRequest();
 
         });
-    }         
+    }    
+    
+    
+    if(searchProduct) {
+            
+        searchProduct.addEventListener('change', (event) => {
+
+            event.preventDefault();
+
+            let url = searchProduct.value;
+
+            let sendOrderRequest = async () => {
+                    
+                    let response = await fetch(url, {
+
+                        headers: {
+                            'X-Requested-With': 'XMLHttpRequest',
+                        },
+
+                        method: 'GET',
+                    })
+                    .then(response => {
+                        
+                        if (!response.ok) throw response;
+
+                        return response.json();
+                    })
+                    .then(json => {
+                        mainContainer.innerHTML = json.content;
+                                                    
+                        document.dispatchEvent(new CustomEvent('renderProductModules'));
+                    })
+                    .catch ( error => {
+
+                        if(error.status == '500'){
+                            console.log(error);
+
+                        }
+
+                    });
+        }
+
+        sendOrderRequest();
+
+    });
+}         
         
 }

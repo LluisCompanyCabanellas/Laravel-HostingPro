@@ -18,7 +18,20 @@ class ProductController extends Controller//crear propiedad
     {
         $this->product = $product;
         
+        
 
+    }
+
+   public function searcher(Request $request)
+    {
+    	$name  = $request->get('name');
+    	
+
+    	$products = Product::orderBy('name', 'DESC');
+    		
+    
+
+    	return view('product', compact('products'));
     }
 
 
@@ -83,4 +96,3 @@ class ProductController extends Controller//crear propiedad
 }
 
 }
-

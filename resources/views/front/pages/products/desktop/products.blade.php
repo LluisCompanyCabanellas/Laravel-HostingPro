@@ -16,6 +16,18 @@
             </div>
         </div>
         <div class="column-main">
+
+            <form action="" method="post" value="" class="searcherproduct">
+
+                
+              
+                  <input type="search" name="buscador" placeholder="..........." value="{{}}">
+              
+                  <input type="submit" value="Buscar" value="{{}}">
+              
+                
+              
+              </form>
           
          <select name="select" class="order-price" value="{{isset($value) ? $active : ''}}">
             <option class="order-content" value="">Ordenar por precio</option>
