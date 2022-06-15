@@ -33,6 +33,11 @@ class ViewComposerServiceProvider extends ServiceProvider
             'App\Http\ViewComposers\Front\ProductCategories'
         );
 
+        view()->composer([
+            'admin.pages.products.index'],
+            'App\Http\ViewComposers\Admin\Taxes'
+        );
+
 
 
     }

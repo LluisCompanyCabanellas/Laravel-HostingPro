@@ -13,16 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('prices', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('title');
-            $table->text('description');
-            $table->text('specs');
-            $table->float('price');
-            $table->integer('category_id'); // fk() es una función de Laravel que crea una clave foránea.
+            $table->float('base_price');
+            $table->integer('tax_id');
+            $table->integer('product_id');
             $table->boolean('active')->default(false);
-            $table->boolean('visible')->default(false);
+            $table->boolean('valid');
             $table->timestamps();
         });
     }
@@ -34,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('price');
     }
 };

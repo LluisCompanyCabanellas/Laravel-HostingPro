@@ -19,13 +19,10 @@
 
             <form action="" method="post" value="" class="searcherproduct">
 
-                
+                  <input type="search" name="buscador" placeholder="..........." value="">
               
-                  <input type="search" name="buscador" placeholder="..........." value="{{}}">
-              
-                  <input type="submit" value="Buscar" value="{{}}">
-              
-                
+                  <input type="submit" value="Buscar">
+
               
               </form>
           

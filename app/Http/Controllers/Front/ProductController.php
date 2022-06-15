@@ -12,27 +12,15 @@ class ProductController extends Controller//crear propiedad
 {
 
     protected $product;
-    protected $product_category;	        
+  	        
 
     public function __construct(Product $product)
     {
         $this->product = $product;
-        
-        
 
     }
 
-   public function searcher(Request $request)
-    {
-    	$name  = $request->get('name');
-    	
-
-    	$products = Product::orderBy('name', 'DESC');
-    		
-    
-
-    	return view('product', compact('products'));
-    }
+ 
 
 
     public function index()
@@ -78,9 +66,9 @@ class ProductController extends Controller//crear propiedad
         else{
             $view->with('products', $this->product->where('active', 1)->where('visible', 1)->get());
         }
-       
-    
 
+
+        
     if(request()->ajax()) {
 
         $sections = $view->renderSections();

@@ -119,9 +119,23 @@
                     <label>Precio</label>
                 </div>
                 <div class="form-element-input">
-                    <input class="price" type="number" name="price"
-                        value="{{isset($product->price) ? $product->price : ''}}">
+                    <input type="number" name="base_price" value="{{isset($product->prices->first()->base_price) ? $product->prices->first()->base_price : ''}}">
                 </div>
+            </div>
+        </div>
+
+        
+        <div class="column">
+            <div class="form-element">
+                <div class="form-element-label">
+                    <label>IVA</label>
+                </div>
+                <select name="tax_id">
+                    <option>Seleccione un IVA</option>
+                    @foreach ($taxes as $tax)
+                        <option value="{{$tax->id}}"> {{$tax->type}} </option>
+                    @endforeach
+                </select>
             </div>
         </div>
     </div>
