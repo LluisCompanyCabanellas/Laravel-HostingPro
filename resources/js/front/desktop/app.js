@@ -8,6 +8,7 @@ import {carrito} from './modulos/carrito-añadir.js';
 import {renderForm} from './modulos/form.js';
 import {renderProducts} from './modulos/products.js';
 import {renderMenu} from './modulos/menu.js';
+import {renderNumberProducts} from './modulos/cart.js';
 
 
 
@@ -21,4 +22,5 @@ carrito();
 renderForm();
 renderProducts();
 renderMenu();
+renderNumberProducts();
 

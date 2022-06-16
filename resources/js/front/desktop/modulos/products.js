@@ -165,41 +165,45 @@ export let renderProducts = () => {
 
     if(search) {
             
-        search.addEventListener('change', (event) => {
+        search.addEventListener('click', (event) => {
 
             event.preventDefault();
 
-            let url = search.value;
+            let data = new FormData(form); // FormData es un objeto que nos permite capturar los datos del formulario.
+            let url = form.action;
 
             let sendOrderRequest = async () => {
                     
-                    let response = await fetch(url, {
+            let response = await fetch(url, {
 
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest',
-                        },
+                headers: {
+                    'Accept': 'application/json',
+                    'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                },
 
-                        method: 'GET',
-                    })
-                    .then(response => {
-                        
-                        if (!response.ok) throw response;
+                method: 'POST',
+                body: data
 
-                        return response.json();
-                    })
-                    .then(json => {
-                        mainContainer.innerHTML = json.content;
-                                                    
-                        document.dispatchEvent(new CustomEvent('renderProductModules'));
-                    })
-                    .catch ( error => {
+            })
+            .then(response => {
+                
+                if (!response.ok) throw response;
 
-                        if(error.status == '500'){
-                            console.log(error);
+                return response.json();
+            })
+            .then(json => {
+                mainContainer.innerHTML = json.content;
+                                            
+                document.dispatchEvent(new CustomEvent('renderProductModules'));
+            })
+            .catch ( error => {
 
-                        }
+                if(error.status == '500'){
+                    console.log(error);
 
-                    });
+                }
+
+            });
         }
 
         sendOrderRequest();
@@ -209,3 +213,4 @@ export let renderProducts = () => {
     
    
 }
+

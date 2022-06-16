@@ -85,11 +85,12 @@ class ProductController extends Controller//crear propiedad
 
 
 
-    public function search($searh)
+    public function search(Request $request)
     {
+        
 
-        $view = View::make('front.pages.product.index')->with('product', $search)
-        Debugbar::($view);
+        $view = View::make('front.pages.product.index')->with('product', $search);
+       Debugbar::info($search);
 
         if(request()->ajax()) {
 
@@ -99,7 +100,7 @@ class ProductController extends Controller//crear propiedad
 
                 'content' => $sections['content'],
                 
-            ]);
+            ]);      
         }
 
 

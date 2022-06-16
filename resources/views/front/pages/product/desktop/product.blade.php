@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="product-price">
-                    <h2>{{ $product->price }} €</h2>
+                    <h2>{{ $product->prices->first()->base_price }} €</h2>
 
                 </div>
 
@@ -76,7 +76,20 @@
                     <div class="notification">
                         <p class="notification-message"></p>
                     </div>
+
+                    for ( $i = 0; $i < 10; $i++ ) {
+
+                        
+                    <form action="">
+
+                        <input type="hidden" id="price_id" value="" name="quantiti" >
+
+                    </form>
+
                     <button class="pay">COMPRAR</button>
+
+                    }
+
                     
                 </div> 
                 

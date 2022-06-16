@@ -1,5 +1,5 @@
 <div class="products">
-    <div class="desktop-two-columns-aside">1
+    <div class="desktop-two-columns-aside">
         <div class="column-aside">
             <div class="categories">
                 <div class="categories-title">
@@ -17,16 +17,15 @@
         </div>
         <div class="column-main">
 
-            <form action="" method="post" value="" class="searcherproduct">
+            <form action="{{route('front_products_search')}}"  class="searcherproduct">
+                <input type="search" name="buscador" placeholder="..........." value="">
+            </form>
 
-                  <input type="search" name="buscador" placeholder="..........." value="{{">
-              
-                  <input type="submit" value="Buscar" class="searcher">
 
-              
-              </form>
+            <button class="searcher">Buscar</button>
+
           
-         <select name="select" class="order-price" value="{{isset($value) ? $active : ''}}">
+        <select name="select" class="order-price" value="{{isset($value) ? $active : ''}}">
             <option class="order-content" value="">Ordenar por precio</option>
             <option class="order-content" value="{{route('front_order_price', ['order' => 'price_desc'])}}" {{ isset($order) && $order == 'price_desc' ? 'selected' : ''}}>De mayor a menor</option>
             <option class="order-content" value="{{route('front_order_price', ['order' => 'price_asc'])}}" {{ isset($order) && $order == 'price_desc' ? 'selected' : ''}}>De menor a mayor</option>
@@ -58,7 +57,7 @@
                             </div>
                             <div class="product-price">
                                 <div class="howmuch">
-                                    <span>{!! $product->price !!}</span>
+                                    <span>{{ $product->prices->first()->base_price }}</span>
                                 </div>
                                 <div class="moneda">
 
