@@ -83,4 +83,26 @@ class ProductController extends Controller//crear propiedad
     return $view; 
 }
 
+
+
+    public function search($searh)
+    {
+
+        $view = View::make('front.pages.product.index')->with('product', $search)
+        Debugbar::($view);
+
+        if(request()->ajax()) {
+
+            $sections = $view->renderSections();
+
+            return response()->json([
+
+                'content' => $sections['content'],
+                
+            ]);
+        }
+
+
+    }
+
 }

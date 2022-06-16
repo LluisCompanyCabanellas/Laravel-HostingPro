@@ -1,5 +1,5 @@
 <div class="products">
-    <div class="desktop-two-columns-aside">
+    <div class="desktop-two-columns-aside">1
         <div class="column-aside">
             <div class="categories">
                 <div class="categories-title">
@@ -19,9 +19,9 @@
 
             <form action="" method="post" value="" class="searcherproduct">
 
-                  <input type="search" name="buscador" placeholder="..........." value="">
+                  <input type="search" name="buscador" placeholder="..........." value="{{">
               
-                  <input type="submit" value="Buscar">
+                  <input type="submit" value="Buscar" class="searcher">
 
               
               </form>
