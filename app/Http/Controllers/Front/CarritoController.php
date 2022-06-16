@@ -12,4 +12,10 @@ class CarritoController extends Controller
     {
         return view('front.pages.carrito.index');
     }
+
+
+    public function create ()
+    {
+        return view('front.pages.carrito.create');
+    }
 }
