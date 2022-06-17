@@ -90,7 +90,7 @@ class ProductController extends Controller//crear propiedad
         
 
         $view = View::make('front.pages.product.index')->with('product', $search);
-       Debugbar::info($search);
+        Debugbar::info($search);
 
         if(request()->ajax()) {
 
@@ -105,5 +105,6 @@ class ProductController extends Controller//crear propiedad
 
 
     }
+    
 
 }

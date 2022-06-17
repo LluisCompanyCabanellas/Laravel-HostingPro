@@ -1,63 +1,67 @@
 
-export let renderNumberProducts = () => {
+export let renderCart = () => {
 
-let numberProducts = document.querySelectorAll("pay");
-    
-  
+    let payButton = document.querySelector(".pay");
+    let forms = document.querySelectorAll(".add-to-cart");
 
-document.addEventListener("renderProductModules",( event =>{
-    renderProducts();
-}), {once: true});
-
-
+        
+    document.addEventListener("renderProductModules",( event =>{
+        renderCart();
+    }), {once: true});
 
 
-if(numberProducts) {
-            
-    numberProducts.addEventListener('click', (event) => {
-
-        event.preventDefault();
-
-        let data = new FormData(form); // FormData es un objeto que nos permite capturar los datos del formulario.
-        let url = form.action;
-
-        let sendOrderRequest = async () => {
+    if(payButton) {
                 
-        let response = await fetch(url, {
+        payButton.addEventListener('click', (event) => {
 
-            headers: {
-                'Accept': 'application/json',
-                'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
-            },
+            event.preventDefault();
 
-            method: 'POST',
-            body: data
+            forms.forEach(form => { 
 
-        })
-        .then(response => {
-            
-            if (!response.ok) throw response;
+                let data = new FormData(form); // FormData es un objeto que nos permite capturar los datos del formulario.
+                let url = form.action;
 
-            return response.json();
-        })
-        .then(json => {
-            mainContainer.innerHTML = json.content;
-                                        
-            document.dispatchEvent(new CustomEvent('renderProductModules'));
-        })
-        .catch ( error => {
+                let sendOrderRequest = async () => {
+                        
+                    let response = await fetch(url, {
 
-            if(error.status == '500'){
-                console.log(error);
+                        headers: {
+                            'Accept': 'application/json',
+                            'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                        },
 
-            }
+                        method: 'POST',
+                        body: data
+
+                    })
+                    .then(response => {
+                        
+                        if (!response.ok) throw response;
+
+                        return response.json();
+                    })
+                    .then(json => {
+                        mainContainer.innerHTML = json.content;
+                                                    
+                        document.dispatchEvent(new CustomEvent('renderProductModules'));
+                    })
+                    .catch ( error => {
+
+                        if(error.status == '500'){
+                            console.log(error);
+
+                        }
+
+                    });
+                }
+
+                sendOrderRequest();
+            });
 
         });
-    }
+    }    
 
-    sendOrderRequest();
 
-});
-}    
+    
 
 }

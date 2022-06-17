@@ -17,12 +17,12 @@
         </div>
         <div class="column-main">
 
-            <form action="{{route('front_products_search')}}"  class="searcherproduct">
-                <input type="search" name="buscador" placeholder="..........." value="">
+            <form class="searcherproduct" action="{{route('front_products_search')}}" >
+
+                <input  id="" type="search" name="buscador" placeholder="..........." value="">         
+                <button class="searcher">Buscar</button>
+
             </form>
-
-
-            <button class="searcher">Buscar</button>
 
           
         <select name="select" class="order-price" value="{{isset($value) ? $active : ''}}">

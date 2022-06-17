@@ -59,6 +59,8 @@
                         <li>{{ $product->description }}</li>
                        
                     </ul>
+                    
+
                 </div>
 
                 @include('front.component.desktop.tabs')
@@ -69,27 +71,27 @@
                         <h3>Cantidad de días</h3>
                     </div>
 
-                    @include('front.component.desktop.plusminus')
+                    <form class="add-to-cart" action="{{route("front_add_carrito")}}">
+
+                        <input id="price_id" type="hidden" name="price_id" value="{{$product->prices->first()->id}}">
+
+                        <div class="plus-minus-button">
+                            <button class="minus">-</button>
+                            <input class="plus-minus-input" type="number" value="1" name="quantity">
+                            <button class="plus">+</button>
+                        </div>    
+                    </form>
+            
                 </div>
+
 
                 <div class="product-button-two">
                     <div class="notification">
                         <p class="notification-message"></p>
                     </div>
-
-                    for ( $i = 0; $i < 10; $i++ ) {
-
-                        
-                    <form action="">
-
-                        <input type="hidden" id="price_id" value="" name="quantiti" >
-
-                    </form>
+        
 
                     <button class="pay">COMPRAR</button>
-
-                    }
-
                     
                 </div> 
                 

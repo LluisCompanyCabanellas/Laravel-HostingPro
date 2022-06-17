@@ -6,14 +6,11 @@ export let renderProducts = () => {
     let pays = document.querySelector(".pay");
     let amount = document.querySelector(".plus-minus-input");
     let orderPrice = document.querySelector(".order-price");
-    let search = document.querySelectorAll("searcher")
+    let search = document.querySelector(".searcher");
     
-  
-
     document.addEventListener("renderProductModules",( event =>{
         renderProducts();
     }), {once: true});
-    
     
     viewButtons.forEach(categoryButton => {
  
@@ -118,41 +115,41 @@ export let renderProducts = () => {
 
     if(orderPrice) {
             
-            orderPrice.addEventListener('change', (event) => {
+        orderPrice.addEventListener('change', (event) => {
 
-                event.preventDefault();
+            event.preventDefault();
 
-                let url = orderPrice.value;
+            let url = orderPrice.value;
 
-                let sendOrderRequest = async () => {
-                        
-                        let response = await fetch(url, {
+            let sendOrderRequest = async () => {
+                
+                let response = await fetch(url, {
 
-                            headers: {
-                                'X-Requested-With': 'XMLHttpRequest',
-                            },
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
 
-                            method: 'GET',
-                        })
-                        .then(response => {
-                            
-                            if (!response.ok) throw response;
+                    method: 'GET',
+                })
+                .then(response => {
+                    
+                    if (!response.ok) throw response;
 
-                            return response.json();
-                        })
-                        .then(json => {
-                            mainContainer.innerHTML = json.content;
-                                                        
-                            document.dispatchEvent(new CustomEvent('renderProductModules'));
-                        })
-                        .catch ( error => {
+                    return response.json();
+                })
+                .then(json => {
+                    mainContainer.innerHTML = json.content;
+                                                
+                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                })
+                .catch ( error => {
 
-                            if(error.status == '500'){
-                                console.log(error);
+                    if(error.status == '500'){
+                        console.log(error);
 
-                            }
+                    }
 
-                        });
+                });
             }
 
             sendOrderRequest();
@@ -165,7 +162,7 @@ export let renderProducts = () => {
 
     if(search) {
             
-        search.addEventListener('click', (event) => {
+        search.addEventListener('click', () => {
 
             event.preventDefault();
 
@@ -174,42 +171,42 @@ export let renderProducts = () => {
 
             let sendOrderRequest = async () => {
                     
-            let response = await fetch(url, {
+                let response = await fetch(url, {
 
-                headers: {
-                    'Accept': 'application/json',
-                    'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
-                },
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                    },
 
-                method: 'POST',
-                body: data
+                    method: 'POST',
+                    body: data
 
-            })
-            .then(response => {
-                
-                if (!response.ok) throw response;
+                })
+                .then(response => {
+                    
+                    if (!response.ok) throw response;
 
-                return response.json();
-            })
-            .then(json => {
-                mainContainer.innerHTML = json.content;
-                                            
-                document.dispatchEvent(new CustomEvent('renderProductModules'));
-            })
-            .catch ( error => {
+                    return response.json();
+                })
+                .then(json => {
+                    mainContainer.innerHTML = json.content;
+                                                
+                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                })
+                .catch ( error => {
 
-                if(error.status == '500'){
-                    console.log(error);
+                    if(error.status == '500'){
+                        console.log(error);
 
-                }
+                    }
 
-            });
-        }
+                });
+            }
 
-        sendOrderRequest();
+            sendOrderRequest();
 
-    });
-}    
+        });
+    }    
     
    
 }

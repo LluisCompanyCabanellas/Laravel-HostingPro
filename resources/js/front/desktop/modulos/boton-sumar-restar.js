@@ -9,8 +9,10 @@ export let botonSumarRestar = () => {
     }), {once: true});
 
     pluses.forEach(plus => {
-        plus.addEventListener("click", () => {
-    
+        plus.addEventListener("click", (event) => {
+
+            event.preventDefault();
+
             console.log(plus.parentNode.querySelector('.plus-minus-input'));
 
             let input = plus.parentNode.querySelector('.plus-minus-input')
@@ -20,8 +22,9 @@ export let botonSumarRestar = () => {
     });
         
     minuses.forEach(minus=> {
+        minus.addEventListener("click", (event) => {
 
-        minus.addEventListener("click", () => {
+            event.preventDefault();
 
             let input = minus.parentNode.querySelector('.plus-minus-input')
 
@@ -30,6 +33,11 @@ export let botonSumarRestar = () => {
              }
         });
     });
+
+    
+
+
+
 }
 
 
