@@ -7,6 +7,7 @@ export let renderProducts = () => {
     let amount = document.querySelector(".plus-minus-input");
     let orderPrice = document.querySelector(".order-price");
     let search = document.querySelector(".searcher");
+    let form = document.querySelector(".searcherproduct");
     
     document.addEventListener("renderProductModules",( event =>{
         renderProducts();
@@ -162,11 +163,12 @@ export let renderProducts = () => {
 
     if(search) {
             
-        search.addEventListener('click', () => {
+        search.addEventListener('click', (event) => {
 
             event.preventDefault();
 
-            let data = new FormData(form); // FormData es un objeto que nos permite capturar los datos del formulario.
+            let data = new FormData(form); 
+            console.log(data);
             let url = form.action;
 
             let sendOrderRequest = async () => {

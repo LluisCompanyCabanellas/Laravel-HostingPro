@@ -19,7 +19,7 @@
 
             <form class="searcherproduct" action="{{route('front_products_search')}}" >
 
-                <input  id="" type="search" name="buscador" placeholder="..........." value="">         
+                <input  id="" type="search" name="buscador" placeholder="..........." value="">        
                 <button class="searcher">Buscar</button>
 
             </form>

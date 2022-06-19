@@ -45,8 +45,8 @@ class CarritoController extends Controller
 
 
             
-        $view = View::make('front.pages.product.index')->renderSections();  
-        ->with('carts', $this->cart->where('active', 1)->where('visible', 1)->get());
+        //$view = View::make('front.pages.product.index')->renderSections();  
+        //->with('carts', $this->cart->where('active', 1)->where('visible', 1)->get());
               
 
         return response()->json([

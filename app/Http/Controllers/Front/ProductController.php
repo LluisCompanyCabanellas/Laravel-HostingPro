@@ -87,10 +87,17 @@ class ProductController extends Controller//crear propiedad
 
     public function search(Request $request)
     {
+
+        $buscador = request('buscador');
+
         
 
-        $view = View::make('front.pages.product.index')->with('product', $search);
-        Debugbar::info($search);
+        $view = View::make('front.pages.products.index')->with('products', $this->product->where('title', 'LIKE', $buscador)->get());
+
+       
+
+
+
 
         if(request()->ajax()) {
 
