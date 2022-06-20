@@ -40,12 +40,13 @@ class CarritoController extends Controller
         $carts = $this->cart->select(DB::raw('count(price_id) as quantity'), 'price_id')
             ->groupByRaw('price_id')
             ->where('fingerprint', 1)
+            ->where('fingerprint', $cart->fingerprint)
             ->get();
             
-        $view = View::make('front.pages.carrito.index')
-        ->with('carts', $carts)
-        ->with('fingerprint', $cart->fingerprint)
-        ->renderSections();  
+            $sections = View::make('front.pages.cart.index')
+            ->with('carts', $carts)
+            ->with('fingerprint', $cart->fingerprint)
+            ->renderSections();
               
 
         return response()->json([
