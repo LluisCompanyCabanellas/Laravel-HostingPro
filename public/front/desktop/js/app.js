@@ -556,6 +556,7 @@ var renderProducts = function renderProducts() {
   var amount = document.querySelector(".plus-minus-input");
   var orderPrice = document.querySelector(".order-price");
   var search = document.querySelector(".searcher");
+  var form = document.querySelector(".searcherproduct");
   document.addEventListener("renderProductModules", function (event) {
     renderProducts();
   }, {
@@ -730,10 +731,9 @@ var renderProducts = function renderProducts() {
   }
 
   if (search) {
-    search.addEventListener('click', function () {
+    search.addEventListener('click', function (event) {
       event.preventDefault();
-      var data = new FormData(form); // FormData es un objeto que nos permite capturar los datos del formulario.
-
+      var data = new FormData(form);
       var url = form.action;
 
       var sendOrderRequest = /*#__PURE__*/function () {
@@ -755,6 +755,7 @@ var renderProducts = function renderProducts() {
                     if (!response.ok) throw response;
                     return response.json();
                   }).then(function (json) {
+                    console.log(json.content);
                     mainContainer.innerHTML = json.content;
                     document.dispatchEvent(new CustomEvent('renderProductModules'));
                   })["catch"](function (error) {

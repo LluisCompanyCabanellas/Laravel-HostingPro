@@ -12,6 +12,7 @@ class ProductController extends Controller//crear propiedad
 {
 
     protected $product;
+    
   	        
 
     public function __construct(Product $product)
@@ -89,26 +90,18 @@ class ProductController extends Controller//crear propiedad
     {
 
         $buscador = request('buscador');
-
         
-
         $view = View::make('front.pages.products.index')->with('products', $this->product->where('title', 'LIKE', $buscador)->get());
 
-       
 
+        $sections = $view->renderSections();
 
+        return response()->json([
 
-
-        if(request()->ajax()) {
-
-            $sections = $view->renderSections();
-
-            return response()->json([
-
-                'content' => $sections['content'],
-                
-            ]);      
-        }
+            'content' => $sections['content'],
+            
+        ]);      
+    
 
 
     }
