@@ -8,7 +8,6 @@ class Price extends Model
 {
     protected $guarded = [];
 
-
     public function product()
     {
         return $this->belongsTo(Product::class)->where('active', 1);

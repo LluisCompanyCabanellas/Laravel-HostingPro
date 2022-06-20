@@ -33,20 +33,19 @@ class CarritoController extends Controller
             $cart = $this->cart->create([
                 'price_id' => request('price_id'),
                 'fingerprint' => '1',
-              
-        ]);
-        
+                'active' => '1',
+            ]);
         }
 
         $carts = $this->cart->select(DB::raw('count(price_id) as quantity'), 'price_id')
             ->groupByRaw('price_id')
             ->where('fingerprint', 1)
             ->get();
-
-
             
-        //$view = View::make('front.pages.product.index')->renderSections();  
-        //->with('carts', $this->cart->where('active', 1)->where('visible', 1)->get());
+        $view = View::make('front.pages.carrito.index')
+        ->with('carts', $carts)
+        ->with('fingerprint', $cart->fingerprint)
+        ->renderSections();  
               
 
         return response()->json([

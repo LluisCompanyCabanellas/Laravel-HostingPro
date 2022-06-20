@@ -1,6 +1,7 @@
 
 export let renderCart = () => {
 
+    let mainContainer = document.querySelector("main");  
     let payButton = document.querySelector(".pay");
     let forms = document.querySelectorAll(".add-to-cart");
 
