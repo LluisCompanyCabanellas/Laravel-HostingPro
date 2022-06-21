@@ -1,5 +1,5 @@
 <div class="checkout">
-    //
+    
     <div class="desktop-two-columns">
         <div class="column">
             <div class="checkout-info">
@@ -90,23 +90,28 @@
                 <div class="checkout-payment">
                     <div class="checkout-payment-summarized">
                         <table>
-                            <tr>
-                                <th colspan="2">Resumen de la compra</th>
-                            </tr>
-                            <tr>
-                                <td>IVA</td>
-                                <td>20 €</td>
-                            </tr>
-                            <tr>
-                                <td>Transporte</td>
-                                <td>0 €</td>
-                            </tr>
-                            <tr>
-                                <td class="checkout-payment-summarized-total">Total</td>
-
-                                <td class="checkout-payment-summarized-total">42'99 €</td>
-                            </tr>
-                        </table>
+            
+                            <th colspan="4">Resumen de la compra</th>
+                        
+                        <tr>
+                          
+                            <th>IVA</th>
+                            <th>Precio base total</th>
+                            <th>Total</th>
+                        </tr>
+            
+                        @if(isset($carts))
+                            @foreach($carts as $cart)
+                                <tr>
+                                 
+                                    <td>{{$cart->price->tax->type * $cart->quantity}}%</td>
+                                    <td>{{$cart->price->base_price *  $cart->quantity}}💲</td>
+                                    <td>{{$cart->price->base_price *  $cart->quantity * $cart->price->tax->multiplicator}}💲</td>
+                                </tr>
+                            @endforeach
+                        @endif
+                     
+                    </table>
                 </div>
             </div>
             <div class="checkout-ways">

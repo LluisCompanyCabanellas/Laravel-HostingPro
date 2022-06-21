@@ -11,14 +11,14 @@
                 @if(isset($carts))
                     @foreach($carts as $cart)
                         <tr>
-                            <td>imaginación</td>
+                            <td>➡️Imagen</td>
                             <td>{{$cart->price->product->title}}</td>
                             <td>{{$cart->price->base_price}}</td>
                             <td>
                                 <div class="plus-minus-button">
-                                    <button class="minus" data-url="{{route('front_minus_carrito', ['fingerprint'->])}}">-</button>
+                                    <button class="minus" data-url="{{route('front_minus_carrito', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">-</button>
                                     <input class="plus-minus-input" type="number" value="{{$cart->quantity}}">
-                                    <button class="plus" data-url="{{route('front_plus_carrito')}}">+</button>
+                                    <button class="plus" data-url="{{route('front_plus_carrito', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">+</button>
                                 </div>
                             </td>
                         </tr>
@@ -29,37 +29,41 @@
 
     <div class="carrito-resume">
         <table>
+            
+                <th colspan="4">Resumen de la compra</th>
+            
             <tr>
-                <th colspan="2">Resumen de la compra</th>
+              
+                <th>IVA</th>
+                <th>Precio base total</th>
+                <th>Total</th>
             </tr>
-            <tr>
-                <td>IVA</td>
-                <td>10 €</td>
-            </tr>
-            <tr>
-                <td>Servicio</td>
-                <td>32'99 €</td>
-            </tr>
-            <tr>
-                <td class="carrito-resume-total">Total</td>
-                <td class="carrito-resume-total">42'99 €</td>
-            </tr>
+
+            @if(isset($carts))
+                @foreach($carts as $cart)
+                    <tr>
+                     
+                        <td>{{$cart->price->tax->type}}%</td>
+                        <td>{{$cart->price->base_price *  $cart->quantity}}💲</td>
+                        <td>{{$cart->price->base_price *  $cart->quantity * $cart->price->tax->multiplicator}}💲</td>
+                    </tr>
+                @endforeach
+            @endif
+         
         </table>
 
         <div class="carrito-resume-buttons">
             <div class="desktop-two-columns">
                 <div class="column">
                     <button>
-                        <div class="svg-wrapper-1">
-
-                        </div>
-                        <span>Volver</span>
+                        <a href="{{route('front_add_carrito')}}">
+                            <span>Volver atrás</span>
                     </button>
                 </div>
                 <div class="column">
                     <button>
-
-                        <span>Comprar</span>
+                        <a href="{{route('front_checkout')}}">
+                            <span>Continuar</span>
                     </button>
                 </div>
             </div>
