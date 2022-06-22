@@ -30,9 +30,9 @@ class SellController extends Controller
 
         
 
-        $view = View::make('admin.pages.sells.index')
+        $view = View::make('admin.pages.users.index')
                 ->with('sell', $this->sell)
-                ->with('sells', $this->sell->where('active', 1)->get());
+                ->with('users', $this->sell->where('active', 1)->get());
 
         if(request()->ajax()) {
             
@@ -51,7 +51,7 @@ class SellController extends Controller
     {
        
 
-       $view = View::make('admin.pages.sells.index')
+       $view = View::make('admin.pages.users.index')
         ->with('sell', $this->sell)
         ->renderSections();
         Debugbar::info($view['form']);
@@ -66,44 +66,14 @@ class SellController extends Controller
 
     public function store(Request $request)
     {            
-        for($i = 0; $i<request('quantity'); $i++)
-        {
-            $cart = $this->cart->create([
-                'price_id' => request('price_id'),
-                'fingerprint' => '1',
-                'active' => '1',
-            ]);
-        }
+      $sell = $this->sell->updateOrCreate([
+        'id' => request('id')],[
+        'title' => request('title')
+        'description' => request('description')
+        'id' => request('id');
 
-        $carts = $this->cart->select(DB::raw('count(price_id) as quantity'), 'price_id')
-            ->groupByRaw('price_id')
-            ->where('active', '1')
-            ->where('fingerprint', $sell->fingerprint)
-            ->where('sell_id', null)
-            ->get();
-
-
-        $totals = $this->cart
-            ->where('carts.fingerprint', 1)
-            ->where('carts.active', $cart->fingerprint)
-            ->where('carts.sell_id', null)
-            ->join('prices', 'prices.id', '=', 'carts.price_id')
-            ->join('taxes', 'taxes.id', '=', 'prices.tax_id')
-            ->select(DB::raw('sum(prices.base_price) as base_total'), DB::raw('round(sum(prices.base_price * taxes.multiplicator),2) as total') )
-            ->first();   
-                
-        $view = View::make('front.pages.carrito.index')
-            ->with('carts', $carts)
-            ->with('fingerprint', $cart->fingerprint)
-            ->with('base_total', $totals->base_total)
-            ->with('tax_total', ($totals->total - $totals->base_total))
-            ->with('total', $totals->total)
-            ->renderSections();  
-                
-
-        return response()->json([
-            'content' => $view['content'],
-        ]);
+        
+      ])
     }
 
     public function edit(Sell $sell) 

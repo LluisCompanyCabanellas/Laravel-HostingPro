@@ -119,12 +119,12 @@ Route::group(['prefix' => 'admin'], function () {
             'sells' => 'sell',  
         ],
         'names' => [
-            'index' => 'sells', //get
-            'create' => 'sells_create', //get
-            'edit' => 'sells_edit', //get
-            'store' => 'sells_store', //post
-            'destroy' => 'sells_destroy', //delay
-            'show' => 'sells_show', //get
+            'index' => 'sells', 
+            'create' => 'sells_create', 
+            'edit' => 'sells_edit', 
+            'store' => 'sells_store', 
+            'destroy' => 'sells_destroy', 
+            'show' => 'sells_show', 
         ]
     ]);
 

@@ -80,51 +80,13 @@
         <div class="column">
             <div class="form-element">
                 <div class="form-element-label">
-                    <label>Nombre</label>
+                    <label>Numero de ticket</label>
                 </div>
                 <div class="form-element-input">
-                    <input class="name" type="text" name="name" value="{{isset($sell->name) ? $sell->name : ''}}">
+                    <input class="ticket_number" type="number" name="ticket_number" value="{{isset($sell->ticket_number) ? $sell->ticket_number : ''}}">
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="column">
-        <div class="form-element">
-            <div class="form-element-label">
-                <label>Email</label>
-            </div>
-            <div class="form-element-input">
-                <input class="email" type="text" name="email" value="{{isset($sell->email) ? $sell->email : ''}}">
-            </div>
-        </div>
-
-        <div class="column">
-            <div class="form-element">
-                <div class="form-element-label">
-                    <label>Contraseña</label>
-                </div>
-                <div class="form-element-input">
-                    <input class="password" type="password" name="password"
-                        value="{{isset($sell->password) ? $sell->password : ''}}">
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="column">
-        <div class="form-element">
-            <div class="form-element-label">
-                <label>Repetir contraseña</label>
-            </div>
-            <div class="form-element-input">
-                <input class="password_confirmation" type="password" name="password_confirmation"
-                    value="{{isset($sell->password_confirmation) ? $sell->password_confirmation : ''}}">
-            </div>
-        </div>
-
-       
     </div>
 </form>
 
