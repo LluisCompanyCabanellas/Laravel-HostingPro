@@ -132,6 +132,7 @@
                 <button class="pay-confirmation" data-url="{{route('front_confirmation')}}">
                     <span>Pagar</span>
                 </button>
+                
             </div>
     </div>
 </div>
