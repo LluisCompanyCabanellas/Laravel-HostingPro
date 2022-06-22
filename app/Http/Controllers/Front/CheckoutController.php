@@ -52,8 +52,20 @@ class CheckoutController extends Controller
         return $view;
     }
 
-    public function add(Request $request)
+    public function store(Request $request)
     {
+
+
+        $cliente = $this->cliente->Create(  [
+            'name' => request('name'),
+            'surnames' =>request('surnames'),
+            'email' =>request('email'),
+            'description' =>request('description'),
+            'active' => 1,
+
+        ])
+
+        
         $view = View::make('front.pages.buyconfirmate.index');
 
         if(request()->ajax()){
