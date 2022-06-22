@@ -50,6 +50,7 @@ class CarritoController extends Controller
             ->groupByRaw('price_id')
             ->where('active', '1')
             ->where('fingerprint', $cart->fingerprint)
+            ->where('sell_id', null)
             ->get();
 
 

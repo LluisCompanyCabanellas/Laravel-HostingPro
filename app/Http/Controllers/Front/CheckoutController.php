@@ -52,9 +52,9 @@ class CheckoutController extends Controller
         return $view;
     }
 
-    public function confirmate()
+    public function add(Request $request)
     {
-        $view = View::make('front.pages.cart.index');
+        $view = View::make('front.pages.buyconfirmate.index');
 
         if(request()->ajax()){
 
@@ -65,8 +65,13 @@ class CheckoutController extends Controller
             ]);
 
         }
+
         return $view;
     }
+
+
+
+    
 
 
 }

@@ -3,7 +3,7 @@
     <div class="desktop-two-columns">
         <div class="column">
             <div class="checkout-info">
-                <form>
+                <form class="front-form" action="{{route('front_checkout_store')}}">
                     <div class="desktop-two-columns">
                         <div class="column">
                             <div class="form-element">
@@ -103,7 +103,6 @@
                         @if(isset($carts))
                             @foreach($carts as $cart)
                                 <tr>
-                                 
                                     <td>{{$cart->price->tax->type * $cart->quantity}}%</td>
                                     <td>{{$cart->price->base_price *  $cart->quantity}}💲</td>
                                     <td>{{$cart->price->base_price *  $cart->quantity * $cart->price->tax->multiplicator}}💲</td>
@@ -129,7 +128,7 @@
                 </div>
             </div>
             <div class="checkout-button">
-                <button class="pay-confirmation" data-url="{{route('front_confirmation')}}">
+                <button class="pay-confirmation">
                     <span>Pagar</span>
                 </button>
                 

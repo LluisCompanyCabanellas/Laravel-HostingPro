@@ -193,5 +193,9 @@ export let renderCart = () => {
         
         });
     }    
+
+    
+    
+
 }  
 

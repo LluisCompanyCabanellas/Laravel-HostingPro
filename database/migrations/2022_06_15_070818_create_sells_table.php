@@ -22,7 +22,7 @@ return new class extends Migration
             $table->float('total_base_price');
             $table->float('total_tax_price');
             $table->float('total_price');
-            $table->boolean('active')->default(false);
+            $table->boolean('active');
             $table->timestamps();
         });
     }

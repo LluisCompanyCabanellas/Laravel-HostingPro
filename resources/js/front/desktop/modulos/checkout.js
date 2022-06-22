@@ -1,55 +1,59 @@
 export let renderCheckout = () => {
 
-    let mainContainer = document.querySelector("main");  
-    let payconfirmation = document.querySelector("pay-confirmation")
+    let mainContainer = document.querySelector(".main");  
+    let payConfirmation = document.querySelector(".pay-confirmation");
+    let forms = document.querySelectorAll(".front-form");
 
     document.addEventListener("renderProductModules",( event =>{
         renderCheckout();
     }), {once: true});
-
-
-    if(payconfirmation) {
+  
+    if(payConfirmation) {
                 
-        payconfirmation.addEventListener('click', (event) => {
+        payConfirmation.addEventListener('click', (event) => {
 
             event.preventDefault();
 
-            let url = payconfirmation.dataset.url;
-    
-            let sendShowRequest = async () => {
-    
-                let response = await fetch(url, {
-                    headers: {
-                        'X-Requested-With': 'XMLHttpRequest',
-                    },
-                    method: 'GET', 
-                })
-                .then(response => {
-    
-                    if (!response.ok) throw response;
-    
-                    return response.json();
-                })
-                .then(json => {
-    
-                    mainContainer.innerHTML = json.content;
-                
-                    document.dispatchEvent(new CustomEvent('renderProductModules'));
-                })
-                .catch(error =>  {
-    
-                    if(error.status == '500'){
-                        console.log(error);
-                    }
-                });
-            };
-    
-            sendShowRequest();
-     
-        
+            forms.forEach(form => { 
+
+                let data = new FormData(form); 
+                let url = form.action;
+
+                let sendOrderRequest = async () => {
+                        
+                    let response = await fetch(url, {
+                        headers: {
+                            'Accept': 'application/json',
+                            'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                        },
+                        method: 'POST',
+                        body: data
+                    })
+                    .then(response => {
+                        
+                        if (!response.ok) throw response;
+
+                        return response.json();
+                    })
+                    .then(json => {
+                        mainContainer.innerHTML = json.content;
+                                                    
+                        document.dispatchEvent(new CustomEvent('renderProductModules'));
+                    })
+                    .catch ( error => {
+
+                        if(error.status == '500'){
+                            console.log(error);
+
+                        }
+
+                    });
+                }
+
+                sendOrderRequest();
+            });
+
         });
     }    
-
-    
 }  
 
