@@ -129,9 +129,9 @@ Route::post('carrito', 'App\Http\Controllers\Front\CarritoController@store')->na
 
 
 
-Route::get('checkout', 'App\Http\Controllers\Front\CheckoutController@index')->name('front_checkout');
+Route::get('checkout/{fingerprint}', 'App\Http\Controllers\Front\CheckoutController@index')->name('front_checkout');
 Route::post('checkout', 'App\Http\Controllers\Front\CheckoutController@store')->name('front_checkout_store');
-
+Route::get('checkout', 'App\Http\Controllers\Front\CheckoutController@confirmate')->name('front_confirmation');
 
 
 Route::get('faqs', 'App\Http\Controllers\Front\FaqController@index')->name('front_faqs');
@@ -151,12 +151,4 @@ Route::get('productos/order/{order}', 'App\Http\Controllers\Front\ProductControl
 
 Route::get('carrito/plus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CarritoController@plus')->name('front_plus_carrito');
 Route::get('carrito/minus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CarritoController@minus')->name('front_minus_carrito');
-
-
-
-
-
-
-
-
 

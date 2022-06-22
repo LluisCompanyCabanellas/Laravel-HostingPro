@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sell extends Model
 {
-    protected $guraded = [];
+    protected $guarded = [];
 
     public function payment()
     {
@@ -22,10 +22,4 @@ class Sell extends Model
     {
         return $this->hasMany(Cart::class)->where('active', 1);
     }
-
-    
-
-
-
-
 }

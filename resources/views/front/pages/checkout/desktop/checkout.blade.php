@@ -129,8 +129,8 @@
                 </div>
             </div>
             <div class="checkout-button">
-                <button>
-                      <span>Pagar</span>
+                <button class="pay-confirmation" data-url="{{route('front_confirmation')}}">
+                    <span>Pagar</span>
                 </button>
             </div>
     </div>

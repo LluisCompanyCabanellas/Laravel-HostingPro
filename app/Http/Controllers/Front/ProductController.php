@@ -101,8 +101,6 @@ class ProductController extends Controller//crear propiedad
             'content' => $sections['content'],
             
         ]);      
-    
-
 
     }
     
