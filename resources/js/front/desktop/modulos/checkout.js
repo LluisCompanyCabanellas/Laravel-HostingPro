@@ -1,6 +1,6 @@
 export let renderCheckout = () => {
 
-    let mainContainer = document.querySelector(".main");  
+    let mainContainer = document.querySelector("main");  
     let payConfirmation = document.querySelector(".pay-confirmation");
     let forms = document.querySelectorAll(".front-form");
 
@@ -36,6 +36,7 @@ export let renderCheckout = () => {
                         return response.json();
                     })
                     .then(json => {
+
                         mainContainer.innerHTML = json.content;
                                                     
                         document.dispatchEvent(new CustomEvent('renderProductModules'));

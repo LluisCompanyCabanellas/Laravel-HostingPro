@@ -129,9 +129,6 @@ Route::group(['prefix' => 'admin'], function () {
     ]);
 
 
-
-
-
 } );
 
 
@@ -146,7 +143,6 @@ Route::post('carrito', 'App\Http\Controllers\Front\CarritoController@store')->na
 
 Route::post('checkout', 'App\Http\Controllers\Front\CheckoutController@store')->name('front_checkout_store');   
 Route::get('checkout/{fingerprint}', 'App\Http\Controllers\Front\CheckoutController@index')->name('front_checkout');
-
 
 Route::get('faqs', 'App\Http\Controllers\Front\FaqController@index')->name('front_faqs');
 

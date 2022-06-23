@@ -6,12 +6,15 @@ export let renderProducts = () => {
     let pays = document.querySelector(".pay");
     let amount = document.querySelector(".plus-minus-input");
     let orderPrice = document.querySelector(".order-price");
-    let search = document.querySelector(".searcher");
+    let search = document.querySelector("searcher");
     let form = document.querySelector(".searcherproduct");
-    
+
     document.addEventListener("renderProductModules",( event =>{
         renderProducts();
     }), {once: true});
+
+
+    
     
     viewButtons.forEach(categoryButton => {
  
@@ -156,13 +159,10 @@ export let renderProducts = () => {
             sendOrderRequest();
 
         });
-    }   
-    
-    
-
+    }       
 
     if(search) {
-            
+
         search.addEventListener('click', (event) => {
 
             event.preventDefault();

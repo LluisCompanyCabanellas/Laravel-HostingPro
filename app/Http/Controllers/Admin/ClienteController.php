@@ -111,6 +111,13 @@ class ClienteController extends Controller
     }
 
     public function show(Cliente $cliente){
+        Debugbar::info($cliente);
+
+
+        $view = View::make('admin.pages.clientes.index')
+        ->with('cliente', $cliente)
+        ->with('clientes', $this->cliente->where('active', 1)->get());
+        
 
     }
 

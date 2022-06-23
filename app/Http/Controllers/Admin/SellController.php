@@ -69,18 +69,18 @@ class SellController extends Controller
       $sell = $this->sell->updateOrCreate([
         'id' => request('id')],[
         'title' => request('title')
-        'description' => request('description')
-        'id' => request('id');
+  
+     
 
         
-      ])
+        ]);
     }
 
     public function edit(Sell $sell) 
     {
         Debugbar::info($sell);
 
-        $view = View::make('admin.pages.faqs.index')
+        $view = View::make('admin.pages.sells.index')
         ->with('sell', $sell)
         ->with('products', $this->sell->where('active', 1)->get());   
         
@@ -105,7 +105,7 @@ class SellController extends Controller
         $sell->active = 0;
         $sell->save();
 
-        $view = View::make('admin.pages.sell.index')
+        $view = View::make('admin.pages.sells.index')
             ->with('sell', $this->sell)
             ->with('products', $this->sell->where('active', 1)->get())
             ->renderSections();

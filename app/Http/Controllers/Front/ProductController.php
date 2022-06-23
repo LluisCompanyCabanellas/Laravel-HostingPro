@@ -4,11 +4,11 @@ namespace App\Http\Controllers\Front;
 
 use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;//llamar modelo
+use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Debugbar;
 
-class ProductController extends Controller//crear propiedad
+class ProductController extends Controller
 {
 
     protected $product;
@@ -28,7 +28,7 @@ class ProductController extends Controller//crear propiedad
     {
         $view = View::make('front.pages.products.index')
         ->with('products', $this->product->where('active', 1)->where('visible', 1)->get());
-        //products es el nombre de la variable
+       
 
         return $view;
     }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Sell;
 use App\Models\Cart;
+use App\Models\Client;
 use Illuminate\Support\Facades\DB;
 
 class CheckoutController extends Controller
@@ -14,10 +15,10 @@ class CheckoutController extends Controller
 
     protected $cart;
 
-    public function __construct(Cart $cart)
+    public function __construct(Cart $cart, Client $client)
     {
         $this->cart = $cart;
-
+        $this->client = $client;
     }
 
     public function index($fingerprint)
@@ -39,6 +40,7 @@ class CheckoutController extends Controller
             ->with('total', $totals->total);
 
         if(request()->ajax()) {
+            
 
             $sections = $view->renderSections();
 
@@ -55,35 +57,32 @@ class CheckoutController extends Controller
     public function store(Request $request)
     {
 
-
-        $cliente = $this->cliente->Create(  [
+        $client = $this->client->create(  [
             'name' => request('name'),
             'surnames' =>request('surnames'),
             'email' =>request('email'),
-            'description' =>request('description'),
+            'telephone' =>request('telephone'),
+            'postal_code' =>request('postal_code'),
+            'country' =>request('country'),
+            'address' =>request('address'),
+            'province' =>request('province'),
             'active' => 1,
+        ]);
 
-        ])
-
-        
         $view = View::make('front.pages.buyconfirmate.index');
 
-        if(request()->ajax()){
+        $sections = $view->renderSections();
 
-            $sections = $view->renderSections();
+        return response()->json([
+            'content' => $sections['content'],
+        ]);
 
-            return response()->json([
-                'content' => $sections['content'],
-            ]);
-
-        }
 
         return $view;
     }
 
 
 
-    
-
+      
 
 }

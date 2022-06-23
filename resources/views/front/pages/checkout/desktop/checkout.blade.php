@@ -11,7 +11,7 @@
                                     <label>Nombre</label>
                                 </div>
                                 <div class="form-element-input">
-                                    <input type="text">
+                                    <input type="text" name="name">
                                 </div>
                             </div>
                         </div>
@@ -21,29 +21,29 @@
                                     <label>Apellidos</label>
                                 </div>
                                 <div class="form-element-input">
-                                    <input type="text">
+                                    <input type="text" name="surnames">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="desktop-two-columns">
-                        <div class="column">
-                            <div class="form-element">
-                                <div class="form-element-label">
-                                    <label>Teléfono</label>
-                                </div>
-                                <div class="form-element-input">
-                                    <input type="tel">
-                                </div>
-                            </div>
-                        </div>
                         <div class="column">
                             <div class="form-element">
                                 <div class="form-element-label">
                                     <label>Email</label>
                                 </div>
                                 <div class="form-element-input">
-                                    <input type="email">
+                                    <input type="email" name="email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column">
+                            <div class="form-element">
+                                <div class="form-element-label">
+                                    <label>Telephone</label>
+                                </div>
+                                <div class="form-element-input">
+                                    <input type="tel" name="telephone">
                                 </div>
                             </div>
                         </div>
@@ -52,10 +52,10 @@
                         <div class="column">
                             <div class="form-element">
                                 <div class="form-element-label">
-                                    <label>Ciudad</label>
+                                    <label>País</label>
                                 </div>
                                 <div class="form-element-input">
-                                    <input type="text">
+                                    <input type="text" name="country">
                                 </div>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                                     <label>Código postal</label>
                                 </div>
                                 <div class="form-element-input">
-                                    <input type="text">
+                                    <input type="text" name="postal_code">
                                 </div>
                             </div>
                         </div>
@@ -74,10 +74,23 @@
                         <div class="column">
                             <div class="form-element">
                                 <div class="form-element-label">
+                                    <label>Provincia</label>
+                                </div>
+                                <div class="form-element-input">
+                                    <input type="text" name="province">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="desktop-one-column">
+                        <div class="column">
+                            <div class="form-element">
+                                <div class="form-element-label">
                                     <label>Dirección</label>
                                 </div>
                                 <div class="form-element-input">
-                                    <input type="text">
+                                    <input type="text" name="address">
                                 </div>
                             </div>
                         </div>

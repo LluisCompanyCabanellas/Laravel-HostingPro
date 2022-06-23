@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->float('base_price');
             $table->integer('tax_id');
-            $table->integer('product_id');
+            $table->integer('client_id');            
             $table->boolean('active')->default(false);
             $table->boolean('valid');
             $table->timestamps();
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('price');
+        Schema::dropIfExists('prices');
     }
 };

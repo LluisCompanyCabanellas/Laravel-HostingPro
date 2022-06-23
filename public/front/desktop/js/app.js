@@ -330,7 +330,7 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 var renderCheckout = function renderCheckout() {
-  var mainContainer = document.querySelector(".main");
+  var mainContainer = document.querySelector("main");
   var payConfirmation = document.querySelector(".pay-confirmation");
   var forms = document.querySelectorAll(".front-form");
   document.addEventListener("renderProductModules", function (event) {
@@ -795,7 +795,7 @@ var renderProducts = function renderProducts() {
   var pays = document.querySelector(".pay");
   var amount = document.querySelector(".plus-minus-input");
   var orderPrice = document.querySelector(".order-price");
-  var search = document.querySelector(".searcher");
+  var search = document.querySelector("searcher");
   var form = document.querySelector(".searcherproduct");
   document.addEventListener("renderProductModules", function (event) {
     renderProducts();
