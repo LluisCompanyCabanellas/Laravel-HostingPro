@@ -6,7 +6,7 @@ export let renderProducts = () => {
     let pays = document.querySelector(".pay");
     let amount = document.querySelector(".plus-minus-input");
     let orderPrice = document.querySelector(".order-price");
-    let search = document.querySelector("searcher");
+    let search = document.querySelector(".searcher");
     let form = document.querySelector(".searcherproduct");
 
     document.addEventListener("renderProductModules",( event =>{

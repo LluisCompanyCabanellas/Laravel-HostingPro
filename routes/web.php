@@ -133,7 +133,7 @@ Route::group(['prefix' => 'admin'], function () {
 
 
 
-Route::get('home', 'App\Http\Controllers\Front\HomeController@index')->name('front_home');
+Route::get('/', 'App\Http\Controllers\Front\HomeController@index')->name('front_home');
 
 Route::get('contacto', 'App\Http\Controllers\Front\ContactController@index')->name('front_contact');
 Route::post('contacto', 'App\Http\Controllers\Front\ContactController@store')->name('front_contact_form');
@@ -155,4 +155,3 @@ Route::get('productos/order/{order}', 'App\Http\Controllers\Front\ProductControl
 
 Route::get('carrito/plus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CarritoController@plus')->name('front_plus_carrito');
 Route::get('carrito/minus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CarritoController@minus')->name('front_minus_carrito');
-

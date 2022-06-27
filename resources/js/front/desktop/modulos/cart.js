@@ -4,8 +4,7 @@ export let renderCart = () => {
     let mainContainer = document.querySelector("main");  
     let payButton = document.querySelector(".pay");
     let forms = document.querySelectorAll(".add-to-cart");
-    let pluses = document.querySelectorAll(".plus");
-    let minuses  = document.querySelectorAll(".minus");
+    let plusMinusButtons = document.querySelectorAll(".plus-minus-button");
     let checkoutButton = document.querySelector(".checkout-button");
         
     document.addEventListener("renderProductModules",( event =>{
@@ -63,14 +62,13 @@ export let renderCart = () => {
         });
     }    
 
-    pluses.forEach(plus => {
+    plusMinusButtons.forEach(plusMinusButton => {
 
-
-        plus.addEventListener('click', (event) => {
+        plusMinusButton.addEventListener('click', (event) => {
 
             event.preventDefault();
 
-            let url = plus.dataset.url;//?¿
+            let url = plusMinusButton.dataset.url;
 
             let sendOrderRequest = async () => {
                 
@@ -89,50 +87,7 @@ export let renderCart = () => {
                     return response.json();
                 })
                 .then(json => {
-                    mainContainer.innerHTML = json.content;
-                                                
-                    document.dispatchEvent(new CustomEvent('renderProductModules'));
-                })
-                .catch ( error => {
-
-                    if(error.status == '500'){
-                        console.log(error);
-
-                    }
-
-                });
-            }
-
-            sendOrderRequest();
-
-        });
-    });
-
-    minuses.forEach(minus => {
-            
-        minus.addEventListener('click', (event) => {
-
-            event.preventDefault();
-
-            let url = minus.dataset.url;//?¿
-
-            let sendOrderRequest = async () => {
-                
-                let response = await fetch(url, {
-
-                    headers: {
-                        'X-Requested-With': 'XMLHttpRequest',
-                    },
-
-                    method: 'GET',
-                })
-                .then(response => {
                     
-                    if (!response.ok) throw response;
-
-                    return response.json();
-                })
-                .then(json => {
                     mainContainer.innerHTML = json.content;
                                                 
                     document.dispatchEvent(new CustomEvent('renderProductModules'));

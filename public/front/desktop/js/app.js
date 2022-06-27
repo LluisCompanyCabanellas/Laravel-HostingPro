@@ -93,8 +93,7 @@ var renderCart = function renderCart() {
   var mainContainer = document.querySelector("main");
   var payButton = document.querySelector(".pay");
   var forms = document.querySelectorAll(".add-to-cart");
-  var pluses = document.querySelectorAll(".plus");
-  var minuses = document.querySelectorAll(".minus");
+  var plusMinusButtons = document.querySelectorAll(".plus-minus-button");
   var checkoutButton = document.querySelector(".checkout-button");
   document.addEventListener("renderProductModules", function (event) {
     renderCart();
@@ -158,10 +157,10 @@ var renderCart = function renderCart() {
     });
   }
 
-  pluses.forEach(function (plus) {
-    plus.addEventListener('click', function (event) {
+  plusMinusButtons.forEach(function (plusMinusButton) {
+    plusMinusButton.addEventListener('click', function (event) {
       event.preventDefault();
-      var url = plus.dataset.url; //?¿
+      var url = plusMinusButton.dataset.url;
 
       var sendOrderRequest = /*#__PURE__*/function () {
         var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
@@ -207,12 +206,13 @@ var renderCart = function renderCart() {
       sendOrderRequest();
     });
   });
-  minuses.forEach(function (minus) {
-    minus.addEventListener('click', function (event) {
-      event.preventDefault();
-      var url = minus.dataset.url; //?¿
 
-      var sendOrderRequest = /*#__PURE__*/function () {
+  if (checkoutButton) {
+    checkoutButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      var url = checkoutButton.dataset.url;
+
+      var sendShowRequest = /*#__PURE__*/function () {
         var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
           var response;
           return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
@@ -248,58 +248,8 @@ var renderCart = function renderCart() {
           }, _callee3);
         }));
 
-        return function sendOrderRequest() {
-          return _ref3.apply(this, arguments);
-        };
-      }();
-
-      sendOrderRequest();
-    });
-  });
-
-  if (checkoutButton) {
-    checkoutButton.addEventListener('click', function (event) {
-      event.preventDefault();
-      var url = checkoutButton.dataset.url;
-
-      var sendShowRequest = /*#__PURE__*/function () {
-        var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
-          var response;
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
-            while (1) {
-              switch (_context4.prev = _context4.next) {
-                case 0:
-                  _context4.next = 2;
-                  return fetch(url, {
-                    headers: {
-                      'X-Requested-With': 'XMLHttpRequest'
-                    },
-                    method: 'GET'
-                  }).then(function (response) {
-                    if (!response.ok) throw response;
-                    return response.json();
-                  }).then(function (json) {
-                    mainContainer.innerHTML = json.content;
-                    document.dispatchEvent(new CustomEvent('renderProductModules'));
-                  })["catch"](function (error) {
-                    if (error.status == '500') {
-                      console.log(error);
-                    }
-                  });
-
-                case 2:
-                  response = _context4.sent;
-
-                case 3:
-                case "end":
-                  return _context4.stop();
-              }
-            }
-          }, _callee4);
-        }));
-
         return function sendShowRequest() {
-          return _ref4.apply(this, arguments);
+          return _ref3.apply(this, arguments);
         };
       }();
 
@@ -795,7 +745,7 @@ var renderProducts = function renderProducts() {
   var pays = document.querySelector(".pay");
   var amount = document.querySelector(".plus-minus-input");
   var orderPrice = document.querySelector(".order-price");
-  var search = document.querySelector("searcher");
+  var search = document.querySelector(".searcher");
   var form = document.querySelector(".searcherproduct");
   document.addEventListener("renderProductModules", function (event) {
     renderProducts();

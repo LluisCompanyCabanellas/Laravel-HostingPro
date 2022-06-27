@@ -62,6 +62,15 @@ class CarritoController extends Controller
             ->join('taxes', 'taxes.id', '=', 'prices.tax_id')
             ->select(DB::raw('sum(prices.base_price) as base_total'), DB::raw('round(sum(prices.base_price * taxes.multiplicator),2) as total') )
             ->first();   
+
+        $taxes = $this->cart
+            ->where('carts.fingerprint', $cart->fingerprint)
+            ->where('carts.active', 1)
+            ->where('carts.sell_id', null)
+            ->join('prices', 'prices.id', '=', 'carts.price_id')
+            ->join('taxes', 'taxes.id', '=', 'prices.tax_id')
+            ->select(DB::raw('taxes.type as tax'))
+            ->first();
                 
         $view = View::make('front.pages.carrito.index')
             ->with('carts', $carts)
@@ -71,6 +80,104 @@ class CarritoController extends Controller
             ->with('total', $totals->total)
             ->renderSections();  
                 
+
+        return response()->json([
+            'content' => $view['content'],
+        ]);
+    }
+
+
+
+    public function plus($fingerprint, $price_id)
+    {
+
+        $cart = $this->cart->create([
+            'price_id' => $price_id,
+            'fingerprint' => $fingerprint,
+            'active' => 1,
+        ]);
+
+        $carts = $this->cart->select(DB::raw('count(price_id) as quantity'), 'price_id')
+            ->groupByRaw('price_id')
+            ->where('active', '1')
+            ->where('fingerprint', $cart->fingerprint)
+            ->where('sell_id', null)
+            ->get();
+
+
+        $totals = $this->cart
+            ->where('carts.fingerprint', 1)
+            ->where('carts.active', $cart->fingerprint)
+            ->where('carts.sell_id', null)
+            ->join('prices', 'prices.id', '=', 'carts.price_id')
+            ->join('taxes', 'taxes.id', '=', 'prices.tax_id')
+            ->select(DB::raw('sum(prices.base_price) as base_total'), DB::raw('round(sum(prices.base_price * taxes.multiplicator),2) as total') )
+            ->first();   
+
+        $taxes = $this->cart
+            ->where('carts.fingerprint', $cart->fingerprint)
+            ->where('carts.active', 1)
+            ->where('carts.sell_id', null)
+            ->join('prices', 'prices.id', '=', 'carts.price_id')
+            ->join('taxes', 'taxes.id', '=', 'prices.tax_id')
+            ->select(DB::raw('taxes.type as tax'))
+            ->first();
+                
+        $view = View::make('front.pages.carrito.index')
+            ->with('carts', $carts)
+            ->with('fingerprint', $cart->fingerprint)
+            ->with('base_total', $totals->base_total)
+            ->with('tax_total', ($totals->total - $totals->base_total))
+            ->with('total', $totals->total)
+            ->renderSections();  
+
+        return response()->json([
+            'content' => $view['content'],
+        ]);
+    }
+
+    public function minus($fingerprint, $price_id)
+    {
+        $cart = $this->cart->create([
+            'price_id' => $price_id,
+            'fingerprint' => $fingerprint,
+            'active' => 1,
+        ]);
+        
+        $cart = $this->cart
+        ->where('fingerprint', $fingerprint)
+        ->where('price_id', $price_id)
+        ->where('sell_id', null)
+        ->where('active', 1)
+        ->first();
+
+        $cart->active = 0;
+        $cart->save();
+
+        $carts = $this->cart->select(DB::raw('count(price_id) as quantity'),'price_id')
+            ->groupByRaw('price_id')
+            ->where('active', 1)
+            ->where('fingerprint', $fingerprint)
+            ->where('sell_id', null)
+            ->orderBy('price_id', 'desc')
+            ->get();
+
+        $totals = $this->cart
+            ->where('fingerprint', $fingerprint)
+            ->where('carts.active', 1)
+            ->where('carts.sell_id', null)
+            ->join('prices', 'prices.id', '=', 'carts.price_id')
+            ->join('taxes', 'taxes.id', '=', 'prices.tax_id')
+            ->select(DB::raw('sum(prices.base_price) as base_total'), DB::raw('sum(prices.base_price * taxes.multiplicator) as total') )
+            ->first();
+
+        $view = View::make('front.pages.carrito.index')
+            ->with('fingerprint', $fingerprint)
+            ->with('carts', $carts)
+            ->with('base_total', $totals->base_total)
+            ->with('total', $totals->total)
+            ->with('tax_total', ($totals->total - $totals->base_total))
+            ->renderSections();
 
         return response()->json([
             'content' => $view['content'],

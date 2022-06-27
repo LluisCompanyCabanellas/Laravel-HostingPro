@@ -16,9 +16,9 @@
                             <td>{{$cart->price->base_price}}</td>
                             <td>
                                 <div class="plus-minus-button">
-                                    <button class="minus" data-url="{{route('front_minus_carrito', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">-</button>
+                                    <button class="plus-minus-button" data-url="{{route('front_minus_carrito', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">-</button>
                                     <input class="plus-minus-input" type="number" value="{{$cart->quantity}}">
-                                    <button class="plus" data-url="{{route('front_plus_carrito', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">+</button>
+                                    <button class="plus-minus-button" data-url="{{route('front_plus_carrito', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">+</button>
                                 </div>
                             </td>
                         </tr>
