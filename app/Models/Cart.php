@@ -24,7 +24,7 @@ class Cart extends Model
     }
 
 
-    public function sale()
+    public function sale()//??¿?¿?¿ sales?¿?¿?¿
     {
         return $this->belongsTo(Sale::class)->where('active', 1);
     }

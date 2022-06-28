@@ -1,5 +1,5 @@
 <div class="checkout">
-    //
+    
     <div class="desktop-two-columns">
         <div class="column">
             <div class="checkout-info">

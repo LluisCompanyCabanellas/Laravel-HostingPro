@@ -61,7 +61,8 @@
                         </div>
                         <div class="product-price">
                             <div class="howmuch">
-                                <span>{{ $product->prices }}</span>
+                                <span> {{isset($product->prices->first()->base_price) ? $product->prices->first()->base_price : ""}}</span>
+                                
                             </div>
                             <div class="moneda">
 
