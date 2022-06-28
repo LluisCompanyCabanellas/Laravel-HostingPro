@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('sells', function (Blueprint $table) {
             $table->id();
+            $table->integer('client_id');
             $table->string('ticket_number');
             $table->date('date_emission');
             $table->time('time_emission');
@@ -22,7 +23,7 @@ return new class extends Migration
             $table->float('total_base_price');
             $table->float('total_tax_price');
             $table->float('total_price');
-            $table->boolean('active')->default(false);
+            $table->boolean('active');
             $table->timestamps();
         });
     }

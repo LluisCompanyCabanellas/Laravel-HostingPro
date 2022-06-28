@@ -35,9 +35,6 @@ export let botonSumarRestar = () => {
     });
 
     
-
-
-
 }
 
 
