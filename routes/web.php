@@ -90,6 +90,7 @@ Route::group(['prefix' => 'admin'], function () {
             'categoria' => 'product_category',   
         ],
         'names' => [
+            
             'index' => 'product_categories', //get
             'create' => 'product_categories_create', //get
             'edit' => 'product_categories_edit', //get
@@ -148,7 +149,9 @@ Route::get('faqs', 'App\Http\Controllers\Front\FaqController@index')->name('fron
 
 Route::post('productos/buscador', 'App\Http\Controllers\Front\ProductController@search')->name('front_products_search');   
 Route::get('productos', 'App\Http\Controllers\Front\ProductController@index')->name('front_products');
-Route::get('productos/{product}', 'App\Http\Controllers\Front\ProductController@show')->name('front_product');
+Route::
+
+
 
 Route::get('productos/categoria/{category}', 'App\Http\Controllers\Front\ProductCategoryController@show')->name('posts_category');
 Route::get('productos/order/{order}', 'App\Http\Controllers\Front\ProductController@order')->name('front_order_price');
