@@ -161,14 +161,6 @@ Route::
 Route::get('productos/categoria/{category}', 'App\Http\Controllers\Front\ProductCategoryController@show')->name('posts_category');
 Route::get('productos/order/{order}', 'App\Http\Controllers\Front\ProductController@order')->name('front_order_price');
 
-<<<<<<< HEAD
-
-
-
-
-
-
-=======
 Route::get('carrito/plus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CarritoController@plus')->name('front_plus_carrito');
 Route::get('carrito/minus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CarritoController@minus')->name('front_minus_carrito');
->>>>>>> 010376c8a59fa3a80a50e255101079f4c73c5b14
+
