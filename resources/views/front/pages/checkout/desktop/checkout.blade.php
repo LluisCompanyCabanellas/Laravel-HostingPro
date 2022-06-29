@@ -1,6 +1,11 @@
 
   
 <div class="checkout">
+    
+    <div class="desktop-two-columns">
+        <div class="column">
+            <div class="checkout-info">
+                <form>
     <form class="front-form" action="{{route('front_checkout_store')}}">
 
 
@@ -86,6 +91,22 @@
                         <div class="column">
                             <div class="form-element">
                                 <div class="form-element-label">
+                                    <label>Provincia</label>
+                                </div>
+                                <div class="form-element-input">
+                                    <input type="text" name="address">
+
+                                    <input type="text" name="province">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="desktop-one-column">
+                        <div class="column">
+                            <div class="form-element">
+                                <div class="form-element-label">
                                     <label>Dirección</label>
                                 </div>
                                 <div class="form-element-input">
@@ -95,16 +116,18 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="column">
                     <div class="checkout-payment">
                         <div class="checkout-payment-summarized">
                             <table>
-
                                 <th colspan="4">Resumen de la compra</th>
 
+                            <tr>                
+                                <th colspan="4">Resumen de la compra</th>
+                            
                             <tr>
-
+                            
                                 <th>IVA</th>
                                 <th>Precio base total</th>
                                 <th>Total</th>
@@ -125,6 +148,10 @@
 
                 </div>
 
+                        
+                        </table>
+                    </div>
+                </div>
                 <div class="checkout-ways">
                     <div class="checkout-ways-payment">
                         <input type="radio" name="payment" value="1">
@@ -139,7 +166,6 @@
                         <label>Tarjeta de crédito</label>
                     </div>
                 </div>
-
                 <div class="checkout-button">
                     <button class="pay-confirmation">
                         <span>Pagar</span>
@@ -150,4 +176,5 @@
 
     </form>
 
+</div>
 </div>

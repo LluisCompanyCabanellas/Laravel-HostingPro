@@ -1,7 +1,7 @@
 .carrito{
     background-color:#7495DF;
     min-height: 80vh;
-    padding: 0 10%;
+    padding: 0;
     width: 82%;
 }
 
@@ -50,6 +50,7 @@
 .carrito-resume{
     width: 30%;
     margin-left: auto;
+   
     table{
         width: 100%;
         font-size: 1rem;
@@ -61,7 +62,7 @@
             border: 1px solid hsl(0, 0%, 0%);
             background-color:#A1E8E8;
             color: black;
-            font-size: 1.5rem;
+            font-size: 1rem;
         }
 
         td{
@@ -84,3 +85,6 @@
     }
 
 }
+
+
+

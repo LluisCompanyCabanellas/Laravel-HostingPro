@@ -22,6 +22,25 @@
                     </td>
                 </tr>
             @endforeach
+                @if(isset($carts))
+                    @foreach($carts as $cart)
+                        <tr>
+                            <td>➡️Imagen</td>
+                            <td>{{$cart->price->product->title}}</td>
+                            <td>{{$cart->price->base_price}}</td>
+                            <td>
+                                <div class="plus-minus-button">
+                                    <button class="minus" data-url="{{route('front_minus_carrito', ['price_id' => $cart->price_id, 'fingerprint' => $fingerprint])}}">-</button>
+                                    <input class="plus-minus-input" type="number" value="{{$cart->quantity}}">
+                                    <button class="plus" data-url="{{route('front_plus_carrito', ['price_id' => $cart->price_id, 'fingerprint' => $fingerprint])}}">+</button>
+                                    <button class="plus-minus-button" data-url="{{route('front_minus_carrito', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">-</button>
+                                    <input class="plus-minus-input" type="number" value="{{$cart->quantity}}">
+                                    <button class="plus-minus-button" data-url="{{route('front_plus_carrito', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">+</button>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                @endif
         </table>
     </div>
     <div class="carrito-resume">
@@ -34,10 +53,13 @@
                 <th>Precio base total</th>
                 <th>Total</th>
             </tr>
-                
-            <td>{{$tax_total}}€</td>
-            <td>{{$base_total}}€</td>
-            <td>{{$total}}€</td>
+
+            <tr>
+                <td>{{$tax_total}}€</td>
+                <td>{{$base_total}}€</td>
+                <td>{{$total}}€</td>
+            </tr>
+          
         </table>
         <div class="carrito-resume-buttons">
             <div class="desktop-two-columns">
@@ -55,3 +77,4 @@
         </div>
     </div>
 </div>
+

@@ -74,6 +74,7 @@
                         </div>
                         <div class="product-button">
                             <button class="view-product"
+                            
                                 data-url="{{route('front_product', ['product' => $product->id])}}">CONTRATAR</button>
                         </div>
                     </div>

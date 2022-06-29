@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use Illuminate\Support\Facades\DB;
+<<<<<<< HEAD
 use Debugbar;
+=======
+>>>>>>> d055337191975da38073ef0e3f68d7b9fce234b6
 
 class CarritoController extends Controller
 {
@@ -21,6 +24,7 @@ class CarritoController extends Controller
 
     public function index()
     {
+<<<<<<< HEAD
         
         $carts = $this->cart->select(DB::raw('count(price_id) as quantity'), 'price_id')
             ->groupByRaw('price_id')
@@ -54,6 +58,9 @@ class CarritoController extends Controller
             ->with('tax_total', $totals->total - $totals->base_total)
             ->with('type', $taxes->type);
             
+=======
+        return view('front.pages.carrito.index');
+>>>>>>> d055337191975da38073ef0e3f68d7b9fce234b6
 
         if(request()->ajax()) {
             
@@ -67,6 +74,17 @@ class CarritoController extends Controller
         return $view;
     }
 
+        if(request()->ajax()){
+
+            $sections = $view->renderSections();
+
+            return response()->json([
+                'content' => $sections['content'],
+            ]);
+
+        }
+        return $view;
+    }
 
     public function store(Request $request)
     {            
@@ -110,11 +128,16 @@ class CarritoController extends Controller
     }
 
 
+<<<<<<< HEAD
     public function plus($price_id, $fingerprint)
+=======
+    public function add($price_id, $fingerprint)
+>>>>>>> d055337191975da38073ef0e3f68d7b9fce234b6
     {
 
         $cart = $this->cart->create([
             'price_id' => $price_id,
+<<<<<<< HEAD
             'fingerprint' => 1,
             'active' => 1,
         ]);
@@ -142,12 +165,29 @@ class CarritoController extends Controller
         ->with('tax_total', ($totals->total - $totals->base_total))
         ->with('total', $totals->total)
         ->renderSections();
+=======
+            'fingerprint' => '1',
+            'active' => 1,
+        ]);
+
+        $carts = $this->cart->select(DB::raw('count(price_id) as amount'), 'price_id')
+            ->groupByRaw('price_id')
+            ->where('active', '1')
+            ->where('fingerprint', $fingerprint)
+            ->get();
+
+        $sections = View::make('front.pages.cart.index')
+            ->with('carts', $carts)
+            ->with('fingerprint', $fingerprint)
+            ->renderSections();
+>>>>>>> d055337191975da38073ef0e3f68d7b9fce234b6
 
         return response()->json([
             'content' => $sections['content'],
         ]);
     }
 
+<<<<<<< HEAD
     public function minus($fingerprint, $price_id)
     {
         $product = $this->cart
@@ -188,9 +228,19 @@ class CarritoController extends Controller
         ]);
     }
  
+=======
+    public function remove(Request $request)
+    {
+        $cart = $this->cart->where('fingerprint', '1')->where('price_id', request('price_id'))->first()->delete();
+    }
+>>>>>>> d055337191975da38073ef0e3f68d7b9fce234b6
 }
 
 
 
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d055337191975da38073ef0e3f68d7b9fce234b6

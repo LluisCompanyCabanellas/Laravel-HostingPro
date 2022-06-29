@@ -105,6 +105,7 @@ Route::group(['prefix' => 'admin'], function () {
             'categoria' => 'product_category',   
         ],
         'names' => [
+            
             'index' => 'product_categories', //get
             'create' => 'product_categories_create', //get
             'edit' => 'product_categories_edit', //get
@@ -127,25 +128,50 @@ Route::group(['prefix' => 'admin'], function () {
             'show' => 'products_show', //get
         ]
     ]);
+
+
+    Route::resource('sells', 'App\Http\Controllers\Admin\SellController', [
+        'parameters' => [
+            'sells' => 'sell',  
+        ],
+        'names' => [
+            'index' => 'sells', 
+            'create' => 'sells_create', 
+            'edit' => 'sells_edit', 
+            'store' => 'sells_store', 
+            'destroy' => 'sells_destroy', 
+            'show' => 'sells_show', 
+        ]
+    ]);
+
+
 } );
 
 
 
-Route::get('home', 'App\Http\Controllers\Front\HomeController@index')->name('front_home');
+Route::get('/', 'App\Http\Controllers\Front\HomeController@index')->name('front_home');
 
 Route::get('contacto', 'App\Http\Controllers\Front\ContactController@index')->name('front_contact');
 Route::post('contacto', 'App\Http\Controllers\Front\ContactController@store')->name('front_contact_form');
 
+
 Route::get('carrito', 'App\Http\Controllers\Front\CarritoController@index')->name('front_carrito');
 Route::post('carrito', 'App\Http\Controllers\Front\CarritoController@store')->name('front_add_carrito');
+Route::get('carrito/plus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CarritoController@plus')->name('front_plus_carrito');
+Route::get('carrito/minus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CarritoController@minus')->name('front_minus_carrito');
 
-Route::get('checkout', 'App\Http\Controllers\Front\CheckoutController@index')->name('front_checkout');
+
+Route::post('checkout', 'App\Http\Controllers\Front\CheckoutController@store')->name('front_checkout_store');   
+Route::get('checkout/{fingerprint}', 'App\Http\Controllers\Front\CheckoutController@index')->name('front_checkout');
+
 
 Route::get('faqs', 'App\Http\Controllers\Front\FaqController@index')->name('front_faqs');
 
 Route::post('productos/buscador', 'App\Http\Controllers\Front\ProductController@search')->name('front_products_search');   
-Route::get('productos', 'App\Http\Controllers\Front\ProductController@index')->name('front_products');//todos los datos 
-Route::get('productos/{product}', 'App\Http\Controllers\Front\ProductController@show')->name('front_product');// solo un dato
+Route::get('productos', 'App\Http\Controllers\Front\ProductController@index')->name('front_products');
+Route::
+
+
 
 Route::get('productos/categoria/{category}', 'App\Http\Controllers\Front\ProductCategoryController@show')->name('posts_category');
 Route::get('productos/order/{order}', 'App\Http\Controllers\Front\ProductController@order')->name('front_order_price');
