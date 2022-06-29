@@ -9,20 +9,13 @@ class Cart extends Model
 
     public function price()
     {
-        return $this->belongsTo(Price::class)->where('active', 1)->where('valid',1);
-    }
-
-    public function fingerprint()
-    {
-        return $this->belongsTo(Fingerprint::class);
-
+        return $this->belongsTo(Price::class, 'price_id')->where('active', 1)->where('valid',1);
     }
 
     public function customer()
     {
         return $this->belongsTo(Customer::class);
     }
-
 
     public function sale()
     {

@@ -8,6 +8,7 @@ import {renderCart} from './modulos/cart.js';
 import {renderForm} from './modulos/form.js';
 import {renderProducts} from './modulos/products.js';
 import {renderMenu} from './modulos/menu.js';
+import {fingerprint} from './modulos/fingerprint.js';
 
 
 faq();
@@ -20,4 +21,5 @@ renderForm();
 renderProducts();
 renderMenu();
 renderCart();
+fingerprint();
 

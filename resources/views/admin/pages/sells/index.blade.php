@@ -1,0 +1,238 @@
+@extends('admin.layout.contentle_form')
+
+@section('contentle')
+    <div class="panel-main-contentle">
+
+        <div class="registro">
+            @if(isset($sells))
+
+            @foreach ($sells as $sell_element)
+            <div class="desktop-two-columns-aside">
+                <div class="column-main">
+                    <div class="registro-elementos">
+
+                        <div class="registro-elemento"><span>Id-></span>{{$sell_element->id}}</div>
+                        <div class="registro-elemento"><span>Ticket-></span>{{$sell_element->ticket_number}}</div>
+                        <div class="registro-elemento"><span>Actualizado el-></span>{{$sell_element->updated_at}}</div>
+                    </div>
+                </div>
+                <div class="column-aside">
+                    <div class="register-tools">
+
+                        <div class="register-tool edit-button" data-url="{{route('sells_edit', ['sell' => $sell_element->id])}}">
+                            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+
+                                <path fill="currentColor" d="M18 2H12V9L9.5 7.5L7 9V2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V4C20 2.89 19.1 2 18 2M17.68 18.41C17.57 18.5 16.47 19.25 16.05 19.5C15.63 19.79 14 20.72 14.26 18.92C14.89 15.28 16.11 13.12 14.65 14.06C14.27 14.29 14.05 14.43 13.91 14.5C13.78 14.61 13.79 14.6 13.68 14.41S13.53 14.23 13.67 14.13C13.67 14.13 15.9 12.34 16.72 12.28C17.5 12.21 17.31 13.17 17.24 13.61C16.78 15.46 15.94 18.15 16.07 18.54C16.18 18.93 17 18.31 17.44 18C17.44 18 17.5 17.93 17.61 18.05C17.72 18.22 17.83 18.3 17.68 18.41M16.97 11.06C16.4 11.06 15.94 10.6 15.94 10.03C15.94 9.46 16.4 9 16.97 9C17.54 9 18 9.46 18 10.03C18 10.6 17.54 11.06 16.97 11.06Z" />
+                            </svg>
+                        </div>
+
+                        <div class="register-tool delete-button" data-url="{{route('sells_destroy', ['sell' => $sell_element->id])}}">
+                            <svg viewBox="0 0 24 24">
+                                <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+                            </svg>
+
+            </div>
+        @endforeach
+    @endif
+    <div class="quantity">
+        <div class="quantity-sell">Ventas totales: <span>{{$quantity}}</span></div>
+    </div>
+</div>
+</div>
+@endsection
+
+@section('form')
+@if(isset($sell))
+<form class="admin-form">
+
+    <div class="panel-main">
+        <div class="panel-main-options">
+            <div class="filter-options">
+                <div class="filter-img">
+                    <svg viewBox="0 0 24 24">
+                        <path fill="currentColor"
+                            d="M14.76,20.83L17.6,18L14.76,15.17L16.17,13.76L19,16.57L21.83,13.76L23.24,15.17L20.43,18L23.24,20.83L21.83,22.24L19,19.4L16.17,22.24L14.76,20.83M12,12V19.88C12.04,20.18 11.94,20.5 11.71,20.71C11.32,21.1 10.69,21.1 10.3,20.71L8.29,18.7C8.06,18.47 7.96,18.16 8,17.87V12H7.97L2.21,4.62C1.87,4.19 1.95,3.56 2.38,3.22C2.57,3.08 2.78,3 3,3V3H17V3C17.22,3 17.43,3.08 17.62,3.22C18.05,3.56 18.13,4.19 17.79,4.62L12.03,12H12Z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="desktop-two-columns">
+                <div class="column">
+                    <div class="box-options">
+                        <ul>
+                            <li class="content">Contenido</li>
+                            <li class="content">Imágenes</li>
+                            <li class="content">Seo</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="tool-options">
+                        <ul>
+                            <li>
+                                <div class="tool store-button">
+                                   //svg
+                                </div>
+                            </li>
+                            <li>
+                                <div class="tool create-button">
+                                  //svg
+                                </div>
+                            </li>
+                            <li>
+                                <div class="tool">
+                                    <label class="switch3 switch3-checked">
+                                        <input type="checkbox" checked/>
+                                        
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-main-form">
+
+            <div class="sell-panel">
+                <h3>DATOS DE LA VENTA</h3>
+                <div class="desktop-two-columns">
+                    <div class="column">
+                    
+                        <div class="form-element">
+                          
+                            <label for="id">ID</label>
+                            <input type="text" name="id" id="id" value="{{isset($sell->id) ? $sell->id : ""}}" disabled>
+                        </div>
+                        <div class="form-element">
+                        
+                            <label for="ticket">Ticket</label>
+                            <input type="text" name="ticket" id="ticket" value="{{isset($sell->ticket_number) ? $sell->ticket_number : ""}}" disabled>
+                        </div>
+                        <div class="form-element">
+                         
+                            <label for="date_emission">Fecha de emisión</label>
+                            <input type="text" name="date_emission" id="date_emission" value="{{$sell->date_emission}}" disabled>
+                        </div>
+                        <div class="form-element">
+                         
+                            <label for="time_emission">Hora de emisión</label>
+                            <input type="text" name="time_emission" id="time_emission" value="{{$sell->time_emission}}" disabled>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="form-element">
+                           
+                            <label for="payment_method">Método de pago</label>
+                            <input type="text" name="payment_method" id="payment_method" value="{{isset($sell->payment->title) ? $sell->payment->title : ""}}" disabled>
+                        </div>
+                        <div class="form-element">
+                        
+                            <label for="total_base_price">Ingreso base</label>
+                            <input type="text" name="total_base_price" id="total_base_price" value="{{$sell->total_base_price}}" disabled>
+                        </div>
+                        <div class="form-element">
+                          
+                            <label for="total_tax_price">Impuesto a pagar</label>
+                            <input type="text" name="total_tax_price" id="total_tax_price" value="{{$sell->total_tax_price}}" disabled>
+                        </div>
+                        <div class="form-element">
+                          
+                            <label for="total_price">Ingreso total</label>
+                            <input type="text" name="total_price" id="total_price" value="{{$sell->total_price}}" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="client-panel">
+                <h3>DATOS CLIENTE</h3>
+                <div class="desktop-two-columns">
+                    <div class="column">
+                        <div class="form-element">
+                   
+                            <label for="client_name">Nombre del cliente</label>
+                            <input type="text" name="client_name" id="client_name" value="{{$sell->client->name}}" disabled>
+                        </div>
+                        <div class="form-element">
+                        
+                            <label for="surnames">Apellidos</label>
+                            <input type="text" name="surnames" id="surnames" value="{{$sell->client->surnames}}" disabled>
+                        </div>
+                        <div class="form-element">
+                       
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" value="{{$sell->client->email}}" disabled>
+                        </div>
+                        <div class="form-element">
+                            
+                            <label for="telephone">Teléfono</label>
+                            <input type="text" name="telephone" id="telephone" value="{{$sell->client->telephone}}" disabled>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="form-element">
+                          
+                            <label for="country">País</label>
+                            <input type="text" name="country" id="country" value="{{$sell->client->country}}" disabled>
+                        </div>
+                        <div class="form-element">
+                          
+                            <label for="province">Provincia</label>
+                            <input type="text" name="province" id="province" value="{{$sell->client->province}}" disabled>
+                        </div>
+                        <div class="form-element">
+                         
+                            <label for="address">Dirección</label>
+                            <input type="text" name="address" id="address" value="{{$sell->client->address}}" disabled>
+                        </div>
+                        <div class="form-element">
+                          
+                            <label for="postal_code">Código postal</label>
+                            <input type="text" name="postal_code" id="postal_code" value="{{$sell->client->postal_code}}" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="products-panel">
+                
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($sells as $sell_element)
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+            
+            </div>
+        </div>
+    </div>
+
+</form>   
+@else
+    <div class="advice-container">
+        <div class="advice-text"><span>Selecciona el botón de "info"</span> de alguna venta para ver su ficha</div>
+    </div>
+@endif
+@endsection 
+
+
+
+
+
+
+

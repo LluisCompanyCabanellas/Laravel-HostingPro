@@ -191,7 +191,7 @@ export let renderProducts = () => {
                     return response.json();
                 })
                 .then(json => {
-                    console.log(json.content);
+
                     mainContainer.innerHTML = json.content;
                                                 
                     document.dispatchEvent(new CustomEvent('renderProductModules'));
