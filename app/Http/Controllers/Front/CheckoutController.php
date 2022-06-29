@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Front;
 use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\DB\Sell;
 
 class CheckoutController extends Controller
 {
 
-    public function __construct(Sale $sale, Cart $cart)
+    public function __construct(Sell $sell, Cart $cart)
     {
-        $this->sale = $sale;
+        $this->sell = $sell;
         $this->cart = $cart;
       
     }
@@ -27,11 +28,11 @@ class CheckoutController extends Controller
 
         $totals = $this->cart
         ->where('carts.active', 1)
-        ->where('carts.sale_id', null)
+        ->where('carts.sell_id', null)
         ->where('carts.fingerprint', $request->cookie('fp'))
         ->first();
 
-        $ticket_number = $this->sale->latest()->first()->ticket_number;
+        $ticket_number = $this->sell->latest()->first()->ticket_number;
 
         if(str_contains($ticket_number, date('Ymd'))) {
             $ticket_number += 1;
@@ -40,7 +41,7 @@ class CheckoutController extends Controller
         }
 
         
-        $customer = $this->customer->create([
+        $client = $this->client->create([
             'name' => request('name'),
             'surnames' => request('surnames'),
             'country' => request('country'),
@@ -50,8 +51,8 @@ class CheckoutController extends Controller
 
         ]);
 
-        $sale = $this->sale->create([
-            'customer_id' => $customer->id,
+        $sell = $this->sell->create([
+            'client_id' => $client->id,
             'ticket_number' => $ticket_number,
             'total_tax_price' => $totals->total,
             'total_price' => $totals->total,
