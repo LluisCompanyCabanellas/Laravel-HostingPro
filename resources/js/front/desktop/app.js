@@ -8,7 +8,7 @@ import {renderCart} from './modulos/cart.js';
 import {renderForm} from './modulos/form.js';
 import {renderProducts} from './modulos/products.js';
 import {renderMenu} from './modulos/menu.js';
-
+import {renderCheckout} from './modulos/checkout.js';
 
 faq();
 menuButton();
@@ -20,4 +20,5 @@ renderForm();
 renderProducts();
 renderMenu();
 renderCart();
+renderCheckout();
 

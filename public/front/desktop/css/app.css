@@ -784,7 +784,7 @@ form .form-send-button button:active {
 .carrito {
   background-color: #7495DF;
   min-height: 80vh;
-  padding: 0 10%;
+  padding: 0;
   width: 82%;
 }
 
@@ -832,7 +832,7 @@ form .form-send-button button:active {
   border: 1px solid hsl(0deg, 0%, 0%);
   background-color: #A1E8E8;
   color: black;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 .carrito-resume table td {
   text-align: center;
@@ -849,7 +849,7 @@ form .form-send-button button:active {
 }
 
 .checkout {
-  padding: 0 10%;
+  margin-left: 10%;
   width: 82%;
   background-color: #7495DF;
   min-height: 80vh;

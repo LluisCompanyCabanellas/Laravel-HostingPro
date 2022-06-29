@@ -11,14 +11,20 @@
                 @if(isset($carts))
                     @foreach($carts as $cart)
                         <tr>
-                            <td>imaginación</td>
+                            <td>➡️Imagen</td>
                             <td>{{$cart->price->product->title}}</td>
                             <td>{{$cart->price->base_price}}</td>
                             <td>
                                 <div class="plus-minus-button">
+<<<<<<< HEAD
                                     <button class="minus" data-url="{{route('front_minus_carrito', ['price_id' => $cart->price_id, 'fingerprint' => $fingerprint])}}">-</button>
                                     <input class="plus-minus-input" type="number" value="{{$cart->quantity}}">
                                     <button class="plus" data-url="{{route('front_plus_carrito', ['price_id' => $cart->price_id, 'fingerprint' => $fingerprint])}}">+</button>
+=======
+                                    <button class="plus-minus-button" data-url="{{route('front_minus_carrito', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">-</button>
+                                    <input class="plus-minus-input" type="number" value="{{$cart->quantity}}">
+                                    <button class="plus-minus-button" data-url="{{route('front_plus_carrito', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">+</button>
+>>>>>>> 010376c8a59fa3a80a50e255101079f4c73c5b14
                                 </div>
                             </td>
                         </tr>
@@ -29,37 +35,31 @@
 
     <div class="carrito-resume">
         <table>
+            
+                <th colspan="4">Resumen de la compra</th>
+            
             <tr>
-                <th colspan="2">Resumen de la compra</th>
+                <th>IVA</th>
+                <th>Precio base total</th>
+                <th>Total</th>
             </tr>
-            <tr>
-                <td>IVA</td>
-                <td>10 €</td>
-            </tr>
-            <tr>
-                <td>Servicio</td>
-                <td>32'99 €</td>
-            </tr>
-            <tr>
-                <td class="carrito-resume-total">Total</td>
-                <td class="carrito-resume-total">42'99 €</td>
-            </tr>
+
+                
+            <td>{{$tax_total}}€</td>
+            <td>{{$base_total}}€</td>
+            <td>{{$total}}€</td>
         </table>
 
         <div class="carrito-resume-buttons">
             <div class="desktop-two-columns">
                 <div class="column">
                     <button>
-                        <div class="svg-wrapper-1">
-
-                        </div>
-                        <span>Volver</span>
+                        <span>Volver atrás</span>
                     </button>
                 </div>
                 <div class="column">
-                    <button>
-
-                        <span>Comprar</span>
+                    <button class="checkout-button" data-url="{{route('front_checkout', ['fingerprint' => $fingerprint])}}">
+                        <span>Continuar</span>
                     </button>
                 </div>
             </div>
@@ -71,97 +71,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-<!--
-
-
-<div class="cart">
-    <div class="cart-main-table">
-        <table>
-            <caption>Carrito de la compra</caption>
-            <tr>
-                <th></th>
-                <th>Producto</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-            </tr>
-            <tr>
-                @if(isset($carts))
-                    @foreach($carts as $cart)
-                        <td>
-                            <img class="desktop-only" src="img/machine-gun.webp" alt="">
-                        </td>
-                        <td>MK46 SPORTS LINE LIGHT MACHINE GUN REPLICA [ST]</td>
-                        <td>{{$cart->price_id}}</td>
-                        <td>
-                            <div class="amount-button">
-                                <div class="minus">
-                                    <button>-</button>
-                                </div>
-                                <div class="amount-style">
-                                    <input class="amount" name="amount" type="number"  value="{{$cart->amount}}">
-                                </div>
-                                <div class="plus">
-                                    <button>+</button>
-                                </div>
-                            </div>
-                        </td>
-                    @endforeach
-                @endif
-            </tr>
-            <tr>
-                <td>
-                    <img class="desktop-only" src="img/machine-gun.webp" alt="">
-                </td>
-                <td>MK46 SPORTS LINE LIGHT MACHINE GUN REPLICA [ST]</td>
-                <td>234.89€</td>
-                <td>
-                    <div class="amount-button">
-                        <div class="minus">
-                            <button>-</button>
-                        </div>
-                        <div class="amount-style">
-                            <input class="amount" type="number"  value="1">
-                        </div>
-                        <div class="plus">
-                            <button>+</button>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div class="cart-resume-table">
-        <table>
-            <caption>Resumen de la compra</caption>
-            <tr>
-                <th>IVA</th>
-                <td>106.34€</td>
-            </tr>
-            <tr>
-                <th>Transporte</th>
-                <td>0€</td>
-            </tr>
-            <tr>
-                <th>Total</th>
-                <td>612.72 €</td>
-            </tr>
-        </table>
-        <div class="cart-buttons">
-            <div class="purchase-button">
-                <button>Atrás</button>
-            </div>
-            <div class="cancel-button">
-                <button>Comprar</button>
-            </div>
-        </div>
-    </div>
-</div>-->
