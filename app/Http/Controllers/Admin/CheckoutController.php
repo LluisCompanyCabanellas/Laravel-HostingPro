@@ -57,7 +57,7 @@ class CheckoutController extends Controller
     public function store(Request $request)
     {
         $sale = $this->sale->updateOrCreate([
-            'id' => request('id')],[//id només a updateorcreate
+            'id' => request('id')],[
             'name' => request('name'),
             'title' => request('title'),
             'description' => request('description'),

@@ -3,7 +3,7 @@ export let renderTabs = () => {
     let tabs = document.querySelectorAll(".tab");
     let tabContents = document.querySelectorAll(".tab-content");
     
-    document.addEventListener("renderProductModules",( event =>{
+    document.addEventListener("products",( event =>{
         renderTabs();
     }), {once: true});
 

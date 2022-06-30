@@ -1,74 +1,91 @@
 export let renderMenu = () => {
+    
+    let mainContent = document.querySelector('main');
+    let menuButtons = document.querySelectorAll('.menu-button');
 
-    let mainContainer = document.querySelector('main');
-    let menuItems = document.querySelectorAll('.menu-item');
+    menuButtons.forEach(menuButton => {
 
-    document.addEventListener("renderMenu",( event =>{
-        renderMenu();
-    }), {once: true});
-
-    menuItems.forEach(menuItem => {
-
-        menuItem.addEventListener('click', () => {
-
-            let url = menuItem.dataset.url;
-
-            console.log(url);
-
-            let sendGetRequest = async () => {
-
-                let response = await fetch(url, {
-
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest',
-                        },
-
-                        method: 'GET',
-                    })
-                    .then(response => {
-
-                        if (!response.ok) throw response;
-
-                        return response.json();
-                    })
-                    .then(json => {
-
-                        mainContainer.innerHTML = json.content;
-
-                        document.dispatchEvent(new CustomEvent('renderMenuModules'));
-                        document.dispatchEvent(new CustomEvent('renderProductModules'));
-                    })
-                    .catch(error => {
-
-                        // document.dispatchEvent(new CustomEvent('stopWait'));
-
-                        if (error.status == '422') {
-
-                            error.json().then(jsonError => {
-
-                                let errors = jsonError.errors;
-                                let errorMessage = '';
-
-                                Object.keys(errors).forEach(function (key) {
-                                    errorMessage += '<li>' + errors[key] + '</li>';
-                                })
-
-                                document.dispatchEvent(new CustomEvent('message', {
-                                    detail: {
-                                        message: errorMessage,
-                                        type: 'error'
-                                    }
-                                }));
-                            })
-                        }
-
-                        if (error.status == '500') {
-                            console.log(error);
-                        };
-                    });
+        menuButton.addEventListener('click', () => {
                 
-                };
-            sendGetRequest();
+            let url = menuButton.dataset.url;
+            let section = menuButton.dataset.section;
+            let currentSection = document.querySelector('.page-section').id;
+            sessionStorage.setItem('lastSection', currentSection);
+
+            let sendIndexRequest = async () => {
+    
+                let response = await fetch(url, {
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                    },
+                    method: 'GET'
+                })
+                .then(response => {
+
+                    if (!response.ok) throw response;
+
+                    return response.json();
+                })
+                .then(json => {
+
+                    window.history.pushState('', '', url);
+                    mainContent.innerHTML = json.content;
+
+                    document.dispatchEvent(new CustomEvent(section));
+                })
+                .catch ( error =>  {
+
+                    if(error.status == '500'){
+                        console.log(error);
+                    }
+
+                });
+            }
+            sendIndexRequest();
         });
+    });
+
+    window.addEventListener('popstate', event => {
+
+        let url = window.location.href;
+
+        let sendIndexRequest = async () => {
+
+            let response = await fetch(url, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                },
+                method: 'GET'
+            })
+            .then(response => {
+
+                if (!response.ok) throw response;
+
+                return response.json();
+            })
+            .then(json => {
+
+                mainContent.innerHTML = json.content;
+
+                document.dispatchEvent(new CustomEvent('loadSection', {
+                    detail: {
+                        section: sessionStorage.getItem('lastSection')
+                    }
+                }));
+
+                let currentSection = document.querySelector('.page-section').id;
+                sessionStorage.setItem('lastSection', currentSection);
+            })
+            .catch ( error =>  {
+
+                if(error.status == '500'){
+                    console.log(error);
+                }
+
+            });
+        }
+
+        sendIndexRequest();
+        
     });
 }

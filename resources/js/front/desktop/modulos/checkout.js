@@ -4,8 +4,10 @@ export let renderCheckout = () => {
     let payConfirmation = document.querySelector(".pay-confirmation");
     let forms = document.querySelectorAll(".front-form");
 
-    document.addEventListener("renderProductModules",( event =>{
+    document.addEventListener("checkout",( event =>{
+        
         renderCheckout();
+        
     }), {once: true});
   
     if(payConfirmation) {

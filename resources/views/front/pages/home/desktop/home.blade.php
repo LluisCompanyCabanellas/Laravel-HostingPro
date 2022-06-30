@@ -1,4 +1,5 @@
-<div class="home">
+
+<div class="home page-section" id="home">
     <div class="desktop-one-column">
         <div class="column">
             <div class="banner">

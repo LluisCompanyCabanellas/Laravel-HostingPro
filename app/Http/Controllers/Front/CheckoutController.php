@@ -23,7 +23,7 @@ class CheckoutController extends Controller
         $this->client = $client;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         
         $totals = $this->cart

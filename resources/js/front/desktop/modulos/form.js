@@ -4,11 +4,12 @@ export let renderForm = () => {
     let storeButton = document.querySelector('.guardado');
     let forms = document.querySelectorAll('.front-form');
 
-    document.addEventListener("renderFormModules",( event =>{
+    document.addEventListener("contact",( event =>{
+        
         renderForm();
-    }), {once: true});
-    
 
+    }), {once: true});
+  
     if(storeButton){
 
         storeButton.addEventListener("click", (event) => {
@@ -70,7 +71,7 @@ export let renderForm = () => {
 
                         mainContainer.innerHTML = json.content;
 
-                        document.dispatchEvent(new CustomEvent('renderFormModules'));
+                        document.dispatchEvent(new CustomEvent('contact'));
                     })
                     .catch ( error =>  {
     

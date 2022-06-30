@@ -1,3 +1,4 @@
+<div class="page-section" id="products">
 <div class="products">
     <div class="desktop-two-columns-aside">
         <div class="column-aside">
@@ -86,3 +87,4 @@
             @endif
         </div>
     </div>
+</div>

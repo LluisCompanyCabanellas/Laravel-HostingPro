@@ -1,3 +1,4 @@
+<div class="page-section" id="carrito">
 <div class="carrito">
     <div class="carrito-items">
         <table class="-table">
@@ -7,40 +8,22 @@
                 <th>Precio</th>
                 <th>Cantidad</th>
             </tr>
-    
+            
             @foreach($carts as $cart)
                 <tr>
                     <td>➡️Imagen</td>
-                    <td>{{$cart->price->product->title}}</td>
-                    <td>{{$cart->price->base_price}}</td>
+                    <td>{{$cart->price->product->title}}</td> 
+                    <td>{{$cart->price->base_price}}</td> 
                     <td>
                         <div class="plus-minus-button">
-                            <button class="plus-minus-button" data-url="{{route('front_cart_remove', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">-</button>
+                            <button class="plus-minus-button" data-url="{{route('front_cart_remove', ['price_id' => $cart->price_id])}}">-</button>
                             <input class="plus-minus-input" type="number" value="{{$cart->quantity}}">
-                            <button class="plus-minus-button" data-url="{{route('front_cart_add', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">+</button>
+                            <button class="plus-minus-button" data-url="{{route('front_cart_add', ['price_id' => $cart->price_id])}}">+</button>
                         </div>
                     </td>
                 </tr>
             @endforeach
-                @if(isset($carts))
-                    @foreach($carts as $cart)
-                        <tr>
-                            <td>➡️Imagen</td>
-                            <td>{{$cart->price->product->title}}</td>
-                            <td>{{$cart->price->base_price}}</td>
-                            <td>
-                                <div class="plus-minus-button">
-                                    <button class="minus" data-url="{{route('front_minus_carrito', ['price_id' => $cart->price_id, 'fingerprint' => $fingerprint])}}">-</button>
-                                    <input class="plus-minus-input" type="number" value="{{$cart->quantity}}">
-                                    <button class="plus" data-url="{{route('front_plus_carrito', ['price_id' => $cart->price_id, 'fingerprint' => $fingerprint])}}">+</button>
-                                    <button class="plus-minus-button" data-url="{{route('front_minus_carrito', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">-</button>
-                                    <input class="plus-minus-input" type="number" value="{{$cart->quantity}}">
-                                    <button class="plus-minus-button" data-url="{{route('front_plus_carrito', ['fingerprint' => $fingerprint, 'price_id' => $cart->price_id])}}">+</button>
-                                </div>
-                            </td>
-                        </tr>
-                    @endforeach
-                @endif
+        
         </table>
     </div>
     <div class="carrito-resume">
@@ -69,12 +52,13 @@
                     </button>
                 </div>
                 <div class="column">
-                    <button class="checkout-button" data-url="{{route('front_checkout', ['fingerprint' => $fingerprint])}}">
+                    <button class="checkout-button" data-url="{{route('front_checkout')}}">
                         <span>Continuar</span>
                     </button>
                 </div>
             </div>
         </div>
     </div>
+</div>
 </div>
 

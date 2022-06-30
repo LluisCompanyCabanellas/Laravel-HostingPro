@@ -1,5 +1,4 @@
 import {faq} from './modulos/faq.js';
-import {menuButton} from './modulos/menu-hamburguer.js';
 import {renderTabs} from './modulos/tabs.js';
 import { botonSumarRestar } from './modulos/boton-sumar-restar.js';
 import { message } from './modulos/message.js';
@@ -10,9 +9,7 @@ import {renderProducts} from './modulos/products.js';
 import {renderMenu} from './modulos/menu.js';
 import {fingerprint} from './modulos/fingerprint.js';
 
-
 faq();
-menuButton();
 botonSumarRestar();
 renderTabs();
 message();

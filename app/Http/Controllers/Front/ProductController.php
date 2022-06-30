@@ -12,8 +12,6 @@ class ProductController extends Controller
 {
 
     protected $product;
-    
-  	        
 
     public function __construct(Product $product)
     {
@@ -21,16 +19,22 @@ class ProductController extends Controller
 
     }
 
- 
-
-
     public function index()
     {
         $view = View::make('front.pages.products.index')
         ->with('products', $this->product->where('active', 1)->where('visible', 1)->get());
        
+        if(request()->ajax()) {
+            
+            $sections = $view->renderSections(); 
+    
+            return response()->json([
+                'content' => $sections['content'],
+            ]);
+        }
 
         return $view;
+
     }
 
     public function show(Product $product)
@@ -68,21 +72,19 @@ class ProductController extends Controller
             $view->with('products', $this->product->where('active', 1)->where('visible', 1)->get());
         }
 
+        if(request()->ajax()) {
 
-        
-    if(request()->ajax()) {
+            $sections = $view->renderSections();
 
-        $sections = $view->renderSections();
+            return response()->json([
 
-        return response()->json([
+                'content' => $sections['content'],
+                
+            ]);
+        }
 
-            'content' => $sections['content'],
-            
-        ]);
+        return $view; 
     }
-
-    return $view; 
-}
 
 
 

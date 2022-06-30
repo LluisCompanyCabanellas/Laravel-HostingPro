@@ -10,6 +10,17 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('front.pages.home.index');
+        $view = View::make('front.pages.home.index');
+
+        if(request()->ajax()) {
+            
+            $sections = $view->renderSections(); 
+    
+            return response()->json([
+                'content' => $sections['content'],
+            ]);
+        }
+
+        return $view;
     }
 }

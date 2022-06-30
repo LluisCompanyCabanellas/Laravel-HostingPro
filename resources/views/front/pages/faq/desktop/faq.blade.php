@@ -1,3 +1,4 @@
+<div class="page-section" id="faq">
 <div class="faq-main">
     @if(isset($faqs))
         @foreach($faqs as $faq)
@@ -14,5 +15,6 @@
             </div>
         @endforeach
     @endif
+</div>
 </div>
 

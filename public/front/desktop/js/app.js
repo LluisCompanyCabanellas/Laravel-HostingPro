@@ -40,10 +40,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "botonSumarRestar": () => (/* binding */ botonSumarRestar)
 /* harmony export */ });
+/* harmony import */ var _products__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./products */ "./resources/js/front/desktop/modulos/products.js");
+
 var botonSumarRestar = function botonSumarRestar() {
   var pluses = document.querySelectorAll(".plus");
   var minuses = document.querySelectorAll(".minus");
-  document.addEventListener("renderProductModules", function (event) {
+  document.addEventListener("products", function (event) {
     botonSumarRestar();
   }, {
     once: true
@@ -74,9 +76,130 @@ var botonSumarRestar = function botonSumarRestar() {
 /*!****************************************************!*\
   !*** ./resources/js/front/desktop/modulos/cart.js ***!
   \****************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\git-dual\\laravel-hostingpro\\resources\\js\\front\\desktop\\modulos\\cart.js: Unexpected token (7:0)\n\n\u001b[0m \u001b[90m  5 |\u001b[39m     \u001b[36mlet\u001b[39m payButton \u001b[33m=\u001b[39m document\u001b[33m.\u001b[39mquerySelector(\u001b[32m\".pay\"\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  6 |\u001b[39m     \u001b[36mlet\u001b[39m forms \u001b[33m=\u001b[39m document\u001b[33m.\u001b[39mquerySelectorAll(\u001b[32m\".add-to-cart\"\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m  7 |\u001b[39m \u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  8 |\u001b[39m     \u001b[36mlet\u001b[39m plusMinusButtons \u001b[33m=\u001b[39m document\u001b[33m.\u001b[39mquerySelectorAll(\u001b[32m\".plus-minus-button\"\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m  9 |\u001b[39m     \u001b[36mlet\u001b[39m checkoutButton \u001b[33m=\u001b[39m document\u001b[33m.\u001b[39mquerySelector(\u001b[32m\".checkout-button\"\u001b[39m)\u001b[33m;\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 10 |\u001b[39m \u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n    at instantiate (C:\\git-dual\\laravel-hostingpro\\node_modules\\@babel\\parser\\lib\\index.js:72:32)\n    at constructor (C:\\git-dual\\laravel-hostingpro\\node_modules\\@babel\\parser\\lib\\index.js:358:12)\n    at Parser.raise (C:\\git-dual\\laravel-hostingpro\\node_modules\\@babel\\parser\\lib\\index.js:3335:19)\n    at Parser.unexpected (C:\\git-dual\\laravel-hostingpro\\node_modules\\@babel\\parser\\lib\\index.js:3373:16)\n    at Parser.parseExprAtom (C:\\git-dual\\laravel-hostingpro\\node_modules\\@babel\\parser\\lib\\index.js:13015:22)\n    at Parser.parseExprSubscripts (C:\\git-dual\\laravel-hostingpro\\node_modules\\@babel\\parser\\lib\\index.js:12540:23)\n    at Parser.parseUpdate (C:\\git-dual\\laravel-hostingpro\\node_modules\\@babel\\parser\\lib\\index.js:12519:21)\n    at Parser.parseMaybeUnary (C:\\git-dual\\laravel-hostingpro\\node_modules\\@babel\\parser\\lib\\index.js:12490:23)\n    at Parser.parseMaybeUnaryOrPrivate (C:\\git-dual\\laravel-hostingpro\\node_modules\\@babel\\parser\\lib\\index.js:12284:61)\n    at Parser.parseExprOps (C:\\git-dual\\laravel-hostingpro\\node_modules\\@babel\\parser\\lib\\index.js:12291:23)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "renderCart": () => (/* binding */ renderCart)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+var renderCart = function renderCart() {
+  var mainContainer = document.querySelector("main");
+  var plusMinusButtons = document.querySelectorAll(".plus-minus-button");
+  var checkoutButton = document.querySelector(".checkout-button");
+  document.addEventListener("cart", function (event) {
+    renderCart();
+  }, {
+    once: true
+  });
+  plusMinusButtons.forEach(function (plusMinusButton) {
+    plusMinusButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      var url = plusMinusButton.dataset.url;
+
+      var sendOrderRequest = /*#__PURE__*/function () {
+        var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+          var response;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  _context.next = 2;
+                  return fetch(url, {
+                    headers: {
+                      'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    method: 'GET'
+                  }).then(function (response) {
+                    if (!response.ok) throw response;
+                    return response.json();
+                  }).then(function (json) {
+                    mainContainer.innerHTML = json.content;
+                    document.dispatchEvent(new CustomEvent('cart'));
+                  })["catch"](function (error) {
+                    if (error.status == '500') {
+                      console.log(error);
+                    }
+                  });
+
+                case 2:
+                  response = _context.sent;
+
+                case 3:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }));
+
+        return function sendOrderRequest() {
+          return _ref.apply(this, arguments);
+        };
+      }();
+
+      sendOrderRequest();
+    });
+  });
+
+  if (checkoutButton) {
+    checkoutButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      var url = checkoutButton.dataset.url;
+
+      var sendShowRequest = /*#__PURE__*/function () {
+        var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+          var response;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+            while (1) {
+              switch (_context2.prev = _context2.next) {
+                case 0:
+                  _context2.next = 2;
+                  return fetch(url, {
+                    headers: {
+                      'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    method: 'GET'
+                  }).then(function (response) {
+                    if (!response.ok) throw response;
+                    return response.json();
+                  }).then(function (json) {
+                    mainContainer.innerHTML = json.content;
+                    document.dispatchEvent(new CustomEvent('checkout'));
+                  })["catch"](function (error) {
+                    if (error.status == '500') {
+                      console.log(error);
+                    }
+                  });
+
+                case 2:
+                  response = _context2.sent;
+
+                case 3:
+                case "end":
+                  return _context2.stop();
+              }
+            }
+          }, _callee2);
+        }));
+
+        return function sendShowRequest() {
+          return _ref2.apply(this, arguments);
+        };
+      }();
+
+      sendShowRequest();
+    });
+  }
+};
 
 /***/ }),
 
@@ -129,6 +252,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 var faq = function faq() {
   var preguntas = document.querySelectorAll(".faq");
+  document.addEventListener("faqs", function (event) {
+    faq();
+  }, {
+    once: true
+  });
   preguntas.forEach(function (event) {
     event.addEventListener("click", function () {
       if (event.classList.contains("active")) {
@@ -262,7 +390,7 @@ var renderForm = function renderForm() {
   var mainContainer = document.querySelector("main");
   var storeButton = document.querySelector('.guardado');
   var forms = document.querySelectorAll('.front-form');
-  document.addEventListener("renderFormModules", function (event) {
+  document.addEventListener("contact", function (event) {
     renderForm();
   }, {
     once: true
@@ -335,7 +463,7 @@ var renderForm = function renderForm() {
                       return response.json();
                     }).then(function (json) {
                       mainContainer.innerHTML = json.content;
-                      document.dispatchEvent(new CustomEvent('renderFormModules'));
+                      document.dispatchEvent(new CustomEvent('contact'));
                     })["catch"](function (error) {
                       // document.dispatchEvent(new CustomEvent('stopWait'));
                       if (error.status == '422') {
@@ -385,31 +513,6 @@ var renderForm = function renderForm() {
 
 /***/ }),
 
-/***/ "./resources/js/front/desktop/modulos/menu-hamburguer.js":
-/*!***************************************************************!*\
-  !*** ./resources/js/front/desktop/modulos/menu-hamburguer.js ***!
-  \***************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "menuButton": () => (/* binding */ menuButton)
-/* harmony export */ });
-var menuButton = function menuButton() {
-  var menu = document.getElementById("cabecera-menu-mobile");
-  var hamburger = document.getElementById("menu-hamburger-button");
-
-  if (hamburger) {
-    hamburger.addEventListener("click", function () {
-      menu.classList.toggle("active");
-      hamburger.classList.toggle("active");
-    });
-  }
-};
-
-/***/ }),
-
 /***/ "./resources/js/front/desktop/modulos/menu.js":
 /*!****************************************************!*\
   !*** ./resources/js/front/desktop/modulos/menu.js ***!
@@ -430,19 +533,16 @@ function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
 var renderMenu = function renderMenu() {
-  var mainContainer = document.querySelector('main');
-  var menuItems = document.querySelectorAll('.menu-item');
-  document.addEventListener("renderMenu", function (event) {
-    renderMenu();
-  }, {
-    once: true
-  });
-  menuItems.forEach(function (menuItem) {
-    menuItem.addEventListener('click', function () {
-      var url = menuItem.dataset.url;
-      console.log(url);
+  var mainContent = document.querySelector('main');
+  var menuButtons = document.querySelectorAll('.menu-button');
+  menuButtons.forEach(function (menuButton) {
+    menuButton.addEventListener('click', function () {
+      var url = menuButton.dataset.url;
+      var section = menuButton.dataset.section;
+      var currentSection = document.querySelector('.page-section').id;
+      sessionStorage.setItem('lastSection', currentSection);
 
-      var sendGetRequest = /*#__PURE__*/function () {
+      var sendIndexRequest = /*#__PURE__*/function () {
         var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
           var response;
           return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -459,32 +559,13 @@ var renderMenu = function renderMenu() {
                     if (!response.ok) throw response;
                     return response.json();
                   }).then(function (json) {
-                    mainContainer.innerHTML = json.content;
-                    document.dispatchEvent(new CustomEvent('renderMenuModules'));
-                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                    window.history.pushState('', '', url);
+                    mainContent.innerHTML = json.content;
+                    document.dispatchEvent(new CustomEvent(section));
                   })["catch"](function (error) {
-                    // document.dispatchEvent(new CustomEvent('stopWait'));
-                    if (error.status == '422') {
-                      error.json().then(function (jsonError) {
-                        var errors = jsonError.errors;
-                        var errorMessage = '';
-                        Object.keys(errors).forEach(function (key) {
-                          errorMessage += '<li>' + errors[key] + '</li>';
-                        });
-                        document.dispatchEvent(new CustomEvent('message', {
-                          detail: {
-                            message: errorMessage,
-                            type: 'error'
-                          }
-                        }));
-                      });
-                    }
-
                     if (error.status == '500') {
                       console.log(error);
                     }
-
-                    ;
                   });
 
                 case 2:
@@ -498,13 +579,65 @@ var renderMenu = function renderMenu() {
           }, _callee);
         }));
 
-        return function sendGetRequest() {
+        return function sendIndexRequest() {
           return _ref.apply(this, arguments);
         };
       }();
 
-      sendGetRequest();
+      sendIndexRequest();
     });
+  });
+  window.addEventListener('popstate', function (event) {
+    var url = window.location.href;
+
+    var sendIndexRequest = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var response;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.next = 2;
+                return fetch(url, {
+                  headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                  },
+                  method: 'GET'
+                }).then(function (response) {
+                  if (!response.ok) throw response;
+                  return response.json();
+                }).then(function (json) {
+                  mainContent.innerHTML = json.content;
+                  document.dispatchEvent(new CustomEvent('loadSection', {
+                    detail: {
+                      section: sessionStorage.getItem('lastSection')
+                    }
+                  }));
+                  var currentSection = document.querySelector('.page-section').id;
+                  sessionStorage.setItem('lastSection', currentSection);
+                })["catch"](function (error) {
+                  if (error.status == '500') {
+                    console.log(error);
+                  }
+                });
+
+              case 2:
+                response = _context2.sent;
+
+              case 3:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      return function sendIndexRequest() {
+        return _ref2.apply(this, arguments);
+      };
+    }();
+
+    sendIndexRequest();
   });
 };
 
@@ -558,19 +691,20 @@ var renderProducts = function renderProducts() {
   var mainContainer = document.querySelector("main");
   var viewButtons = document.querySelectorAll('.view-product');
   var categoryButtons = document.querySelectorAll('.category-button');
-  var pays = document.querySelector(".pay");
   var amount = document.querySelector(".plus-minus-input");
   var orderPrice = document.querySelector(".order-price");
   var search = document.querySelector(".searcher");
   var form = document.querySelector(".searcherproduct");
-  document.addEventListener("renderProductModules", function (event) {
+  var payButton = document.querySelector(".pay");
+  var forms = document.querySelectorAll(".add-to-cart");
+  document.addEventListener("products", function (event) {
     renderProducts();
   }, {
     once: true
   });
-  viewButtons.forEach(function (categoryButton) {
-    categoryButton.addEventListener('click', function () {
-      var url = categoryButton.dataset.url;
+  viewButtons.forEach(function (viewButton) {
+    viewButton.addEventListener('click', function () {
+      var url = viewButton.dataset.url;
 
       var sendShowRequest = /*#__PURE__*/function () {
         var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -590,7 +724,7 @@ var renderProducts = function renderProducts() {
                     return response.json();
                   }).then(function (json) {
                     mainContainer.innerHTML = json.content;
-                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                    document.dispatchEvent(new CustomEvent('products'));
                   })["catch"](function (error) {
                     if (error.status == '500') {
                       console.log(error);
@@ -617,23 +751,72 @@ var renderProducts = function renderProducts() {
     });
   });
 
-  if (pays) {
-    pays.addEventListener("click", function () {
-      if (amount.value > 0) {
-        document.dispatchEvent(new CustomEvent('message', {
-          detail: {
-            text: 'Has añadido el producto con exito',
-            type: 'success'
-          }
-        }));
-      } else {
-        document.dispatchEvent(new CustomEvent('message', {
-          detail: {
-            text: 'Has añadido el producto con exito',
-            type: 'error'
-          }
-        }));
-      }
+  if (payButton) {
+    payButton.addEventListener('click', function (event) {
+      event.preventDefault();
+      forms.forEach(function (form) {
+        var data = new FormData(form); // FormData es un objeto que nos permite capturar los datos del formulario.
+
+        var url = form.action;
+
+        var sendOrderRequest = /*#__PURE__*/function () {
+          var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+            var response;
+            return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    _context2.next = 2;
+                    return fetch(url, {
+                      headers: {
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                      },
+                      method: 'POST',
+                      body: data
+                    }).then(function (response) {
+                      if (!response.ok) throw response;
+                      return response.json();
+                    }).then(function (json) {
+                      mainContainer.innerHTML = json.content;
+                      document.dispatchEvent(new CustomEvent('cart'));
+                      document.dispatchEvent(new CustomEvent('message', {
+                        detail: {
+                          text: 'Has añadido el producto con exito',
+                          type: 'success'
+                        }
+                      }));
+                    })["catch"](function (error) {
+                      document.dispatchEvent(new CustomEvent('message', {
+                        detail: {
+                          text: 'Has añadido el producto con exito',
+                          type: 'error'
+                        }
+                      }));
+
+                      if (error.status == '500') {
+                        console.log(error);
+                      }
+                    });
+
+                  case 2:
+                    response = _context2.sent;
+
+                  case 3:
+                  case "end":
+                    return _context2.stop();
+                }
+              }
+            }, _callee2);
+          }));
+
+          return function sendOrderRequest() {
+            return _ref2.apply(this, arguments);
+          };
+        }();
+
+        sendOrderRequest();
+      });
     });
   }
 
@@ -642,56 +825,6 @@ var renderProducts = function renderProducts() {
       var url = categoryButton.dataset.url;
 
       var sendShowRequest = /*#__PURE__*/function () {
-        var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-          var response;
-          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-            while (1) {
-              switch (_context2.prev = _context2.next) {
-                case 0:
-                  _context2.next = 2;
-                  return fetch(url, {
-                    headers: {
-                      'X-Requested-With': 'XMLHttpRequest'
-                    },
-                    method: 'GET'
-                  }).then(function (response) {
-                    if (!response.ok) throw response;
-                    return response.json();
-                  }).then(function (json) {
-                    mainContainer.innerHTML = json.content;
-                    document.dispatchEvent(new CustomEvent('renderProductModules'));
-                  })["catch"](function (error) {
-                    if (error.status == '500') {
-                      console.log(error);
-                    }
-                  });
-
-                case 2:
-                  response = _context2.sent;
-
-                case 3:
-                case "end":
-                  return _context2.stop();
-              }
-            }
-          }, _callee2);
-        }));
-
-        return function sendShowRequest() {
-          return _ref2.apply(this, arguments);
-        };
-      }();
-
-      sendShowRequest();
-    });
-  });
-
-  if (orderPrice) {
-    orderPrice.addEventListener('change', function (event) {
-      event.preventDefault();
-      var url = orderPrice.value;
-
-      var sendOrderRequest = /*#__PURE__*/function () {
         var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
           var response;
           return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
@@ -709,7 +842,7 @@ var renderProducts = function renderProducts() {
                     return response.json();
                   }).then(function (json) {
                     mainContainer.innerHTML = json.content;
-                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                    document.dispatchEvent(new CustomEvent('products'));
                   })["catch"](function (error) {
                     if (error.status == '500') {
                       console.log(error);
@@ -727,20 +860,19 @@ var renderProducts = function renderProducts() {
           }, _callee3);
         }));
 
-        return function sendOrderRequest() {
+        return function sendShowRequest() {
           return _ref3.apply(this, arguments);
         };
       }();
 
-      sendOrderRequest();
+      sendShowRequest();
     });
-  }
+  });
 
-  if (search) {
-    search.addEventListener('click', function (event) {
+  if (orderPrice) {
+    orderPrice.addEventListener('change', function (event) {
       event.preventDefault();
-      var data = new FormData(form);
-      var url = form.action;
+      var url = orderPrice.value;
 
       var sendOrderRequest = /*#__PURE__*/function () {
         var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
@@ -752,17 +884,15 @@ var renderProducts = function renderProducts() {
                   _context4.next = 2;
                   return fetch(url, {
                     headers: {
-                      'Accept': 'application/json',
-                      'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                      'X-Requested-With': 'XMLHttpRequest'
                     },
-                    method: 'POST',
-                    body: data
+                    method: 'GET'
                   }).then(function (response) {
                     if (!response.ok) throw response;
                     return response.json();
                   }).then(function (json) {
                     mainContainer.innerHTML = json.content;
-                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                    document.dispatchEvent(new CustomEvent('products'));
                   })["catch"](function (error) {
                     if (error.status == '500') {
                       console.log(error);
@@ -788,6 +918,59 @@ var renderProducts = function renderProducts() {
       sendOrderRequest();
     });
   }
+
+  if (search) {
+    search.addEventListener('click', function (event) {
+      event.preventDefault();
+      var data = new FormData(form);
+      var url = form.action;
+
+      var sendOrderRequest = /*#__PURE__*/function () {
+        var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+          var response;
+          return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+            while (1) {
+              switch (_context5.prev = _context5.next) {
+                case 0:
+                  _context5.next = 2;
+                  return fetch(url, {
+                    headers: {
+                      'Accept': 'application/json',
+                      'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                    },
+                    method: 'POST',
+                    body: data
+                  }).then(function (response) {
+                    if (!response.ok) throw response;
+                    return response.json();
+                  }).then(function (json) {
+                    mainContainer.innerHTML = json.content;
+                    document.dispatchEvent(new CustomEvent('products'));
+                  })["catch"](function (error) {
+                    if (error.status == '500') {
+                      console.log(error);
+                    }
+                  });
+
+                case 2:
+                  response = _context5.sent;
+
+                case 3:
+                case "end":
+                  return _context5.stop();
+              }
+            }
+          }, _callee5);
+        }));
+
+        return function sendOrderRequest() {
+          return _ref5.apply(this, arguments);
+        };
+      }();
+
+      sendOrderRequest();
+    });
+  }
 };
 
 /***/ }),
@@ -806,7 +989,7 @@ __webpack_require__.r(__webpack_exports__);
 var renderTabs = function renderTabs() {
   var tabs = document.querySelectorAll(".tab");
   var tabContents = document.querySelectorAll(".tab-content");
-  document.addEventListener("renderProductModules", function (event) {
+  document.addEventListener("products", function (event) {
     renderTabs();
   }, {
     once: true
@@ -1706,17 +1889,15 @@ var __webpack_exports__ = {};
   \*******************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modulos_faq_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modulos/faq.js */ "./resources/js/front/desktop/modulos/faq.js");
-/* harmony import */ var _modulos_menu_hamburguer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modulos/menu-hamburguer.js */ "./resources/js/front/desktop/modulos/menu-hamburguer.js");
-/* harmony import */ var _modulos_tabs_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modulos/tabs.js */ "./resources/js/front/desktop/modulos/tabs.js");
-/* harmony import */ var _modulos_boton_sumar_restar_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modulos/boton-sumar-restar.js */ "./resources/js/front/desktop/modulos/boton-sumar-restar.js");
-/* harmony import */ var _modulos_message_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modulos/message.js */ "./resources/js/front/desktop/modulos/message.js");
-/* harmony import */ var _modulos_ckeditor_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modulos/ckeditor.js */ "./resources/js/front/desktop/modulos/ckeditor.js");
-/* harmony import */ var _modulos_cart_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modulos/cart.js */ "./resources/js/front/desktop/modulos/cart.js");
-/* harmony import */ var _modulos_form_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modulos/form.js */ "./resources/js/front/desktop/modulos/form.js");
-/* harmony import */ var _modulos_products_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modulos/products.js */ "./resources/js/front/desktop/modulos/products.js");
-/* harmony import */ var _modulos_menu_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modulos/menu.js */ "./resources/js/front/desktop/modulos/menu.js");
-/* harmony import */ var _modulos_fingerprint_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modulos/fingerprint.js */ "./resources/js/front/desktop/modulos/fingerprint.js");
-
+/* harmony import */ var _modulos_tabs_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modulos/tabs.js */ "./resources/js/front/desktop/modulos/tabs.js");
+/* harmony import */ var _modulos_boton_sumar_restar_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modulos/boton-sumar-restar.js */ "./resources/js/front/desktop/modulos/boton-sumar-restar.js");
+/* harmony import */ var _modulos_message_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modulos/message.js */ "./resources/js/front/desktop/modulos/message.js");
+/* harmony import */ var _modulos_ckeditor_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modulos/ckeditor.js */ "./resources/js/front/desktop/modulos/ckeditor.js");
+/* harmony import */ var _modulos_cart_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modulos/cart.js */ "./resources/js/front/desktop/modulos/cart.js");
+/* harmony import */ var _modulos_form_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modulos/form.js */ "./resources/js/front/desktop/modulos/form.js");
+/* harmony import */ var _modulos_products_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modulos/products.js */ "./resources/js/front/desktop/modulos/products.js");
+/* harmony import */ var _modulos_menu_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modulos/menu.js */ "./resources/js/front/desktop/modulos/menu.js");
+/* harmony import */ var _modulos_fingerprint_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modulos/fingerprint.js */ "./resources/js/front/desktop/modulos/fingerprint.js");
 
 
 
@@ -1728,16 +1909,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 (0,_modulos_faq_js__WEBPACK_IMPORTED_MODULE_0__.faq)();
-(0,_modulos_menu_hamburguer_js__WEBPACK_IMPORTED_MODULE_1__.menuButton)();
-(0,_modulos_boton_sumar_restar_js__WEBPACK_IMPORTED_MODULE_3__.botonSumarRestar)();
-(0,_modulos_tabs_js__WEBPACK_IMPORTED_MODULE_2__.renderTabs)();
-(0,_modulos_message_js__WEBPACK_IMPORTED_MODULE_4__.message)();
-(0,_modulos_ckeditor_js__WEBPACK_IMPORTED_MODULE_5__.renderCkeditor)();
-(0,_modulos_form_js__WEBPACK_IMPORTED_MODULE_7__.renderForm)();
-(0,_modulos_products_js__WEBPACK_IMPORTED_MODULE_8__.renderProducts)();
-(0,_modulos_menu_js__WEBPACK_IMPORTED_MODULE_9__.renderMenu)();
-(0,_modulos_cart_js__WEBPACK_IMPORTED_MODULE_6__.renderCart)();
-(0,_modulos_fingerprint_js__WEBPACK_IMPORTED_MODULE_10__.fingerprint)();
+(0,_modulos_boton_sumar_restar_js__WEBPACK_IMPORTED_MODULE_2__.botonSumarRestar)();
+(0,_modulos_tabs_js__WEBPACK_IMPORTED_MODULE_1__.renderTabs)();
+(0,_modulos_message_js__WEBPACK_IMPORTED_MODULE_3__.message)();
+(0,_modulos_ckeditor_js__WEBPACK_IMPORTED_MODULE_4__.renderCkeditor)();
+(0,_modulos_form_js__WEBPACK_IMPORTED_MODULE_6__.renderForm)();
+(0,_modulos_products_js__WEBPACK_IMPORTED_MODULE_7__.renderProducts)();
+(0,_modulos_menu_js__WEBPACK_IMPORTED_MODULE_8__.renderMenu)();
+(0,_modulos_cart_js__WEBPACK_IMPORTED_MODULE_5__.renderCart)();
+(0,_modulos_fingerprint_js__WEBPACK_IMPORTED_MODULE_9__.fingerprint)();
 })();
 
 /******/ })()

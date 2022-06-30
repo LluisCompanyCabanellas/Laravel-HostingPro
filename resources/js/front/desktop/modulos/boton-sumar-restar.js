@@ -1,13 +1,16 @@
+import { renderProducts } from "./products";
 
 export let botonSumarRestar = () => {
 
     let pluses = document.querySelectorAll(".plus");
     let minuses = document.querySelectorAll(".minus");
 
-    document.addEventListener("renderProductModules",( event =>{
+    document.addEventListener("products",( event =>{
+        
         botonSumarRestar();
+        
     }), {once: true});
-
+    
     pluses.forEach(plus => {
         plus.addEventListener("click", (event) => {
 

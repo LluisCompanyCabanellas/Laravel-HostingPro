@@ -3,24 +3,24 @@ export let renderProducts = () => {
     let mainContainer = document.querySelector("main");
     let viewButtons = document.querySelectorAll('.view-product');
     let categoryButtons = document.querySelectorAll('.category-button');
-    let pays = document.querySelector(".pay");
     let amount = document.querySelector(".plus-minus-input");
     let orderPrice = document.querySelector(".order-price");
     let search = document.querySelector(".searcher");
     let form = document.querySelector(".searcherproduct");
+    let payButton = document.querySelector(".pay");
+    let forms = document.querySelectorAll(".add-to-cart");
 
-    document.addEventListener("renderProductModules",( event =>{
+    document.addEventListener("products",( event =>{
+        
         renderProducts();
+
     }), {once: true});
 
-
-    
-    
-    viewButtons.forEach(categoryButton => {
+    viewButtons.forEach(viewButton => {
  
-        categoryButton.addEventListener('click', () => {
+        viewButton.addEventListener('click', () => {
  
-            let url = categoryButton.dataset.url;
+            let url = viewButton.dataset.url;
  
             let sendShowRequest = async () => {
  
@@ -40,7 +40,8 @@ export let renderProducts = () => {
  
                     mainContainer.innerHTML = json.content;
                
-                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                    document.dispatchEvent(new CustomEvent('products'));
+
                 })
                 .catch(error =>  {
  
@@ -55,28 +56,71 @@ export let renderProducts = () => {
         });
     });
 
-    if(pays) {
-
-        pays.addEventListener("click", () => {
-
-            if(amount.value > 0) {
+    if(payButton) {
                 
-                document.dispatchEvent(new CustomEvent('message', {
-                    detail: {
-                        text: 'Has añadido el producto con exito',
-                        type: 'success'
-                    }
-                }));
-            }   else {
-                document.dispatchEvent(new CustomEvent('message', {
-                    detail: {
-                        text:'Has añadido el producto con exito',
-                        type:'error'
-                    }
-                }));
-            }
+        payButton.addEventListener('click', (event) => {
+
+            event.preventDefault();
+
+            forms.forEach(form => { 
+
+                let data = new FormData(form); // FormData es un objeto que nos permite capturar los datos del formulario.
+                let url = form.action;
+
+                let sendOrderRequest = async () => {
+                        
+                    let response = await fetch(url, {
+
+                        headers: {
+                            'Accept': 'application/json',
+                            'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
+                        },
+
+                        method: 'POST',
+                        body: data
+
+                    })
+                    .then(response => {
+                        
+                        if (!response.ok) throw response;
+
+                        return response.json();
+                    })
+                    .then(json => {
+ 
+                        mainContainer.innerHTML = json.content;
+                   
+                        document.dispatchEvent(new CustomEvent('cart'));
+
+                        document.dispatchEvent(new CustomEvent('message', {
+                            detail: {
+                                text: 'Has añadido el producto con exito',
+                                type: 'success'
+                            }
+                        }));
+                    })
+                    .catch ( error => {
+
+                        document.dispatchEvent(new CustomEvent('message', {
+                            detail: {
+                                text:'Has añadido el producto con exito',
+                                type:'error'
+                            }
+                        }));
+                    
+                        if(error.status == '500'){
+                            console.log(error);
+
+                        }
+
+                    });
+                }
+
+                sendOrderRequest();
+            });
+
         });
-    }
+    }    
 
     categoryButtons.forEach(categoryButton => {
  
@@ -101,8 +145,8 @@ export let renderProducts = () => {
                 .then(json => {
  
                     mainContainer.innerHTML = json.content;
-               
-                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                    document.dispatchEvent(new CustomEvent('products'));
+                    
                 })
                 .catch(error =>  {
  
@@ -142,11 +186,12 @@ export let renderProducts = () => {
                     return response.json();
                 })
                 .then(json => {
+ 
                     mainContainer.innerHTML = json.content;
-                                                
-                    document.dispatchEvent(new CustomEvent('renderProductModules'));
-                })
-                .catch ( error => {
+                    document.dispatchEvent(new CustomEvent('products'));
+
+                   
+                }).catch ( error => {
 
                     if(error.status == '500'){
                         console.log(error);
@@ -191,10 +236,10 @@ export let renderProducts = () => {
                     return response.json();
                 })
                 .then(json => {
-
+ 
                     mainContainer.innerHTML = json.content;
-                                                
-                    document.dispatchEvent(new CustomEvent('renderProductModules'));
+                    document.dispatchEvent(new CustomEvent('products'));
+                
                 })
                 .catch ( error => {
 

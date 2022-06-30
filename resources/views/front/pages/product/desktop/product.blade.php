@@ -1,4 +1,5 @@
-    <div class="product">
+<div class="page-section" id="product">
+   <div class="product">
         <div class="desktop-two-columns">
             <div class="column">
                 <div class="product-image">
@@ -99,3 +100,4 @@
             </div>
         </div>
     </div>
+</div>

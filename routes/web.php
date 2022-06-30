@@ -157,27 +157,23 @@ Route::post('contacto', 'App\Http\Controllers\Front\ContactController@store')->n
 
 Route::get('carrito', 'App\Http\Controllers\Front\CarritoController@index')->name('front_carrito');
 Route::post('carrito', 'App\Http\Controllers\Front\CarritoController@store')->name('front_add_carrito');
-Route::get('carrito/plus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CarritoController@plus')->name('front_plus_carrito');
-Route::get('carrito/minus/{fingerprint}/{price_id}', 'App\Http\Controllers\Front\CarritoController@minus')->name('front_minus_carrito');
+Route::get('carrito/plus/{price_id}', 'App\Http\Controllers\Front\CarritoController@plus')->name('front_cart_add');
+Route::get('carrito/minus/{price_id}', 'App\Http\Controllers\Front\CarritoController@minus')->name('front_cart_remove');
+
 
 
 Route::post('checkout', 'App\Http\Controllers\Front\CheckoutController@store')->name('front_checkout_store');   
-Route::get('checkout/{fingerprint}', 'App\Http\Controllers\Front\CheckoutController@index')->name('front_checkout');
+Route::get('checkout', 'App\Http\Controllers\Front\CheckoutController@index')->name('front_checkout');
 
 
 Route::get('faqs', 'App\Http\Controllers\Front\FaqController@index')->name('front_faqs');
 
 Route::post('productos/buscador', 'App\Http\Controllers\Front\ProductController@search')->name('front_products_search');   
 Route::get('productos', 'App\Http\Controllers\Front\ProductController@index')->name('front_products');
-Route::
-
-
+Route::get('productos/{product}', 'App\Http\Controllers\Front\ProductController@show')->name('front_product');
 
 Route::get('productos/categoria/{category}', 'App\Http\Controllers\Front\ProductCategoryController@show')->name('posts_category');
 Route::get('productos/order/{order}', 'App\Http\Controllers\Front\ProductController@order')->name('front_order_price');
-
-Route::get('carrito/plus/{price_id}', 'App\Http\Controllers\Front\CarritoController@plus')->name('front_cart_add');
-Route::get('carrito/minus/{price_id}', 'App\Http\Controllers\Front\CarritoController@minus')->name('front_cart_remove');
 
 Route::post('/fingerprint', 'App\Http\Controllers\Front\FingerprintController@store');
 

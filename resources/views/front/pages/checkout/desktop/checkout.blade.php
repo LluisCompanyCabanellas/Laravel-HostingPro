@@ -1,11 +1,8 @@
-
-  
-<div class="checkout">
+<div class="checkout page-section" id="checkout">
     
     <div class="desktop-two-columns">
         <div class="column">
             <div class="checkout-info">
-                <form>
     <form class="front-form" action="{{route('front_checkout_store')}}">
 
 
@@ -176,5 +173,4 @@
 
     </form>
 
-</div>
 </div>

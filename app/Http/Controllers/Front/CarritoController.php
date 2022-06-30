@@ -19,15 +19,15 @@ class CarritoController extends Controller
         $this->cart = $cart;
     }
 
-    public function index()
+    public function index(Request $request,Cart $cart)
     {
         
         $carts = $this->cart->select(DB::raw('count(price_id) as quantity'), 'price_id')
             ->groupByRaw('price_id')
-            ->where('fingerprint', 1)
+            ->where('fingerprint',  $request->cookie('fp'))
             ->where('fingerprint', $cart->fingerprint)
             ->get();
-        
+                                        
         $totals = $this->cart
             ->where('carts.fingerprint', $request->cookie('fp'))
             ->where('carts.active', 1)
@@ -80,13 +80,13 @@ class CarritoController extends Controller
         $carts = $this->cart->select(DB::raw('count(price_id) as quantity'),'price_id')
         ->groupByRaw('price_id')
         ->where('active', 1)
-        ->where('fingerprint',  1)
+        ->where('fingerprint',  $request->cookie('fp'),)
         ->where('sell_id', null)
         ->orderBy('price_id', 'desc')
         ->get();
 
         $totals = $this->cart
-        ->where('carts.fingerprint', 1)
+        ->where('carts.fingerprint', $request->cookie('fp'))
         ->where('carts.active', 1)
         ->where('carts.sell_id', null)
         ->join('prices', 'prices.id', '=', 'carts.price_id')
@@ -108,12 +108,12 @@ class CarritoController extends Controller
     }
 
 
-    public function plus($price_id, $fingerprint)
+    public function plus($price_id, Request $request)
     {
 
         $cart = $this->cart->create([
             'price_id' => $price_id,
-            'fingerprint' => 1,
+            'fingerprint' => $request->cookie('fp'),
             'active' => 1,
         ]);
 
@@ -126,7 +126,7 @@ class CarritoController extends Controller
         ->get();
 
         $totals = $this->cart
-        ->where('carts.fingerprint', 1)
+        ->where('carts.fingerprint', $request->cookie('fp'),)
         ->where('carts.active', 1)
         ->where('carts.sell_id', null)
         ->join('prices', 'prices.id', '=', 'carts.price_id')
@@ -146,17 +146,15 @@ class CarritoController extends Controller
         ]);
     }
 
-    public function minus($fingerprint, $price_id)
+    public function minus($price_id, Request $request)
     {
         $product = $this->cart
         ->where('active', 1)
         ->where('fingerprint', $request->cookie('fp'))
         ->where('price_id', $price_id)
-        ->first();
+        ->limit(1)
+        ->update(['active' => 0]);
 
-        $product->active = 0;
-        $product->save();
-        
         $carts = $this->cart->select(DB::raw('count(price_id) as quantity'),'price_id')
         ->groupByRaw('price_id')
         ->where('active', 1)

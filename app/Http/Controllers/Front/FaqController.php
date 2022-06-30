@@ -21,6 +21,16 @@ class FaqController extends Controller
         $view = View::make('front.pages.faq.index')
         ->with('faqs', $this->faq->where('active', 1)->where('visible', 1)->get());
 
+        if(request()->ajax()) {
+            
+            $sections = $view->renderSections(); 
+    
+            return response()->json([
+                'content' => $sections['content'],
+            ]);
+        }
+
         return $view;
+
     }
 }

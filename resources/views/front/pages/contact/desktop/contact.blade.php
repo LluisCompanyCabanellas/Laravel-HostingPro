@@ -1,6 +1,5 @@
-<div class="contact">
-    
-    
+<div class="page-section" id="contact">
+<div class="contact"> 
     <div class="contact-options">
         <div class="desktop-two-columns">
             <div class="column">
